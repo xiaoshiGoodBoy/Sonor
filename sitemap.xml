@@ -3,47 +3,37 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://localhost:1313/java/basic/</loc>
+    <loc>https://xiaoshigoodboy.github.io/tags/java/</loc>
+    <lastmod>2020-03-03T10:54:28+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://xiaoshigoodboy.github.io/java/</loc>
+    <lastmod>2020-03-03T10:54:28+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://xiaoshigoodboy.github.io/java/javaoo/</loc>
+    <lastmod>2020-03-03T10:54:28+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://xiaoshigoodboy.github.io/</loc>
+    <lastmod>2020-03-03T10:54:28+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://xiaoshigoodboy.github.io/tags/</loc>
+    <lastmod>2020-03-03T10:54:28+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://xiaoshigoodboy.github.io/java/basic/</loc>
     <lastmod>2020-03-03T10:03:58+08:00</lastmod>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/java/</loc>
-    <lastmod>2020-03-03T10:03:58+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/java/</loc>
-    <lastmod>2020-03-03T10:03:58+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/</loc>
-    <lastmod>2020-03-03T10:03:58+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/tags/</loc>
-    <lastmod>2020-03-03T10:03:58+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/tags/golang/</loc>
-    <lastmod>2020-03-02T16:57:04+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/go/</loc>
-    <lastmod>2020-03-02T16:57:04+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/about/</loc>
-    <lastmod>2017-07-03T15:37:11+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/categories/</loc>
+    <loc>https://xiaoshigoodboy.github.io/categories/</loc>
   </url>
   
 </urlset>

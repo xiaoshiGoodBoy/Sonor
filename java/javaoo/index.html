@@ -1,0 +1,1328 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>java面向对象 - Sonor</title>
+  <meta name="description" content="java面向对象 Java 继承  继承的概念 继承是java面向对象编程技术的一块基石，因为它允许创建分等级层次的类。
+继承就是子类继承父类的特征和行为，使得子类对象（实例）具有父类的实例域和方法，或子类从父类继承方法，使得子类具有父类相同的行为。
+生活中的继承： 兔子和羊属于食草动物类，狮子和豹属于食肉动物类。
+食草动物和食肉动物又是属于动物类。
+所以继承需要符合的关系是：is-a，父类更通用，子类更具体。
+虽然食草动物和食肉动物都是属于动物，但是两者的属性和行为上有差别，所以子类会具有父类的一般特性也会具有自身的特性。
+类的继承格式 在 Java 中通过 extends 关键字可以申明一个类是从另外一个类继承而来的，一般形式如下：
+类的继承格式 class 父类 { } class 子类 extends 父类 { }
+为什么需要继承 接下来我们通过实例来说明这个需求。
+开发动物类，其中动物分别为企鹅以及老鼠，要求如下：
+ 企鹅：属性（姓名，id），方法（吃，睡，自我介绍） 老鼠：属性（姓名，id），方法（吃，睡，自我介绍）  企鹅类： public class Penguin { private String name; private int id; public Penguin(String myName, int myid) { name = myName; id = myid; } public void eat(){ System.out.println(name&#43;&#34;正在吃&#34;); } public void sleep(){ System.out.println(name&#43;&#34;正在睡&#34;); } public void introduction() { System."><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "Sonor",
+    
+    "url": "https:\/\/xiaoshigoodboy.github.io\/"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "https:\/\/xiaoshigoodboy.github.io\/"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/xiaoshigoodboy.github.io\/",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/xiaoshigoodboy.github.io\/java\/javaoo\/",
+          "name": "Java面向对象"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : ""
+  },
+  "headline": "java面向对象",
+  "description" : "java面向对象 Java 继承  继承的概念 继承是java面向对象编程技术的一块基石，因为它允许创建分等级层次的类。\n继承就是子类继承父类的特征和行为，使得子类对象（实例）具有父类的实例域和方法，或子类从父类继承方法，使得子类具有父类相同的行为。\n生活中的继承： 兔子和羊属于食草动物类，狮子和豹属于食肉动物类。\n食草动物和食肉动物又是属于动物类。\n所以继承需要符合的关系是：is-a，父类更通用，子类更具体。\n虽然食草动物和食肉动物都是属于动物，但是两者的属性和行为上有差别，所以子类会具有父类的一般特性也会具有自身的特性。\n类的继承格式 在 Java 中通过 extends 关键字可以申明一个类是从另外一个类继承而来的，一般形式如下：\n类的继承格式 class 父类 { } class 子类 extends 父类 { }\n为什么需要继承 接下来我们通过实例来说明这个需求。\n开发动物类，其中动物分别为企鹅以及老鼠，要求如下：\n 企鹅：属性（姓名，id），方法（吃，睡，自我介绍） 老鼠：属性（姓名，id），方法（吃，睡，自我介绍）  企鹅类： public class Penguin { private String name; private int id; public Penguin(String myName, int myid) { name = myName; id = myid; } public void eat(){ System.out.println(name\x2b\x26#34;正在吃\x26#34;); } public void sleep(){ System.out.println(name\x2b\x26#34;正在睡\x26#34;); } public void introduction() { System.",
+  "inLanguage" : "en",
+  "wordCount":  1927 ,
+  "datePublished" : "2020-03-03T10:54:28",
+  "dateModified" : "2020-03-03T10:54:28",
+  "image" : "https:\/\/xiaoshigoodboy.github.io\/img\/avatar-icon.png",
+  "keywords" : [ "java" ],
+  "mainEntityOfPage" : "https:\/\/xiaoshigoodboy.github.io\/java\/javaoo\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/xiaoshigoodboy.github.io\/",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/xiaoshigoodboy.github.io\/img\/avatar-icon.png",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+<meta property="og:title" content="java面向对象" />
+<meta property="og:description" content="java面向对象 Java 继承  继承的概念 继承是java面向对象编程技术的一块基石，因为它允许创建分等级层次的类。
+继承就是子类继承父类的特征和行为，使得子类对象（实例）具有父类的实例域和方法，或子类从父类继承方法，使得子类具有父类相同的行为。
+生活中的继承： 兔子和羊属于食草动物类，狮子和豹属于食肉动物类。
+食草动物和食肉动物又是属于动物类。
+所以继承需要符合的关系是：is-a，父类更通用，子类更具体。
+虽然食草动物和食肉动物都是属于动物，但是两者的属性和行为上有差别，所以子类会具有父类的一般特性也会具有自身的特性。
+类的继承格式 在 Java 中通过 extends 关键字可以申明一个类是从另外一个类继承而来的，一般形式如下：
+类的继承格式 class 父类 { } class 子类 extends 父类 { }
+为什么需要继承 接下来我们通过实例来说明这个需求。
+开发动物类，其中动物分别为企鹅以及老鼠，要求如下：
+ 企鹅：属性（姓名，id），方法（吃，睡，自我介绍） 老鼠：属性（姓名，id），方法（吃，睡，自我介绍）  企鹅类： public class Penguin { private String name; private int id; public Penguin(String myName, int myid) { name = myName; id = myid; } public void eat(){ System.out.println(name&#43;&#34;正在吃&#34;); } public void sleep(){ System.out.println(name&#43;&#34;正在睡&#34;); } public void introduction() { System.">
+<meta property="og:image" content="https://xiaoshigoodboy.github.io/img/avatar-icon.png" />
+<meta property="og:url" content="https://xiaoshigoodboy.github.io/java/javaoo/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Sonor" />
+
+  <meta name="twitter:title" content="java面向对象" />
+  <meta name="twitter:description" content="java面向对象 Java 继承  继承的概念 继承是java面向对象编程技术的一块基石，因为它允许创建分等级层次的类。
+继承就是子类继承父类的特征和行为，使得子类对象（实例）具有父类的实例域和方法，或子类从父类继承方法，使得子类具有父类相同的行为。
+生活中的继承： 兔子和羊属于食草动物类，狮子和豹属于食肉动物类。
+食草动物和食肉动物又是属于动物类。
+所以继承需要符合的关系是：is-a，父类更通 …">
+  <meta name="twitter:image" content="https://xiaoshigoodboy.github.io/img/avatar-icon.png" />
+  <meta name="twitter:card" content="summary" />
+  <link href='https://xiaoshigoodboy.github.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
+  <meta name="generator" content="Hugo 0.62.2" />
+  <link rel="alternate" href="https://xiaoshigoodboy.github.io/index.xml" type="application/rss+xml" title="Sonor"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://xiaoshigoodboy.github.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://xiaoshigoodboy.github.io/css/highlight.min.css" /><link rel="stylesheet" href="https://xiaoshigoodboy.github.io/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://xiaoshigoodboy.github.io/">Sonor</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="/">Blog</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="/tags">Tags</a>
+            </li>
+          
+        
+
+        
+
+        
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="Sonor" href="https://xiaoshigoodboy.github.io/">
+            <img class="avatar-img" src="https://xiaoshigoodboy.github.io/img/avatar-icon.png" alt="Sonor" />
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="java-heading">
+              
+                <h1>java面向对象</h1>
+              
+              
+                <hr class="small">
+              
+              
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <h1 id="java面向对象">java面向对象</h1>
+<h1 id="java-继承">Java 继承</h1>
+<hr>
+<h2 id="继承的概念">继承的概念</h2>
+<p>继承是java面向对象编程技术的一块基石，因为它允许创建分等级层次的类。</p>
+<p>继承就是子类继承父类的特征和行为，使得子类对象（实例）具有父类的实例域和方法，或子类从父类继承方法，使得子类具有父类相同的行为。</p>
+<h3 id="生活中的继承">生活中的继承：</h3>
+<p><img src="https://www.runoob.com/wp-content/uploads/2013/12/14B0951E-FC75-47A3-B611-4E1883887339.jpg" alt="img"></p>
+<p>兔子和羊属于食草动物类，狮子和豹属于食肉动物类。</p>
+<p>食草动物和食肉动物又是属于动物类。</p>
+<p>所以继承需要符合的关系是：is-a，父类更通用，子类更具体。</p>
+<p>虽然食草动物和食肉动物都是属于动物，但是两者的属性和行为上有差别，所以子类会具有父类的一般特性也会具有自身的特性。</p>
+<h3 id="类的继承格式">类的继承格式</h3>
+<p>在 Java 中通过 extends 关键字可以申明一个类是从另外一个类继承而来的，一般形式如下：</p>
+<h2 id="类的继承格式-1">类的继承格式</h2>
+<p>class 父类 { }  class 子类 extends 父类 { }</p>
+<h3 id="为什么需要继承">为什么需要继承</h3>
+<p>接下来我们通过实例来说明这个需求。</p>
+<p>开发动物类，其中动物分别为企鹅以及老鼠，要求如下：</p>
+<ul>
+<li>企鹅：属性（姓名，id），方法（吃，睡，自我介绍）</li>
+<li>老鼠：属性（姓名，id），方法（吃，睡，自我介绍）</li>
+</ul>
+<h2 id="企鹅类">企鹅类：</h2>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Penguin</span> <span class="o">{</span>    
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">name</span><span class="o">;</span>  
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">id</span><span class="o">;</span>    
+    <span class="kd">public</span> <span class="nf">Penguin</span><span class="o">(</span><span class="n">String</span> <span class="n">myName</span><span class="o">,</span> <span class="kt">int</span>  <span class="n">myid</span><span class="o">)</span> <span class="o">{</span> 
+        <span class="n">name</span> <span class="o">=</span> <span class="n">myName</span><span class="o">;</span>        
+        <span class="n">id</span> <span class="o">=</span> <span class="n">myid</span><span class="o">;</span>     
+    <span class="o">}</span>     
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">eat</span><span class="o">(</span><span class="o">)</span><span class="o">{</span>     
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">name</span><span class="o">+</span><span class="s">&#34;正在吃&#34;</span><span class="o">)</span><span class="o">;</span> 
+    <span class="o">}</span>    
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">sleep</span><span class="o">(</span><span class="o">)</span><span class="o">{</span> 
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">name</span><span class="o">+</span><span class="s">&#34;正在睡&#34;</span><span class="o">)</span><span class="o">;</span>  
+    <span class="o">}</span>    
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">introduction</span><span class="o">(</span><span class="o">)</span> <span class="o">{</span> 
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;大家好！我是&#34;</span>         <span class="o">+</span> <span class="n">id</span> <span class="o">+</span> <span class="s">&#34;号&#34;</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="s">&#34;.&#34;</span><span class="o">)</span><span class="o">;</span>  
+    <span class="o">}</span>  
+<span class="o">}</span>
+</code></pre></div><h2 id="老鼠类">老鼠类：</h2>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Mouse</span> <span class="o">{</span>     
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">name</span><span class="o">;</span>    
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">id</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="nf">Mouse</span><span class="o">(</span><span class="n">String</span> <span class="n">myName</span><span class="o">,</span> <span class="kt">int</span>  <span class="n">myid</span><span class="o">)</span> <span class="o">{</span>  
+        <span class="n">name</span> <span class="o">=</span> <span class="n">myName</span><span class="o">;</span>       
+        <span class="n">id</span> <span class="o">=</span> <span class="n">myid</span><span class="o">;</span> 
+    <span class="o">}</span> 
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">eat</span><span class="o">(</span><span class="o">)</span><span class="o">{</span>     
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">name</span><span class="o">+</span><span class="s">&#34;正在吃&#34;</span><span class="o">)</span><span class="o">;</span> 
+    <span class="o">}</span>   
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">sleep</span><span class="o">(</span><span class="o">)</span><span class="o">{</span>    
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">name</span><span class="o">+</span><span class="s">&#34;正在睡&#34;</span><span class="o">)</span><span class="o">;</span>  
+    <span class="o">}</span>  
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">introduction</span><span class="o">(</span><span class="o">)</span> <span class="o">{</span> 
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;大家好！我是&#34;</span>         <span class="o">+</span> <span class="n">id</span> <span class="o">+</span> <span class="s">&#34;号&#34;</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="s">&#34;.&#34;</span><span class="o">)</span><span class="o">;</span>  
+    <span class="o">}</span> 
+<span class="o">}</span>
+</code></pre></div><p>从这两段代码可以看出来，代码存在重复了，导致后果就是代码量大且臃肿，而且维护性不高(维护性主要是后期需要修改的时候，就需要修改很多的代码，容易出错)，所以要从根本上解决这两段代码的问题，就需要继承，将两段代码中相同的部分提取出来组成 一个父类：</p>
+<h2 id="公共父类">公共父类：</h2>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Animal</span> <span class="o">{</span>   
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">name</span><span class="o">;</span>  
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">id</span><span class="o">;</span>   
+    <span class="kd">public</span> <span class="nf">Animal</span><span class="o">(</span><span class="n">String</span> <span class="n">myName</span><span class="o">,</span> <span class="kt">int</span> <span class="n">myid</span><span class="o">)</span> <span class="o">{</span> 
+        <span class="n">name</span> <span class="o">=</span> <span class="n">myName</span><span class="o">;</span>   
+        <span class="n">id</span> <span class="o">=</span> <span class="n">myid</span><span class="o">;</span>   
+    <span class="o">}</span>  
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">eat</span><span class="o">(</span><span class="o">)</span><span class="o">{</span>     
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">name</span><span class="o">+</span><span class="s">&#34;正在吃&#34;</span><span class="o">)</span><span class="o">;</span>   
+    <span class="o">}</span>   
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">sleep</span><span class="o">(</span><span class="o">)</span><span class="o">{</span>  
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">name</span><span class="o">+</span><span class="s">&#34;正在睡&#34;</span><span class="o">)</span><span class="o">;</span>  
+    <span class="o">}</span>   
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">introduction</span><span class="o">(</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;大家好！我是&#34;</span>         <span class="o">+</span> <span class="n">id</span> <span class="o">+</span> <span class="s">&#34;号&#34;</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="s">&#34;.&#34;</span><span class="o">)</span><span class="o">;</span>  
+    <span class="o">}</span> 
+<span class="o">}</span>
+</code></pre></div><p>这个Animal类就可以作为一个父类，然后企鹅类和老鼠类继承这个类之后，就具有父类当中的属性和方法，子类就不会存在重复的代码，维护性也提高，代码也更加简洁，提高代码的复用性（复用性主要是可以多次使用，不用再多次写同样的代码） 继承之后的代码：</p>
+<h2 id="企鹅类-1">企鹅类：</h2>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Penguin</span> <span class="kd">extends</span> <span class="n">Animal</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="nf">Penguin</span><span class="o">(</span><span class="n">String</span> <span class="n">myName</span><span class="o">,</span> <span class="kt">int</span> <span class="n">myid</span><span class="o">)</span> <span class="o">{</span>   
+        <span class="kd">super</span><span class="o">(</span><span class="n">myName</span><span class="o">,</span> <span class="n">myid</span><span class="o">)</span><span class="o">;</span>  
+    <span class="o">}</span> 
+<span class="o">}</span>
+</code></pre></div><h2 id="老鼠类-1">老鼠类：</h2>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Mouse</span> <span class="kd">extends</span> <span class="n">Animal</span> <span class="o">{</span>     
+    <span class="kd">public</span> <span class="nf">Mouse</span><span class="o">(</span><span class="n">String</span> <span class="n">myName</span><span class="o">,</span> <span class="kt">int</span> <span class="n">myid</span><span class="o">)</span> <span class="o">{</span> 
+        <span class="kd">super</span><span class="o">(</span><span class="n">myName</span><span class="o">,</span> <span class="n">myid</span><span class="o">)</span><span class="o">;</span> 
+    <span class="o">}</span> 
+<span class="o">}</span>
+</code></pre></div><h3 id="继承类型">继承类型</h3>
+<p>需要注意的是 Java 不支持多继承，但支持多重继承。</p>
+<p><img src="https://www.runoob.com/wp-content/uploads/2013/12/types_of_inheritance-1.png" alt="img"></p>
+<hr>
+<h2 id="继承的特性">继承的特性</h2>
+<ul>
+<li>子类拥有父类非 private 的属性、方法。</li>
+<li>子类可以拥有自己的属性和方法，即子类可以对父类进行扩展。</li>
+<li>子类可以用自己的方式实现父类的方法。</li>
+<li>Java 的继承是单继承，但是可以多重继承，单继承就是一个子类只能继承一个父类，多重继承就是，例如 A 类继承 B 类，B 类继承 C 类，所以按照关系就是 C 类是 B 类的父类，B 类是 A 类的父类，这是 Java 继承区别于 C++ 继承的一个特性。</li>
+<li>提高了类之间的耦合性（继承的缺点，耦合度高就会造成代码之间的联系越紧密，代码独立性越差）。</li>
+</ul>
+<hr>
+<h2 id="继承关键字">继承关键字</h2>
+<p>继承可以使用 extends 和 implements 这两个关键字来实现继承，而且所有的类都是继承于 java.lang.Object，当一个类没有继承的两个关键字，则默认继承object（这个类在 <strong>java.lang</strong> 包中，所以不需要 <strong>import</strong>）祖先类。</p>
+<h3 id="extends关键字">extends关键字</h3>
+<p>在 Java 中，类的继承是单一继承，也就是说，一个子类只能拥有一个父类，所以 extends 只能继承一个类。</p>
+<h2 id="extends-关键字">extends 关键字</h2>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Animal</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">name</span><span class="o">;</span>    
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">id</span><span class="o">;</span>   
+    <span class="kd">public</span> <span class="nf">Animal</span><span class="o">(</span><span class="n">String</span> <span class="n">myName</span><span class="o">,</span> <span class="n">String</span> <span class="n">myid</span><span class="o">)</span> <span class="o">{</span>  
+        <span class="c1">//初始化属性值  
+</span><span class="c1"></span>    <span class="o">}</span>     
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">eat</span><span class="o">(</span><span class="o">)</span> <span class="o">{</span> 
+        <span class="c1">//吃东西方法的具体实现 
+</span><span class="c1"></span>    <span class="o">}</span>   
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">sleep</span><span class="o">(</span><span class="o">)</span> <span class="o">{</span> 
+        <span class="c1">//睡觉方法的具体实现 
+</span><span class="c1"></span>    <span class="o">}</span> 
+<span class="o">}</span> 
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Penguin</span>  <span class="kd">extends</span>  <span class="n">Animal</span><span class="o">{</span> <span class="o">}</span>
+</code></pre></div><h3 id="implements关键字">implements关键字</h3>
+<p>使用 implements 关键字可以变相的使java具有多继承的特性，使用范围为类继承接口的情况，可以同时继承多个接口（接口跟接口之间采用逗号分隔）。</p>
+<h2 id="implements-关键字">implements 关键字</h2>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">A</span> <span class="o">{</span>    
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">eat</span><span class="o">(</span><span class="o">)</span><span class="o">;</span>  
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">sleep</span><span class="o">(</span><span class="o">)</span><span class="o">;</span> 
+<span class="o">}</span>  
+<span class="kd">public</span> <span class="kd">interface</span> <span class="nc">B</span> <span class="o">{</span>  
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">show</span><span class="o">(</span><span class="o">)</span><span class="o">;</span> 
+<span class="o">}</span>  
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">C</span> <span class="kd">implements</span> <span class="n">A</span><span class="o">,</span><span class="n">B</span> <span class="o">{</span> <span class="o">}</span>
+</code></pre></div><h3 id="super-与-this-关键字">super 与 this 关键字</h3>
+<p>super关键字：我们可以通过super关键字来实现对父类成员的访问，用来引用当前对象的父类。</p>
+<p>this关键字：指向自己的引用。</p>
+<h2 id="实例">实例</h2>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">class</span> <span class="nc">Animal</span> <span class="o">{</span> 
+    <span class="kt">void</span> <span class="nf">eat</span><span class="o">(</span><span class="o">)</span> <span class="o">{</span> 
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;animal : eat&#34;</span><span class="o">)</span><span class="o">;</span> 
+    <span class="o">}</span> 
+<span class="o">}</span>  
+<span class="kd">class</span> <span class="nc">Dog</span> <span class="kd">extends</span> <span class="n">Animal</span> <span class="o">{</span> 
+    <span class="kt">void</span> <span class="nf">eat</span><span class="o">(</span><span class="o">)</span> <span class="o">{</span>    
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;dog : eat&#34;</span><span class="o">)</span><span class="o">;</span> 
+    <span class="o">}</span>  
+    <span class="kt">void</span> <span class="nf">eatTest</span><span class="o">(</span><span class="o">)</span> <span class="o">{</span>    
+        <span class="k">this</span><span class="o">.</span><span class="na">eat</span><span class="o">(</span><span class="o">)</span><span class="o">;</span> 
+        <span class="c1">// this 调用自己的方法   
+</span><span class="c1"></span>        <span class="kd">super</span><span class="o">.</span><span class="na">eat</span><span class="o">(</span><span class="o">)</span><span class="o">;</span>  
+        <span class="c1">// super 调用父类方法  
+</span><span class="c1"></span>    <span class="o">}</span>
+<span class="o">}</span>  
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Test</span> <span class="o">{</span>  
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[</span><span class="o">]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span> 
+        <span class="n">Animal</span> <span class="n">a</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Animal</span><span class="o">(</span><span class="o">)</span><span class="o">;</span> 
+        <span class="n">a</span><span class="o">.</span><span class="na">eat</span><span class="o">(</span><span class="o">)</span><span class="o">;</span>
+        <span class="n">Dog</span> <span class="n">d</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Dog</span><span class="o">(</span><span class="o">)</span><span class="o">;</span> 
+        <span class="n">d</span><span class="o">.</span><span class="na">eatTest</span><span class="o">(</span><span class="o">)</span><span class="o">;</span>  
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div><p>输出结果为：</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">animal : eat
+dog : eat
+animal : eat
+</code></pre></div><h3 id="final关键字">final关键字</h3>
+<p>final 关键字声明类可以把类定义为不能继承的，即最终类；或者用于修饰方法，该方法不能被子类重写：</p>
+<ul>
+<li>
+<p>声明类：</p>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">final</span> <span class="kd">class</span> <span class="nc">类名</span> <span class="o">{</span><span class="c1">//类体}
+</span></code></pre></div></li>
+<li>
+<p>声明方法：</p>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="n">修饰符</span><span class="o">(</span><span class="kd">public</span><span class="o">/</span><span class="kd">private</span><span class="o">/</span><span class="k">default</span><span class="o">/</span><span class="kd">protected</span><span class="o">)</span> <span class="kd">final</span> <span class="n">返回值类型</span> <span class="nf">方法名</span><span class="o">(</span><span class="o">)</span><span class="o">{</span><span class="c1">//方法体}
+</span></code></pre></div></li>
+</ul>
+<p><strong>注</strong>:实例变量也可以被定义为 final，被定义为 final 的变量不能被修改。被声明为 final 类的方法自动地声明为 final，但是实例变量并不是 final</p>
+<hr>
+<h2 id="构造器">构造器</h2>
+<p>子类是不继承父类的构造器（构造方法或者构造函数）的，它只是调用（隐式或显式）。如果父类的构造器带有参数，则必须在子类的构造器中显式地通过 <strong>super</strong> 关键字调用父类的构造器并配以适当的参数列表。</p>
+<p>如果父类构造器没有参数，则在子类的构造器中不需要使用 <strong>super</strong> 关键字调用父类构造器，系统会自动调用父类的无参构造器。</p>
+<h2 id="实例-1">实例</h2>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">class</span> <span class="nc">SuperClass</span> <span class="o">{</span> 
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">n</span><span class="o">;</span> 
+    <span class="n">SuperClass</span><span class="o">(</span><span class="o">)</span><span class="o">{</span> 
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;SuperClass()&#34;</span><span class="o">)</span><span class="o">;</span> 
+    <span class="o">}</span>  
+    <span class="n">SuperClass</span><span class="o">(</span><span class="kt">int</span> <span class="n">n</span><span class="o">)</span> <span class="o">{</span>   
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;SuperClass(int n)&#34;</span><span class="o">)</span><span class="o">;</span> 
+        <span class="k">this</span><span class="o">.</span><span class="na">n</span> <span class="o">=</span> <span class="n">n</span><span class="o">;</span> 
+    <span class="o">}</span>
+<span class="o">}</span> 
+<span class="c1">// SubClass 类继承
+</span><span class="c1"></span><span class="kd">class</span> <span class="nc">SubClass</span> <span class="kd">extends</span> <span class="n">SuperClass</span><span class="o">{</span>  
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">n</span><span class="o">;</span>   
+    <span class="n">SubClass</span><span class="o">(</span><span class="o">)</span><span class="o">{</span> 
+        <span class="c1">// 自动调用父类的无参数构造器   
+</span><span class="c1"></span>        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;SubClass&#34;</span><span class="o">)</span><span class="o">;</span> 
+    <span class="o">}</span>   
+    <span class="kd">public</span> <span class="nf">SubClass</span><span class="o">(</span><span class="kt">int</span> <span class="n">n</span><span class="o">)</span><span class="o">{</span>  
+        <span class="kd">super</span><span class="o">(</span><span class="n">300</span><span class="o">)</span><span class="o">;</span> 
+        <span class="c1">// 调用父类中带有参数的构造器   
+</span><span class="c1"></span>        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;SubClass(int n):&#34;</span><span class="o">+</span><span class="n">n</span><span class="o">)</span><span class="o">;</span>    
+        <span class="k">this</span><span class="o">.</span><span class="na">n</span> <span class="o">=</span> <span class="n">n</span><span class="o">;</span>  
+    <span class="o">}</span>
+<span class="o">}</span> 
+<span class="c1">// SubClass2 类继承 
+</span><span class="c1"></span><span class="kd">class</span> <span class="nc">SubClass2</span> <span class="kd">extends</span> <span class="n">SuperClass</span><span class="o">{</span>  
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">n</span><span class="o">;</span>   
+    <span class="n">SubClass2</span><span class="o">(</span><span class="o">)</span><span class="o">{</span> 
+        <span class="kd">super</span><span class="o">(</span><span class="n">300</span><span class="o">)</span><span class="o">;</span> 
+        <span class="c1">// 调用父类中带有参数的构造器   
+</span><span class="c1"></span>        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;SubClass2&#34;</span><span class="o">)</span><span class="o">;</span> 
+    <span class="o">}</span>      
+    <span class="kd">public</span> <span class="nf">SubClass2</span><span class="o">(</span><span class="kt">int</span> <span class="n">n</span><span class="o">)</span><span class="o">{</span> 
+        <span class="c1">// 自动调用父类的无参数构造器  
+</span><span class="c1"></span>        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;SubClass2(int n):&#34;</span><span class="o">+</span><span class="n">n</span><span class="o">)</span><span class="o">;</span>   
+        <span class="k">this</span><span class="o">.</span><span class="na">n</span> <span class="o">=</span> <span class="n">n</span><span class="o">;</span> 
+    <span class="o">}</span>
+<span class="o">}</span> 
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TestSuperSub</span><span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span> <span class="o">(</span><span class="n">String</span> <span class="n">args</span><span class="o">[</span><span class="o">]</span><span class="o">)</span><span class="o">{</span>  
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;------SubClass 类继承------&#34;</span><span class="o">)</span><span class="o">;</span>  
+        <span class="n">SubClass</span> <span class="n">sc1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SubClass</span><span class="o">(</span><span class="o">)</span><span class="o">;</span>  
+        <span class="n">SubClass</span> <span class="n">sc2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SubClass</span><span class="o">(</span><span class="n">100</span><span class="o">)</span><span class="o">;</span> 
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;------SubClass2 类继承------&#34;</span><span class="o">)</span><span class="o">;</span> 
+        <span class="n">SubClass2</span> <span class="n">sc3</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SubClass2</span><span class="o">(</span><span class="o">)</span><span class="o">;</span>    
+        <span class="n">SubClass2</span> <span class="n">sc4</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SubClass2</span><span class="o">(</span><span class="n">200</span><span class="o">)</span><span class="o">;</span> 
+    <span class="o">}</span> 
+<span class="o">}</span>
+</code></pre></div><p>输出结果为：</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">------SubClass 类继承------
+SuperClass()
+SubClass
+SuperClass(int n)
+SubClass(int n):100
+------SubClass2 类继承------
+SuperClass(int n)
+SubClass2
+SuperClass()
+SubClass2(int n):200
+</code></pre></div><h1 id="java-重写override与重载overload">Java 重写(Override)与重载(Overload)</h1>
+<hr>
+<h2 id="重写override">重写(Override)</h2>
+<p>重写是子类对父类的允许访问的方法的实现过程进行重新编写, 返回值和形参都不能改变。<strong>即外壳不变，核心重写！</strong></p>
+<p>重写的好处在于子类可以根据需要，定义特定于自己的行为。 也就是说子类能够根据需要实现父类的方法。</p>
+<p>重写方法不能抛出新的检查异常或者比被重写方法申明更加宽泛的异常。例如： 父类的一个方法申明了一个检查异常 IOException，但是在重写这个方法的时候不能抛出 Exception 异常，因为 Exception 是 IOException 的父类，只能抛出 IOException 的子类异常。</p>
+<p>在面向对象原则里，重写意味着可以重写任何现有方法。实例如下：</p>
+<h2 id="testdogjava-文件代码">TestDog.java 文件代码：</h2>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">class</span> <span class="nc">Animal</span><span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">move</span><span class="o">(</span><span class="o">)</span><span class="o">{</span>   
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;动物可以移动&#34;</span><span class="o">)</span><span class="o">;</span>  
+    <span class="o">}</span>
+<span class="o">}</span>  
+<span class="kd">class</span> <span class="nc">Dog</span> <span class="kd">extends</span> <span class="n">Animal</span><span class="o">{</span>  
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">move</span><span class="o">(</span><span class="o">)</span><span class="o">{</span>    
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;狗可以跑和走&#34;</span><span class="o">)</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>  
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TestDog</span><span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span> <span class="n">args</span><span class="o">[</span><span class="o">]</span><span class="o">)</span><span class="o">{</span> 
+        <span class="n">Animal</span> <span class="n">a</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Animal</span><span class="o">(</span><span class="o">)</span><span class="o">;</span> 
+        <span class="c1">// Animal 对象 
+</span><span class="c1"></span>        <span class="n">Animal</span> <span class="n">b</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Dog</span><span class="o">(</span><span class="o">)</span><span class="o">;</span>
+        <span class="c1">// Dog 对象      
+</span><span class="c1"></span>        <span class="n">a</span><span class="o">.</span><span class="na">move</span><span class="o">(</span><span class="o">)</span><span class="o">;</span>
+        <span class="c1">// 执行 Animal 类的方法   
+</span><span class="c1"></span>        <span class="n">b</span><span class="o">.</span><span class="na">move</span><span class="o">(</span><span class="o">)</span><span class="o">;</span>
+        <span class="c1">//执行 Dog 类的方法   
+</span><span class="c1"></span>    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div><p>以上实例编译运行结果如下：</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">动物可以移动
+狗可以跑和走
+</code></pre></div><p>在上面的例子中可以看到，尽管 b 属于 Animal 类型，但是它运行的是 Dog 类的 move方法。</p>
+<p>这是由于在编译阶段，只是检查参数的引用类型。</p>
+<p>然而在运行时，Java 虚拟机(JVM)指定对象的类型并且运行该对象的方法。</p>
+<p>因此在上面的例子中，之所以能编译成功，是因为 Animal 类中存在 move 方法，然而运行时，运行的是特定对象的方法。</p>
+<p>思考以下例子：</p>
+<h2 id="testdogjava-文件代码-1">TestDog.java 文件代码：</h2>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">class</span> <span class="nc">Animal</span><span class="o">{</span>  
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">move</span><span class="o">(</span><span class="o">)</span><span class="o">{</span>  
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;动物可以移动&#34;</span><span class="o">)</span><span class="o">;</span>  
+    <span class="o">}</span> 
+<span class="o">}</span> 
+<span class="kd">class</span> <span class="nc">Dog</span> <span class="kd">extends</span> <span class="n">Animal</span><span class="o">{</span>  
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">move</span><span class="o">(</span><span class="o">)</span><span class="o">{</span> 
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;狗可以跑和走&#34;</span><span class="o">)</span><span class="o">;</span> 
+    <span class="o">}</span>   
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">bark</span><span class="o">(</span><span class="o">)</span><span class="o">{</span>   
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;狗可以吠叫&#34;</span><span class="o">)</span><span class="o">;</span> 
+    <span class="o">}</span> 
+<span class="o">}</span>  
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TestDog</span><span class="o">{</span>  
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span> <span class="n">args</span><span class="o">[</span><span class="o">]</span><span class="o">)</span><span class="o">{</span>  
+        <span class="n">Animal</span> <span class="n">a</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Animal</span><span class="o">(</span><span class="o">)</span><span class="o">;</span>
+        <span class="c1">// Animal 对象   
+</span><span class="c1"></span>        <span class="n">Animal</span> <span class="n">b</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Dog</span><span class="o">(</span><span class="o">)</span><span class="o">;</span>
+        <span class="c1">// Dog 对象 
+</span><span class="c1"></span>        <span class="n">a</span><span class="o">.</span><span class="na">move</span><span class="o">(</span><span class="o">)</span><span class="o">;</span>
+        <span class="c1">// 执行 Animal 类的方法 
+</span><span class="c1"></span>        <span class="n">b</span><span class="o">.</span><span class="na">move</span><span class="o">(</span><span class="o">)</span><span class="o">;</span>
+        <span class="c1">//执行 Dog 类的方法   
+</span><span class="c1"></span>        <span class="n">b</span><span class="o">.</span><span class="na">bark</span><span class="o">(</span><span class="o">)</span><span class="o">;</span> 
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div><p>以上实例编译运行结果如下：</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">TestDog.java:30: cannot find symbol
+symbol  : method bark()
+location: class Animal
+                b.bark();
+                 ^
+</code></pre></div><p>该程序将抛出一个编译错误，因为b的引用类型Animal没有bark方法。</p>
+<hr>
+<h2 id="方法的重写规则">方法的重写规则</h2>
+<ul>
+<li>参数列表必须完全与被重写方法的相同。</li>
+<li>返回类型与被重写方法的返回类型可以不相同，但是必须是父类返回值的派生类（java5 及更早版本返回类型要一样，java7 及更高版本可以不同）。</li>
+<li>访问权限不能比父类中被重写的方法的访问权限更低。例如：如果父类的一个方法被声明为 public，那么在子类中重写该方法就不能声明为 protected。</li>
+<li>父类的成员方法只能被它的子类重写。</li>
+<li>声明为 final 的方法不能被重写。</li>
+<li>声明为 static 的方法不能被重写，但是能够被再次声明。</li>
+<li>子类和父类在同一个包中，那么子类可以重写父类所有方法，除了声明为 private 和 final 的方法。</li>
+<li>子类和父类不在同一个包中，那么子类只能够重写父类的声明为 public 和 protected 的非 final 方法。</li>
+<li>重写的方法能够抛出任何非强制异常，无论被重写的方法是否抛出异常。但是，重写的方法不能抛出新的强制性异常，或者比被重写方法声明的更广泛的强制性异常，反之则可以。</li>
+<li>构造方法不能被重写。</li>
+<li>如果不能继承一个方法，则不能重写这个方法。</li>
+</ul>
+<hr>
+<h2 id="super-关键字的使用">Super 关键字的使用</h2>
+<p>当需要在子类中调用父类的被重写方法时，要使用 super 关键字。</p>
+<h2 id="testdogjava-文件代码-2">TestDog.java 文件代码：</h2>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">class</span> <span class="nc">Animal</span><span class="o">{</span> 
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">move</span><span class="o">(</span><span class="o">)</span><span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;动物可以移动&#34;</span><span class="o">)</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span> 
+<span class="kd">class</span> <span class="nc">Dog</span> <span class="kd">extends</span> <span class="n">Animal</span><span class="o">{</span> 
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">move</span><span class="o">(</span><span class="o">)</span><span class="o">{</span>
+        <span class="kd">super</span><span class="o">.</span><span class="na">move</span><span class="o">(</span><span class="o">)</span><span class="o">;</span>
+        <span class="c1">// 应用super类的方法
+</span><span class="c1"></span>        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;狗可以跑和走&#34;</span><span class="o">)</span><span class="o">;</span>  
+    <span class="o">}</span> 
+<span class="o">}</span> 
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TestDog</span><span class="o">{</span> 
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span> <span class="n">args</span><span class="o">[</span><span class="o">]</span><span class="o">)</span><span class="o">{</span>  
+        <span class="n">Animal</span> <span class="n">b</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Dog</span><span class="o">(</span><span class="o">)</span><span class="o">;</span>
+        <span class="c1">// Dog 对象 
+</span><span class="c1"></span>        <span class="n">b</span><span class="o">.</span><span class="na">move</span><span class="o">(</span><span class="o">)</span><span class="o">;</span> 
+        <span class="c1">//执行 Dog类的方法   
+</span><span class="c1"></span>    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div><p>以上实例编译运行结果如下：</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">动物可以移动
+狗可以跑和走
+</code></pre></div><h2 id="重载overload">重载(Overload)</h2>
+<p>重载(overloading) 是在一个类里面，方法名字相同，而参数不同。返回类型可以相同也可以不同。</p>
+<p>每个重载的方法（或者构造函数）都必须有一个独一无二的参数类型列表。</p>
+<p>最常用的地方就是构造器的重载。</p>
+<p><strong>重载规则:</strong></p>
+<ul>
+<li>被重载的方法必须改变参数列表(参数个数或类型不一样)；</li>
+<li>被重载的方法可以改变返回类型；</li>
+<li>被重载的方法可以改变访问修饰符；</li>
+<li>被重载的方法可以声明新的或更广的检查异常；</li>
+<li>方法能够在同一个类中或者在一个子类中被重载。</li>
+<li>无法以返回值类型作为重载函数的区分标准。</li>
+</ul>
+<h3 id="实例-2">实例</h3>
+<h2 id="overloadingjava-文件代码">Overloading.java 文件代码：</h2>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Overloading</span> <span class="o">{</span> 
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">test</span><span class="o">(</span><span class="o">)</span><span class="o">{</span>  
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;test1&#34;</span><span class="o">)</span><span class="o">;</span>  
+        <span class="k">return</span> <span class="n">1</span><span class="o">;</span>   
+    <span class="o">}</span>    
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">test</span><span class="o">(</span><span class="kt">int</span> <span class="n">a</span><span class="o">)</span><span class="o">{</span>     
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;test2&#34;</span><span class="o">)</span><span class="o">;</span>
+    <span class="o">}</span>       
+    <span class="c1">//以下两个参数类型顺序不同 
+</span><span class="c1"></span>    <span class="kd">public</span> <span class="n">String</span> <span class="nf">test</span><span class="o">(</span><span class="kt">int</span> <span class="n">a</span><span class="o">,</span><span class="n">String</span> <span class="n">s</span><span class="o">)</span><span class="o">{</span>     
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;test3&#34;</span><span class="o">)</span><span class="o">;</span> 
+        <span class="k">return</span> <span class="s">&#34;returntest3&#34;</span><span class="o">;</span>   
+    <span class="o">}</span>      
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">test</span><span class="o">(</span><span class="n">String</span> <span class="n">s</span><span class="o">,</span><span class="kt">int</span> <span class="n">a</span><span class="o">)</span><span class="o">{</span> 
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;test4&#34;</span><span class="o">)</span><span class="o">;</span> 
+        <span class="k">return</span> <span class="s">&#34;returntest4&#34;</span><span class="o">;</span>   
+    <span class="o">}</span>      
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[</span><span class="o">]</span> <span class="n">args</span><span class="o">)</span><span class="o">{</span> 
+        <span class="n">Overloading</span> <span class="n">o</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Overloading</span><span class="o">(</span><span class="o">)</span><span class="o">;</span>    
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">o</span><span class="o">.</span><span class="na">test</span><span class="o">(</span><span class="o">)</span><span class="o">)</span><span class="o">;</span>     
+        <span class="n">o</span><span class="o">.</span><span class="na">test</span><span class="o">(</span><span class="n">1</span><span class="o">)</span><span class="o">;</span>      
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">o</span><span class="o">.</span><span class="na">test</span><span class="o">(</span><span class="n">1</span><span class="o">,</span><span class="s">&#34;test3&#34;</span><span class="o">)</span><span class="o">)</span><span class="o">;</span>   
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">o</span><span class="o">.</span><span class="na">test</span><span class="o">(</span><span class="s">&#34;test4&#34;</span><span class="o">,</span><span class="n">1</span><span class="o">)</span><span class="o">)</span><span class="o">;</span> 
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div><hr>
+<h2 id="重写与重载之间的区别">重写与重载之间的区别</h2>
+<table>
+<thead>
+<tr>
+<th align="left">区别点</th>
+<th align="left">重载方法</th>
+<th align="left">重写方法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">参数列表</td>
+<td align="left">必须修改</td>
+<td align="left">一定不能修改</td>
+</tr>
+<tr>
+<td align="left">返回类型</td>
+<td align="left">可以修改</td>
+<td align="left">一定不能修改</td>
+</tr>
+<tr>
+<td align="left">异常</td>
+<td align="left">可以修改</td>
+<td align="left">可以减少或删除，一定不能抛出新的或者更广的异常</td>
+</tr>
+<tr>
+<td align="left">访问</td>
+<td align="left">可以修改</td>
+<td align="left">一定不能做更严格的限制（可以降低限制）</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="总结">总结</h2>
+<p>方法的重写(Overriding)和重载(Overloading)是java多态性的不同表现，重写是父类与子类之间多态性的一种表现，重载可以理解成多态的具体表现形式。</p>
+<ul>
+<li>(1)方法重载是一个类中定义了多个方法名相同,而他们的参数的数量不同或数量相同而类型和次序不同,则称为方法的重载(Overloading)。</li>
+<li>(2)方法重写是在子类存在方法与父类的方法的名字相同,而且参数的个数与类型一样,返回值也一样的方法,就称为重写(Overriding)。</li>
+<li>(3)方法重载是一个类的多态性表现,而方法重写是子类与父类的一种多态性表现。</li>
+</ul>
+<p><img src="https://www.runoob.com/wp-content/uploads/2013/12/overloading-vs-overriding.png" alt="img"></p>
+<p><img src="https://www.runoob.com/wp-content/uploads/2013/12/20171102-1.png" alt="img"></p>
+<h1 id="java-多态">Java 多态</h1>
+<hr>
+<p>多态是同一个行为具有多个不同表现形式或形态的能力。</p>
+<p>多态就是同一个接口，使用不同的实例而执行不同操作，如图所示：</p>
+<p><img src="https://www.runoob.com/wp-content/uploads/2013/12/dt-java.png" alt="img"></p>
+<p>多态性是对象多种表现形式的体现。</p>
+<blockquote>
+<p>现实中，比如我们按下 F1 键这个动作：</p>
+<ul>
+<li>如果当前在 Flash 界面下弹出的就是 AS 3 的帮助文档；</li>
+<li>如果当前在 Word 下弹出的就是 Word 帮助；</li>
+<li>在 Windows 下弹出的就是 Windows 帮助和支持。</li>
+</ul>
+<p>同一个事件发生在不同的对象上会产生不同的结果。</p>
+</blockquote>
+<h3 id="多态的优点">多态的优点</h3>
+<ul>
+<li>\1. 消除类型之间的耦合关系</li>
+<li>\2. 可替换性</li>
+<li>\3. 可扩充性</li>
+<li>\4. 接口性</li>
+<li>\5. 灵活性</li>
+<li>\6. 简化性</li>
+</ul>
+<h3 id="多态存在的三个必要条件">多态存在的三个必要条件</h3>
+<ul>
+<li>继承</li>
+<li>重写</li>
+<li>父类引用指向子类对象</li>
+</ul>
+<p>比如：</p>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="n">Parent</span> <span class="n">p</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Child</span><span class="o">(</span><span class="o">)</span><span class="o">;</span>
+</code></pre></div><h2 id="虚函数">虚函数</h2>
+<p>虚函数的存在是为了多态。</p>
+<p>Java 中其实没有虚函数的概念，它的普通函数就相当于 C++ 的虚函数，动态绑定是Java的默认行为。如果 Java 中不希望某个函数具有虚函数特性，可以加上 final 关键字变成非虚函数。</p>
+<h3 id="重写">重写</h3>
+<p>我们将介绍在 Java 中，当设计类时，被重写的方法的行为怎样影响多态性。</p>
+<p>我们已经讨论了方法的重写，也就是子类能够重写父类的方法。</p>
+<p>当子类对象调用重写的方法时，调用的是子类的方法，而不是父类中被重写的方法。</p>
+<p>要想调用父类中被重写的方法，则必须使用关键字 <strong>super</strong>。</p>
+<h2 id="多态的实现方式">多态的实现方式</h2>
+<h3 id="方式一重写">方式一：重写：</h3>
+<p>这个内容已经在上一章节详细讲过，就不再阐述，详细可访问：<a href="https://www.runoob.com/java/java-override-overload.html">Java 重写(Override)与重载(Overload)</a>。</p>
+<h3 id="方式二接口">方式二：接口</h3>
+<ul>
+<li>生活中的接口最具代表性的就是插座，例如一个三接头的插头都能接在三孔插座中，因为这个是每个国家都有各自规定的接口规则，有可能到国外就不行，那是因为国外自己定义的接口类型。</li>
+<li>java中的接口类似于生活中的接口，就是一些方法特征的集合，但没有方法的实现。具体可以看 <a href="https://www.runoob.com/java/java-interfaces.html">java接口</a> 这一章节的内容。</li>
+</ul>
+<h3 id="方式三抽象类和抽象方法">方式三：抽象类和抽象方法</h3>
+<h1 id="java-抽象类">Java 抽象类</h1>
+<hr>
+<p>在面向对象的概念中，所有的对象都是通过类来描绘的，但是反过来，并不是所有的类都是用来描绘对象的，如果一个类中没有包含足够的信息来描绘一个具体的对象，这样的类就是抽象类。</p>
+<p>抽象类除了不能实例化对象之外，类的其它功能依然存在，成员变量、成员方法和构造方法的访问方式和普通类一样。</p>
+<p>由于抽象类不能实例化对象，所以抽象类必须被继承，才能被使用。也是因为这个原因，通常在设计阶段决定要不要设计抽象类。</p>
+<p>父类包含了子类集合的常见的方法，但是由于父类本身是抽象的，所以不能使用这些方法。</p>
+<p>在Java中抽象类表示的是一种继承关系，一个类只能继承一个抽象类，而一个类却可以实现多个接口。</p>
+<hr>
+<h2 id="抽象类">抽象类</h2>
+<p>在Java语言中使用abstract class来定义抽象类。如下实例：</p>
+<h2 id="employeejava-文件代码">Employee.java 文件代码：</h2>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="cm">/* 文件名 : Employee.java */</span> 
+<span class="kd">public</span> <span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">Employee</span> <span class="o">{</span>   
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">name</span><span class="o">;</span>   
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">address</span><span class="o">;</span> 
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">number</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="nf">Employee</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">,</span> <span class="n">String</span> <span class="n">address</span><span class="o">,</span> <span class="kt">int</span> <span class="n">number</span><span class="o">)</span>   <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;Constructing an Employee&#34;</span><span class="o">)</span><span class="o">;</span>   
+        <span class="k">this</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">;</span>    
+        <span class="k">this</span><span class="o">.</span><span class="na">address</span> <span class="o">=</span> <span class="n">address</span><span class="o">;</span>   
+        <span class="k">this</span><span class="o">.</span><span class="na">number</span> <span class="o">=</span> <span class="n">number</span><span class="o">;</span> 
+    <span class="o">}</span>   
+    <span class="kd">public</span> <span class="kt">double</span> <span class="nf">computePay</span><span class="o">(</span><span class="o">)</span>   <span class="o">{</span> 
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;Inside Employee computePay&#34;</span><span class="o">)</span><span class="o">;</span>    
+        <span class="k">return</span> <span class="n">0</span><span class="o">.</span><span class="na">0</span><span class="o">;</span>  
+    <span class="o">}</span>   
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">mailCheck</span><span class="o">(</span><span class="o">)</span>   <span class="o">{</span>   
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;Mailing a check to &#34;</span> <span class="o">+</span> <span class="k">this</span><span class="o">.</span><span class="na">name</span>       <span class="o">+</span> <span class="s">&#34; &#34;</span> <span class="o">+</span> <span class="k">this</span><span class="o">.</span><span class="na">address</span><span class="o">)</span><span class="o">;</span>
+    <span class="o">}</span>  
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">toString</span><span class="o">(</span><span class="o">)</span>   <span class="o">{</span>   
+        <span class="k">return</span> <span class="n">name</span> <span class="o">+</span> <span class="s">&#34; &#34;</span> <span class="o">+</span> <span class="n">address</span> <span class="o">+</span> <span class="s">&#34; &#34;</span> <span class="o">+</span> <span class="n">number</span><span class="o">;</span>   
+    <span class="o">}</span>  
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">getName</span><span class="o">(</span><span class="o">)</span>   <span class="o">{</span>   
+        <span class="k">return</span> <span class="n">name</span><span class="o">;</span> 
+    <span class="o">}</span>   
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">getAddress</span><span class="o">(</span><span class="o">)</span>   <span class="o">{</span>    
+        <span class="k">return</span> <span class="n">address</span><span class="o">;</span> 
+    <span class="o">}</span>  
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setAddress</span><span class="o">(</span><span class="n">String</span> <span class="n">newAddress</span><span class="o">)</span>   <span class="o">{</span>    
+        <span class="n">address</span> <span class="o">=</span> <span class="n">newAddress</span><span class="o">;</span>   
+    <span class="o">}</span>  
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getNumber</span><span class="o">(</span><span class="o">)</span>   <span class="o">{</span>  
+        <span class="k">return</span> <span class="n">number</span><span class="o">;</span> 
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div><p>注意到该 Employee 类没有什么不同，尽管该类是抽象类，但是它仍然有 3 个成员变量，7 个成员方法和 1 个构造方法。 现在如果你尝试如下的例子：</p>
+<h2 id="abstractdemojava-文件代码">AbstractDemo.java 文件代码：</h2>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="cm">/* 文件名 : AbstractDemo.java */</span> 
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">AbstractDemo</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span> <span class="o">[</span><span class="o">]</span> <span class="n">args</span><span class="o">)</span>   <span class="o">{</span> 
+        <span class="cm">/* 以下是不允许的，会引发错误 */</span>  
+        <span class="n">Employee</span> <span class="n">e</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Employee</span><span class="o">(</span><span class="s">&#34;George W.&#34;</span><span class="o">,</span> <span class="s">&#34;Houston, TX&#34;</span><span class="o">,</span> <span class="n">43</span><span class="o">)</span><span class="o">;</span> 
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;\n Call mailCheck using Employee reference--&#34;</span><span class="o">)</span><span class="o">;</span>     				<span class="n">e</span><span class="o">.</span><span class="na">mailCheck</span><span class="o">(</span><span class="o">)</span><span class="o">;</span>   
+    <span class="o">}</span> 
+<span class="o">}</span>
+</code></pre></div><p>当你尝试编译AbstractDemo类时，会产生如下错误：</p>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="n">Employee</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">46</span><span class="o">:</span> <span class="n">Employee</span> <span class="n">is</span> <span class="kd">abstract</span><span class="o">;</span> <span class="n">cannot</span> <span class="n">be</span> <span class="n">instantiated</span>
+      <span class="n">Employee</span> <span class="n">e</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Employee</span><span class="o">(</span><span class="s">&#34;George W.&#34;</span><span class="o">,</span> <span class="s">&#34;Houston, TX&#34;</span><span class="o">,</span> <span class="n">43</span><span class="o">)</span><span class="o">;</span>
+                   <span class="o">^</span>
+<span class="n">1</span> <span class="n">error</span>
+</code></pre></div><hr>
+<h2 id="继承抽象类">继承抽象类</h2>
+<p>我们能通过一般的方法继承Employee类：</p>
+<h2 id="salaryjava-文件代码">Salary.java 文件代码：</h2>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="cm">/* 文件名 : Salary.java */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Salary</span> <span class="kd">extends</span> <span class="n">Employee</span> <span class="o">{</span>  
+    <span class="kd">private</span> <span class="kt">double</span> <span class="n">salary</span><span class="o">;</span>
+    <span class="c1">//Annual salary  
+</span><span class="c1"></span>    <span class="kd">public</span> <span class="nf">Salary</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">,</span> <span class="n">String</span> <span class="n">address</span><span class="o">,</span> <span class="kt">int</span> <span class="n">number</span><span class="o">,</span> <span class="kt">double</span>      <span class="n">salary</span><span class="o">)</span>   <span class="o">{</span>    
+        <span class="kd">super</span><span class="o">(</span><span class="n">name</span><span class="o">,</span> <span class="n">address</span><span class="o">,</span> <span class="n">number</span><span class="o">)</span><span class="o">;</span>   
+        <span class="n">setSalary</span><span class="o">(</span><span class="n">salary</span><span class="o">)</span><span class="o">;</span>  
+    <span class="o">}</span>   
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">mailCheck</span><span class="o">(</span><span class="o">)</span>   <span class="o">{</span>    
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;Within mailCheck of Salary class &#34;</span><span class="o">)</span><span class="o">;</span>   
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;Mailing check to &#34;</span> <span class="o">+</span> <span class="n">getName</span><span class="o">(</span><span class="o">)</span>       <span class="o">+</span> <span class="s">&#34; with salary &#34;</span> <span class="o">+</span> <span class="n">salary</span><span class="o">)</span><span class="o">;</span>  
+    <span class="o">}</span> 
+    <span class="kd">public</span> <span class="kt">double</span> <span class="nf">getSalary</span><span class="o">(</span><span class="o">)</span>   <span class="o">{</span>
+        <span class="k">return</span> <span class="n">salary</span><span class="o">;</span> 
+    <span class="o">}</span>  
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setSalary</span><span class="o">(</span><span class="kt">double</span> <span class="n">newSalary</span><span class="o">)</span>   <span class="o">{</span>    
+        <span class="k">if</span><span class="o">(</span><span class="n">newSalary</span> <span class="o">&gt;</span><span class="o">=</span> <span class="n">0</span><span class="o">.</span><span class="na">0</span><span class="o">)</span>   
+        <span class="o">{</span>     
+            <span class="n">salary</span> <span class="o">=</span> <span class="n">newSalary</span><span class="o">;</span>    
+        <span class="o">}</span>   
+    <span class="o">}</span>  
+    <span class="kd">public</span> <span class="kt">double</span> <span class="nf">computePay</span><span class="o">(</span><span class="o">)</span>   <span class="o">{</span>   
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;Computing salary pay for &#34;</span> <span class="o">+</span> <span class="n">getName</span><span class="o">(</span><span class="o">)</span><span class="o">)</span><span class="o">;</span>      <span class="k">return</span> <span class="n">salary</span><span class="o">/</span><span class="n">52</span><span class="o">;</span>  
+    <span class="o">}</span> 
+<span class="o">}</span>
+
+<span class="n">尽管我们不能实例化一个</span> <span class="n">Employee</span> <span class="n">类的对象</span><span class="err">，</span><span class="n">但是如果我们实例化一个</span> <span class="n">Salary</span> <span class="n">类对象</span><span class="err">，</span><span class="n">该对象将从</span> <span class="n">Employee</span> <span class="n">类继承</span> <span class="n">7</span> <span class="n">个成员方法</span><span class="err">，</span><span class="n">且通过该方法可以设置或获取三个成员变量</span><span class="err">。</span>
+</code></pre></div><h2 id="abstractdemojava-文件代码-1">AbstractDemo.java 文件代码：</h2>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="cm">/* 文件名 : AbstractDemo.java */</span> 
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">AbstractDemo</span> <span class="o">{</span>   
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span> <span class="o">[</span><span class="o">]</span> <span class="n">args</span><span class="o">)</span>   <span class="o">{</span>   
+        <span class="n">Salary</span> <span class="n">s</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Salary</span><span class="o">(</span><span class="s">&#34;Mohd Mohtashim&#34;</span><span class="o">,</span> <span class="s">&#34;Ambehta, UP&#34;</span><span class="o">,</span> <span class="n">3</span><span class="o">,</span> <span class="n">3600</span><span class="o">.</span><span class="na">00</span><span class="o">)</span><span class="o">;</span>
+        <span class="n">Employee</span> <span class="n">e</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Salary</span><span class="o">(</span><span class="s">&#34;John Adams&#34;</span><span class="o">,</span> <span class="s">&#34;Boston, MA&#34;</span><span class="o">,</span> <span class="n">2</span><span class="o">,</span> <span class="n">2400</span><span class="o">.</span><span class="na">00</span><span class="o">)</span><span class="o">;</span>   
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;Call mailCheck using Salary reference --&#34;</span><span class="o">)</span><span class="o">;</span>   
+        <span class="n">s</span><span class="o">.</span><span class="na">mailCheck</span><span class="o">(</span><span class="o">)</span><span class="o">;</span>     
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;\n Call mailCheck using Employee reference--&#34;</span><span class="o">)</span><span class="o">;</span>   
+        <span class="n">e</span><span class="o">.</span><span class="na">mailCheck</span><span class="o">(</span><span class="o">)</span><span class="o">;</span> 
+    <span class="o">}</span> 
+<span class="o">}</span>
+</code></pre></div><p>以上程序编译运行结果如下：</p>
+<div class="highlight"><pre class="chroma"><code class="language-tex" data-lang="tex">Constructing an Employee
+Constructing an Employee
+Call mailCheck using  Salary reference --
+Within mailCheck of Salary class
+Mailing check to Mohd Mohtashim with salary 3600.0
+
+Call mailCheck using Employee reference--
+Within mailCheck of Salary class
+Mailing check to John Adams with salary 2400.
+</code></pre></div><hr>
+<h2 id="抽象方法">抽象方法</h2>
+<p>如果你想设计这样一个类，该类包含一个特别的成员方法，该方法的具体实现由它的子类确定，那么你可以在父类中声明该方法为抽象方法。</p>
+<p>Abstract 关键字同样可以用来声明抽象方法，抽象方法只包含一个方法名，而没有方法体。</p>
+<p>抽象方法没有定义，方法名后面直接跟一个分号，而不是花括号。</p>
+<p>public abstract class Employee {   private String name;   private String address;   private int number;      public abstract double computePay();      //其余代码 }</p>
+<p>声明抽象方法会造成以下两个结果：</p>
+<ul>
+<li>如果一个类包含抽象方法，那么该类必须是抽象类。</li>
+<li>任何子类必须重写父类的抽象方法，或者声明自身为抽象类。</li>
+</ul>
+<p>继承抽象方法的子类必须重写该方法。否则，该子类也必须声明为抽象类。最终，必须有子类实现该抽象方法，否则，从最初的父类到最终的子类都不能用来实例化对象。</p>
+<p>如果Salary类继承了Employee类，那么它必须实现computePay()方法：</p>
+<h2 id="salaryjava-文件代码-1">Salary.java 文件代码：</h2>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="cm">/* 文件名 : Salary.java */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Salary</span> <span class="kd">extends</span> <span class="n">Employee</span> <span class="o">{</span> 
+    <span class="kd">private</span> <span class="kt">double</span> <span class="n">salary</span><span class="o">;</span> 
+    <span class="c1">// Annual salary    
+</span><span class="c1"></span>    <span class="kd">public</span> <span class="kt">double</span> <span class="nf">computePay</span><span class="o">(</span><span class="o">)</span>   <span class="o">{</span> 
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;Computing salary pay for &#34;</span> <span class="o">+</span> <span class="n">getName</span><span class="o">(</span><span class="o">)</span><span class="o">)</span><span class="o">;</span>      <span class="k">return</span> <span class="n">salary</span><span class="o">/</span><span class="n">52</span><span class="o">;</span>   
+    <span class="o">}</span>   
+    <span class="c1">//其余代码 
+</span><span class="c1"></span><span class="o">}</span>
+</code></pre></div><hr>
+<h2 id="抽象类总结规定">抽象类总结规定</h2>
+<ul>
+<li>抽象类不能被实例化(初学者很容易犯的错)，如果被实例化，就会报错，编译无法通过。只有抽象类的非抽象子类可以创建对象。</li>
+<li>抽象类中不一定包含抽象方法，但是有抽象方法的类必定是抽象类。</li>
+<li>抽象类中的抽象方法只是声明，不包含方法体，就是不给出方法的具体实现也就是方法的具体功能。</li>
+<li>构造方法，类方法（用 static 修饰的方法）不能声明为抽象方法。</li>
+<li>抽象类的子类必须给出抽象类中的抽象方法的具体实现，除非该子类也是抽象类。</li>
+</ul>
+<h1 id="java-封装">Java 封装</h1>
+<hr>
+<p>在面向对象程式设计方法中，封装（英语：Encapsulation）是指一种将抽象性函式接口的实现细节部分包装、隐藏起来的方法。</p>
+<p>封装可以被认为是一个保护屏障，防止该类的代码和数据被外部类定义的代码随机访问。</p>
+<p>要访问该类的代码和数据，必须通过严格的接口控制。</p>
+<p>封装最主要的功能在于我们能修改自己的实现代码，而不用修改那些调用我们代码的程序片段。</p>
+<p>适当的封装可以让程式码更容易理解与维护，也加强了程式码的安全性。</p>
+<h3 id="封装的优点">封装的优点</h3>
+<ul>
+<li>良好的封装能够减少耦合。</li>
+<li>类内部的结构可以自由修改。</li>
+<li>可以对成员变量进行更精确的控制。</li>
+<li>隐藏信息，实现细节。</li>
+</ul>
+<hr>
+<h2 id="实现java封装的步骤">实现Java封装的步骤</h2>
+<ol>
+<li>修改属性的可见性来限制对属性的访问（一般限制为private），例如：</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Person</span> <span class="o">{</span>    <span class="kd">private</span> <span class="n">String</span> <span class="n">name</span><span class="o">;</span>    <span class="kd">private</span> <span class="kt">int</span> <span class="n">age</span><span class="o">;</span> <span class="o">}</span>
+</code></pre></div><p>这段代码中，将 <strong>name</strong> 和 <strong>age</strong> 属性设置为私有的，只能本类才能访问，其他类都访问不了，如此就对信息进行了隐藏。</p>
+<ol start="2">
+<li>对每个值属性提供对外的公共方法访问，也就是创建一对赋取值方法，用于对私有属性的访问，例如：</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Person</span><span class="o">{</span>  
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">name</span><span class="o">;</span>  
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">age</span><span class="o">;</span> 
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getAge</span><span class="o">(</span><span class="o">)</span><span class="o">{</span>   
+        <span class="k">return</span> <span class="n">age</span><span class="o">;</span> 
+    <span class="o">}</span>   
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">getName</span><span class="o">(</span><span class="o">)</span><span class="o">{</span>  
+        <span class="k">return</span> <span class="n">name</span><span class="o">;</span>  
+    <span class="o">}</span>   
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setAge</span><span class="o">(</span><span class="kt">int</span> <span class="n">age</span><span class="o">)</span><span class="o">{</span>  
+        <span class="k">this</span><span class="o">.</span><span class="na">age</span> <span class="o">=</span> <span class="n">age</span><span class="o">;</span> 
+    <span class="o">}</span>     
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setName</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">)</span><span class="o">{</span>    
+        <span class="k">this</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">;</span>
+    <span class="o">}</span> 
+<span class="o">}</span>
+</code></pre></div><p>采用 <strong>this</strong> 关键字是为了解决实例变量（private String name）和局部变量（setName(String name)中的name变量）之间发生的同名的冲突。</p>
+<hr>
+<h2 id="实例-3">实例</h2>
+<p>让我们来看一个java封装类的例子：</p>
+<h2 id="encaptestjava-文件代码">EncapTest.java 文件代码：</h2>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="cm">/* 文件名: EncapTest.java */</span> 
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">EncapTest</span><span class="o">{</span>   
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">name</span><span class="o">;</span> 
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">idNum</span><span class="o">;</span> 
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">age</span><span class="o">;</span> 
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getAge</span><span class="o">(</span><span class="o">)</span><span class="o">{</span>    
+        <span class="k">return</span> <span class="n">age</span><span class="o">;</span>  
+    <span class="o">}</span>   
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">getName</span><span class="o">(</span><span class="o">)</span><span class="o">{</span>
+        <span class="k">return</span> <span class="n">name</span><span class="o">;</span> 
+    <span class="o">}</span>  
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">getIdNum</span><span class="o">(</span><span class="o">)</span><span class="o">{</span>  
+        <span class="k">return</span> <span class="n">idNum</span><span class="o">;</span>  
+    <span class="o">}</span>  
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setAge</span><span class="o">(</span> <span class="kt">int</span> <span class="n">newAge</span><span class="o">)</span><span class="o">{</span>   
+        <span class="n">age</span> <span class="o">=</span> <span class="n">newAge</span><span class="o">;</span>  
+    <span class="o">}</span>   
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setName</span><span class="o">(</span><span class="n">String</span> <span class="n">newName</span><span class="o">)</span><span class="o">{</span>  
+        <span class="n">name</span> <span class="o">=</span> <span class="n">newName</span><span class="o">;</span> 
+    <span class="o">}</span>  
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setIdNum</span><span class="o">(</span> <span class="n">String</span> <span class="n">newId</span><span class="o">)</span><span class="o">{</span> 
+        <span class="n">idNum</span> <span class="o">=</span> <span class="n">newId</span><span class="o">;</span> 
+    <span class="o">}</span> 
+<span class="o">}</span>
+</code></pre></div><p>以上实例中public方法是外部类访问该类成员变量的入口。</p>
+<p>通常情况下，这些方法被称为getter和setter方法。</p>
+<p>因此，任何要访问类中私有成员变量的类都要通过这些getter和setter方法。</p>
+<p>通过如下的例子说明EncapTest类的变量怎样被访问：</p>
+<h2 id="runencapjava-文件代码">RunEncap.java 文件代码：</h2>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="cm">/* F文件名 : RunEncap.java */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">RunEncap</span><span class="o">{</span> 
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span> <span class="n">args</span><span class="o">[</span><span class="o">]</span><span class="o">)</span><span class="o">{</span>   
+        <span class="n">EncapTest</span> <span class="n">encap</span> <span class="o">=</span> <span class="k">new</span> <span class="n">EncapTest</span><span class="o">(</span><span class="o">)</span><span class="o">;</span>  
+        <span class="n">encap</span><span class="o">.</span><span class="na">setName</span><span class="o">(</span><span class="s">&#34;James&#34;</span><span class="o">)</span><span class="o">;</span> 
+        <span class="n">encap</span><span class="o">.</span><span class="na">setAge</span><span class="o">(</span><span class="n">20</span><span class="o">)</span><span class="o">;</span>  
+        <span class="n">encap</span><span class="o">.</span><span class="na">setIdNum</span><span class="o">(</span><span class="s">&#34;12343ms&#34;</span><span class="o">)</span><span class="o">;</span>     
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">&#34;Name : &#34;</span> <span class="o">+</span> <span class="n">encap</span><span class="o">.</span><span class="na">getName</span><span class="o">(</span><span class="o">)</span><span class="o">+</span> <span class="s">&#34; Age : &#34;</span><span class="o">+</span> <span class="n">encap</span><span class="o">.</span><span class="na">getAge</span><span class="o">(</span><span class="o">)</span><span class="o">)</span><span class="o">;</span>    
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div><p>以上代码编译运行结果如下:</p>
+<div class="highlight"><pre class="chroma"><code class="language-tex" data-lang="tex">Name : James Age : 20
+</code></pre></div><h1 id="java-接口">Java 接口</h1>
+<p>接口（英文：Interface），在JAVA编程语言中是一个抽象类型，是抽象方法的集合，接口通常以interface来声明。一个类通过继承接口的方式，从而来继承接口的抽象方法。</p>
+<p>接口并不是类，编写接口的方式和类很相似，但是它们属于不同的概念。类描述对象的属性和方法。接口则包含类要实现的方法。</p>
+<p>除非实现接口的类是抽象类，否则该类要定义接口中的所有方法。</p>
+<p>接口无法被实例化，但是可以被实现。一个实现接口的类，必须实现接口内所描述的所有方法，否则就必须声明为抽象类。另外，在 Java 中，接口类型可用来声明一个变量，他们可以成为一个空指针，或是被绑定在一个以此接口实现的对象。</p>
+<h3 id="接口与类相似点">接口与类相似点：</h3>
+<ul>
+<li>一个接口可以有多个方法。</li>
+<li>接口文件保存在 .java 结尾的文件中，文件名使用接口名。</li>
+<li>接口的字节码文件保存在 .class 结尾的文件中。</li>
+<li>接口相应的字节码文件必须在与包名称相匹配的目录结构中。</li>
+</ul>
+<h3 id="接口与类的区别">接口与类的区别：</h3>
+<ul>
+<li>接口不能用于实例化对象。</li>
+<li>接口没有构造方法。</li>
+<li>接口中所有的方法必须是抽象方法。</li>
+<li>接口不能包含成员变量，除了 static 和 final 变量。</li>
+<li>接口不是被类继承了，而是要被类实现。</li>
+<li>接口支持多继承。</li>
+</ul>
+<h3 id="接口特性">接口特性</h3>
+<ul>
+<li>接口中每一个方法也是隐式抽象的,接口中的方法会被隐式的指定为 <strong>public abstract</strong>（只能是 public abstract，其他修饰符都会报错）。</li>
+<li>接口中可以含有变量，但是接口中的变量会被隐式的指定为 <strong>public static final</strong> 变量（并且只能是 public，用 private 修饰会报编译错误）。</li>
+<li>接口中的方法是不能在接口中实现的，只能由实现接口的类来实现接口中的方法。</li>
+</ul>
+<h3 id="抽象类和接口的区别">抽象类和接口的区别</h3>
+<ul>
+<li>
+<ol>
+<li>抽象类中的方法可以有方法体，就是能实现方法的具体功能，但是接口中的方法不行。</li>
+</ol>
+</li>
+<li>
+<ol start="2">
+<li>抽象类中的成员变量可以是各种类型的，而接口中的成员变量只能是 <strong>public static final</strong> 类型的。</li>
+</ol>
+</li>
+<li>
+<ol start="3">
+<li>接口中不能含有静态代码块以及静态方法(用 static 修饰的方法)，而抽象类是可以有静态代码块和静态方法。</li>
+</ol>
+</li>
+<li>
+<ol start="4">
+<li>一个类只能继承一个抽象类，而一个类却可以实现多个接口。</li>
+</ol>
+</li>
+</ul>
+<blockquote>
+<p><strong>注</strong>：JDK 1.8 以后，接口里可以有静态方法和方法体了。</p>
+</blockquote>
+<hr>
+<h2 id="接口的声明">接口的声明</h2>
+<p>接口的声明语法格式如下：</p>
+<p>[可见度] interface 接口名称 [extends 其他的接口名] {        // 声明变量        // 抽象方法 }</p>
+<p>Interface关键字用来声明一个接口。下面是接口声明的一个简单例子。</p>
+<h2 id="nameofinterfacejava-文件代码">NameOfInterface.java 文件代码：</h2>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="cm">/* 文件名 : NameOfInterface.java */</span> 
+<span class="kn">import</span> <span class="nn">java.lang.*</span><span class="o">;</span> 
+<span class="c1">//引入包  
+</span><span class="c1"></span><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">NameOfInterface</span> <span class="o">{</span>  
+    <span class="c1">//任何类型 final, static 字段
+</span><span class="c1"></span>    <span class="c1">//抽象方法
+</span><span class="c1"></span><span class="o">}</span>
+</code></pre></div><p>接口有以下特性：</p>
+<ul>
+<li>接口是隐式抽象的，当声明一个接口的时候，不必使用<strong>abstract</strong>关键字。</li>
+<li>接口中每一个方法也是隐式抽象的，声明时同样不需要<strong>abstract</strong>关键字。</li>
+<li>接口中的方法都是公有的。</li>
+</ul>
+<h3 id="实例-4">实例</h3>
+<h2 id="animaljava-文件代码">Animal.java 文件代码：</h2>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="cm">/* 文件名 : Animal.java */</span> 
+<span class="kd">interface</span> <span class="nc">Animal</span> <span class="o">{</span> 
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">eat</span><span class="o">(</span><span class="o">)</span><span class="o">;</span> 
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">travel</span><span class="o">(</span><span class="o">)</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre></div><hr>
+<h2 id="接口的实现">接口的实现</h2>
+<p>当类实现接口的时候，类要实现接口中所有的方法。否则，类必须声明为抽象的类。</p>
+<p>类使用implements关键字实现接口。在类声明中，Implements关键字放在class声明后面。</p>
+<p>实现一个接口的语法，可以使用这个公式：</p>
+<h2 id="animaljava-文件代码-1">Animal.java 文件代码：</h2>
+<p>&hellip;implements 接口名称[, 其他接口名称, 其他接口名称&hellip;, &hellip;] &hellip;</p>
+<h3 id="实例-5">实例</h3>
+<h2 id="mammalintjava-文件代码">MammalInt.java 文件代码：</h2>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="cm">/* 文件名 : MammalInt.java */</span> 
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MammalInt</span> <span class="kd">implements</span> <span class="n">Animal</span><span class="o">{</span>   
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">eat</span><span class="o">(</span><span class="o">)</span><span class="o">{</span>    
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;Mammal eats&#34;</span><span class="o">)</span><span class="o">;</span>  
+    <span class="o">}</span>   
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">travel</span><span class="o">(</span><span class="o">)</span><span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;Mammal travels&#34;</span><span class="o">)</span><span class="o">;</span> 
+    <span class="o">}</span>    
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">noOfLegs</span><span class="o">(</span><span class="o">)</span><span class="o">{</span>     
+        <span class="k">return</span> <span class="n">0</span><span class="o">;</span>  
+    <span class="o">}</span>    
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span> <span class="n">args</span><span class="o">[</span><span class="o">]</span><span class="o">)</span><span class="o">{</span>
+        <span class="n">MammalInt</span> <span class="n">m</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MammalInt</span><span class="o">(</span><span class="o">)</span><span class="o">;</span>  
+        <span class="n">m</span><span class="o">.</span><span class="na">eat</span><span class="o">(</span><span class="o">)</span><span class="o">;</span>  
+        <span class="n">m</span><span class="o">.</span><span class="na">travel</span><span class="o">(</span><span class="o">)</span><span class="o">;</span>  
+    <span class="o">}</span> 
+<span class="o">}</span>
+</code></pre></div><p>以上实例编译运行结果如下:</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">Mammal eats
+Mammal travels
+</code></pre></div><p>重写接口中声明的方法时，需要注意以下规则：</p>
+<ul>
+<li>类在实现接口的方法时，不能抛出强制性异常，只能在接口中，或者继承接口的抽象类中抛出该强制性异常。</li>
+<li>类在重写方法时要保持一致的方法名，并且应该保持相同或者相兼容的返回值类型。</li>
+<li>如果实现接口的类是抽象类，那么就没必要实现该接口的方法。</li>
+</ul>
+<p>在实现接口的时候，也要注意一些规则：</p>
+<ul>
+<li>一个类可以同时实现多个接口。</li>
+<li>一个类只能继承一个类，但是能实现多个接口。</li>
+<li>一个接口能继承另一个接口，这和类之间的继承比较相似。</li>
+</ul>
+<hr>
+<h2 id="接口的继承">接口的继承</h2>
+<p>一个接口能继承另一个接口，和类之间的继承方式比较相似。接口的继承使用extends关键字，子接口继承父接口的方法。</p>
+<p>下面的Sports接口被Hockey和Football接口继承：</p>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="c1">// 文件名: Sports.java 
+</span><span class="c1"></span><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">Sports</span> <span class="o">{</span> 
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setHomeTeam</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">)</span><span class="o">;</span>  
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setVisitingTeam</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">)</span><span class="o">;</span>
+<span class="o">}</span>  
+<span class="c1">// 文件名: Football.java
+</span><span class="c1"></span><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">Football</span> <span class="kd">extends</span> <span class="n">Sports</span> <span class="o">{</span>  
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">homeTeamScored</span><span class="o">(</span><span class="kt">int</span> <span class="n">points</span><span class="o">)</span><span class="o">;</span> 
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">visitingTeamScored</span><span class="o">(</span><span class="kt">int</span> <span class="n">points</span><span class="o">)</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">endOfQuarter</span><span class="o">(</span><span class="kt">int</span> <span class="n">quarter</span><span class="o">)</span><span class="o">;</span> 
+<span class="o">}</span> 
+<span class="c1">// 文件名: Hockey.java
+</span><span class="c1"></span><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">Hockey</span> <span class="kd">extends</span> <span class="n">Sports</span> <span class="o">{</span>  
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">homeGoalScored</span><span class="o">(</span><span class="o">)</span><span class="o">;</span>   
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">visitingGoalScored</span><span class="o">(</span><span class="o">)</span><span class="o">;</span>  
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">endOfPeriod</span><span class="o">(</span><span class="kt">int</span> <span class="n">period</span><span class="o">)</span><span class="o">;</span>  
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">overtimePeriod</span><span class="o">(</span><span class="kt">int</span> <span class="n">ot</span><span class="o">)</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre></div><p>Hockey接口自己声明了四个方法，从Sports接口继承了两个方法，这样，实现Hockey接口的类需要实现六个方法。</p>
+<p>相似的，实现Football接口的类需要实现五个方法，其中两个来自于Sports接口。</p>
+<hr>
+<h2 id="接口的多继承">接口的多继承</h2>
+<p>在Java中，类的多继承是不合法，但接口允许多继承。</p>
+<p>在接口的多继承中extends关键字只需要使用一次，在其后跟着继承接口。 如下所示：</p>
+<p>public interface Hockey extends Sports, Event</p>
+<p>以上的程序片段是合法定义的子接口，与类不同的是，接口允许多继承，而 Sports及 Event 可能定义或是继承相同的方法</p>
+<hr>
+<h2 id="标记接口">标记接口</h2>
+<p>最常用的继承接口是没有包含任何方法的接口。</p>
+<p>标记接口是没有任何方法和属性的接口.它仅仅表明它的类属于一个特定的类型,供其他代码来测试允许做一些事情。</p>
+<p>标记接口作用：简单形象的说就是给某个对象打个标（盖个戳），使对象拥有某个或某些特权。</p>
+<p>例如：java.awt.event 包中的 MouseListener 接口继承的 java.util.EventListener 接口定义如下：</p>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="nn">java.util</span><span class="o">;</span> <span class="kd">public</span> <span class="kd">interface</span> <span class="nc">EventListener</span> <span class="o">{</span><span class="o">}</span>
+</code></pre></div><p>没有任何方法的接口被称为标记接口。标记接口主要用于以下两种目的：</p>
+<ul>
+<li>
+<p>建立一个公共的父接口：</p>
+<p>正如EventListener接口，这是由几十个其他接口扩展的Java API，你可以使用一个标记接口来建立一组接口的父接口。例如：当一个接口继承了EventListener接口，Java虚拟机(JVM)就知道该接口将要被用于一个事件的代理方案。</p>
+</li>
+<li>
+<p>向一个类添加数据类型：</p>
+<p>这种情况是标记接口最初的目的，实现标记接口的类不需要定义任何接口方法(因为标记接口根本就没有方法)，但是该类通过多态性变成一个接口类型。</p>
+</li>
+</ul>
+
+
+        
+          <div class="blog-tags">
+            
+              <a href="https://xiaoshigoodboy.github.io//tags/java/">java</a>&nbsp;
+            
+          </div>
+        
+
+        
+            <hr/>
+            <section id="social-share">
+              <div class="list-inline footer-links">
+                
+
+<div class="share-box" aria-hidden="true">
+    <ul class="share">
+      
+      <li>
+        <a href="//twitter.com/share?url=https%3a%2f%2fxiaoshigoodboy.github.io%2fjava%2fjavaoo%2f&amp;text=java%e9%9d%a2%e5%90%91%e5%af%b9%e8%b1%a1&amp;via=" target="_blank" title="Share on Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fxiaoshigoodboy.github.io%2fjava%2fjavaoo%2f" target="_blank" title="Share on Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//reddit.com/submit?url=https%3a%2f%2fxiaoshigoodboy.github.io%2fjava%2fjavaoo%2f&amp;title=java%e9%9d%a2%e5%90%91%e5%af%b9%e8%b1%a1" target="_blank" title="Share on Reddit">
+          <i class="fab fa-reddit"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fxiaoshigoodboy.github.io%2fjava%2fjavaoo%2f&amp;title=java%e9%9d%a2%e5%90%91%e5%af%b9%e8%b1%a1" target="_blank" title="Share on LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fxiaoshigoodboy.github.io%2fjava%2fjavaoo%2f&amp;title=java%e9%9d%a2%e5%90%91%e5%af%b9%e8%b1%a1" target="_blank" title="Share on StumbleUpon">
+          <i class="fab fa-stumbleupon"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fxiaoshigoodboy.github.io%2fjava%2fjavaoo%2f&amp;description=java%e9%9d%a2%e5%90%91%e5%af%b9%e8%b1%a1" target="_blank" title="Share on Pinterest">
+          <i class="fab fa-pinterest"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+
+              </div>
+            </section>
+        
+
+        
+          
+            
+          
+
+          
+                  <h4 class="see-also">See also</h4>
+                  <ul>
+                
+                
+                    <li><a href="/java/basic/">Java基础</a></li>
+                
+              </ul>
+
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://xiaoshigoodboy.github.io/java/basic/" data-toggle="tooltip" data-placement="top" title="Java基础">&larr; Previous Post</a>
+            </li>
+          
+          
+        </ul>
+      
+
+
+      
+        
+        
+      
+
+    </div>
+  </div>
+</div>
+
+      
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+                <a href="https://github.com/xiaoshigoodboy" title="GitHub">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+          <li>
+            <a href="" title="RSS">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2020
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://xiaoshigoodboy.github.io/">Sonor</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="https://gohugo.io">Hugo v0.62.2</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script src="https://xiaoshigoodboy.github.io/js/main.js"></script>
+<script src="https://xiaoshigoodboy.github.io/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script> renderMathInElement(document.body); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://xiaoshigoodboy.github.io/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+    
+  </body>
+</html>
+
