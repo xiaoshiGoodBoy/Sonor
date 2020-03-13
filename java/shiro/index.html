@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>Shiro - Sonor</title>
+  <meta name="description" content="Shiro 一.shiro的各个组件 Authentication :身份认证/登录,验证用户是不是拥有相应的身份;
+Authorization :授权,即权限验证,验证某个已认证的用户是否拥有某个权限;即判断用户是否能进行什么操作,如:验证某个用户是否拥有某个角色。或者细粒度的验证某个用户对某个资源是否具有某个权限;
+Session Manager :会话管理,即用户登录后就是一-次会话,在没有退出之前,它的所有信息都在会话中;会话可以是普通JavaSE环境,也可以是Web环境的;
+Cryptography :加密,保护数据的安全性,如密码加密存储到数据库,而不是明文存储;Web Support : Web支持,可以非常容易的集成到Web环境;
+Caching :缓存,比如用户登录后,其用户信息、拥有的角色/权限不必每次去查,这样可以提高效率;
+Concurrency : Shiro支持多线程应用的并发验证,即如在一个线程中开启另一 个线程,能把权限自动传播过去;
+Testing :提供测试支持;
+Run As :允许-个用户假装为另一个用户(如果他们允许)的身份进行访问
+Remember Me :记住我,这个是非常常见的功能,即一次登录后,下次再来的话不用登录了
+二.系统架构 Subject :应用代码直接交互的对象是Subject ,也就是说Shiro的对外API核心就是Subject。Subject 代表了当前“用户”， 这个用户不一定是一个具体的人,与当前应用交互的任何东西都是Subject ,如网络爬虫,机器人等;
+SecurityManager ;Subject其实是一个门面, SecurityManager才是实际的执行者;SecurityManager :安全管理器;即所有与安全有关的操作都会与其相关
+SecurityManager交互;且其管理着所有Subject ;可以看出它是Shiro的核心,它负责与Shiro的其他组件进行交互,它相当于 SpringMVC中DispatcherServlet的角色
+Realm : Shiro从Realm获取安全数据(如用户、角色、权限) , 就是说SecurityManager要验证用户身份,那么它需要从Realm获取相应的用户进行比较以确定用户身份是否合法;也需要从Realm得到用户相应的角色/权限进行验证用户是否能进行操作;可以把Realm看成DataSource
+三.拦截ShiroFilter   [urls]部分的配置,其格式是: &ldquo;url=拦截器[参数] ,拦截器[参数]”;如果当前请求的url匹配[urls]部分的某个url模式,将会执行其配置的拦截器。 anon ( anonymous )拦截器表示匿名访问(即不需要登录即可访问) authc ( authentication )拦截器表示需要身份认证通过后才能访问
+  url模式使用Ant风格: 模式Ant路径通配符支持?、*、**,注意通配符匹配不包括目录分隔符&rdquo;/”:
+​ -?:匹配一个字符,如/admin?将匹配/admin1,但不匹配/admin或/admin/ ;
+   :匹配零个或多个字符串,如/admin将匹配/admin、/admin123 ,但不匹配/admin/1 ; _** ."><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "Sonor",
+    
+    "url": "https:\/\/xiaoshigoodboy.github.io\/"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "https:\/\/xiaoshigoodboy.github.io\/"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/xiaoshigoodboy.github.io\/",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/xiaoshigoodboy.github.io\/java\/shiro\/",
+          "name": "Shiro"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : ""
+  },
+  "headline": "Shiro",
+  "description" : "Shiro 一.shiro的各个组件 Authentication :身份认证\/登录,验证用户是不是拥有相应的身份;\nAuthorization :授权,即权限验证,验证某个已认证的用户是否拥有某个权限;即判断用户是否能进行什么操作,如:验证某个用户是否拥有某个角色。或者细粒度的验证某个用户对某个资源是否具有某个权限;\nSession Manager :会话管理,即用户登录后就是一-次会话,在没有退出之前,它的所有信息都在会话中;会话可以是普通JavaSE环境,也可以是Web环境的;\nCryptography :加密,保护数据的安全性,如密码加密存储到数据库,而不是明文存储;Web Support : Web支持,可以非常容易的集成到Web环境;\nCaching :缓存,比如用户登录后,其用户信息、拥有的角色\/权限不必每次去查,这样可以提高效率;\nConcurrency : Shiro支持多线程应用的并发验证,即如在一个线程中开启另一 个线程,能把权限自动传播过去;\nTesting :提供测试支持;\nRun As :允许-个用户假装为另一个用户(如果他们允许)的身份进行访问\nRemember Me :记住我,这个是非常常见的功能,即一次登录后,下次再来的话不用登录了\n二.系统架构 Subject :应用代码直接交互的对象是Subject ,也就是说Shiro的对外API核心就是Subject。Subject 代表了当前“用户”， 这个用户不一定是一个具体的人,与当前应用交互的任何东西都是Subject ,如网络爬虫,机器人等;\nSecurityManager ;Subject其实是一个门面, SecurityManager才是实际的执行者;SecurityManager :安全管理器;即所有与安全有关的操作都会与其相关\nSecurityManager交互;且其管理着所有Subject ;可以看出它是Shiro的核心,它负责与Shiro的其他组件进行交互,它相当于 SpringMVC中DispatcherServlet的角色\nRealm : Shiro从Realm获取安全数据(如用户、角色、权限) , 就是说SecurityManager要验证用户身份,那么它需要从Realm获取相应的用户进行比较以确定用户身份是否合法;也需要从Realm得到用户相应的角色\/权限进行验证用户是否能进行操作;可以把Realm看成DataSource\n三.拦截ShiroFilter   [urls]部分的配置,其格式是: \x26ldquo;url=拦截器[参数] ,拦截器[参数]”;如果当前请求的url匹配[urls]部分的某个url模式,将会执行其配置的拦截器。 anon ( anonymous )拦截器表示匿名访问(即不需要登录即可访问) authc ( authentication )拦截器表示需要身份认证通过后才能访问\n  url模式使用Ant风格: 模式Ant路径通配符支持?、*、**,注意通配符匹配不包括目录分隔符\x26rdquo;\/”:\n​ -?:匹配一个字符,如\/admin?将匹配\/admin1,但不匹配\/admin或\/admin\/ ;\n   :匹配零个或多个字符串,如\/admin将匹配\/admin、\/admin123 ,但不匹配\/admin\/1 ; _** .",
+  "inLanguage" : "en",
+  "wordCount":  351 ,
+  "datePublished" : "2020-03-13T17:20:09",
+  "dateModified" : "2020-03-13T17:20:09",
+  "image" : "https:\/\/xiaoshigoodboy.github.io\/img\/avatar-icon.png",
+  "keywords" : [ "java" ],
+  "mainEntityOfPage" : "https:\/\/xiaoshigoodboy.github.io\/java\/shiro\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/xiaoshigoodboy.github.io\/",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/xiaoshigoodboy.github.io\/img\/avatar-icon.png",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+<meta property="og:title" content="Shiro" />
+<meta property="og:description" content="Shiro 一.shiro的各个组件 Authentication :身份认证/登录,验证用户是不是拥有相应的身份;
+Authorization :授权,即权限验证,验证某个已认证的用户是否拥有某个权限;即判断用户是否能进行什么操作,如:验证某个用户是否拥有某个角色。或者细粒度的验证某个用户对某个资源是否具有某个权限;
+Session Manager :会话管理,即用户登录后就是一-次会话,在没有退出之前,它的所有信息都在会话中;会话可以是普通JavaSE环境,也可以是Web环境的;
+Cryptography :加密,保护数据的安全性,如密码加密存储到数据库,而不是明文存储;Web Support : Web支持,可以非常容易的集成到Web环境;
+Caching :缓存,比如用户登录后,其用户信息、拥有的角色/权限不必每次去查,这样可以提高效率;
+Concurrency : Shiro支持多线程应用的并发验证,即如在一个线程中开启另一 个线程,能把权限自动传播过去;
+Testing :提供测试支持;
+Run As :允许-个用户假装为另一个用户(如果他们允许)的身份进行访问
+Remember Me :记住我,这个是非常常见的功能,即一次登录后,下次再来的话不用登录了
+二.系统架构 Subject :应用代码直接交互的对象是Subject ,也就是说Shiro的对外API核心就是Subject。Subject 代表了当前“用户”， 这个用户不一定是一个具体的人,与当前应用交互的任何东西都是Subject ,如网络爬虫,机器人等;
+SecurityManager ;Subject其实是一个门面, SecurityManager才是实际的执行者;SecurityManager :安全管理器;即所有与安全有关的操作都会与其相关
+SecurityManager交互;且其管理着所有Subject ;可以看出它是Shiro的核心,它负责与Shiro的其他组件进行交互,它相当于 SpringMVC中DispatcherServlet的角色
+Realm : Shiro从Realm获取安全数据(如用户、角色、权限) , 就是说SecurityManager要验证用户身份,那么它需要从Realm获取相应的用户进行比较以确定用户身份是否合法;也需要从Realm得到用户相应的角色/权限进行验证用户是否能进行操作;可以把Realm看成DataSource
+三.拦截ShiroFilter   [urls]部分的配置,其格式是: &ldquo;url=拦截器[参数] ,拦截器[参数]”;如果当前请求的url匹配[urls]部分的某个url模式,将会执行其配置的拦截器。 anon ( anonymous )拦截器表示匿名访问(即不需要登录即可访问) authc ( authentication )拦截器表示需要身份认证通过后才能访问
+  url模式使用Ant风格: 模式Ant路径通配符支持?、*、**,注意通配符匹配不包括目录分隔符&rdquo;/”:
+​ -?:匹配一个字符,如/admin?将匹配/admin1,但不匹配/admin或/admin/ ;
+   :匹配零个或多个字符串,如/admin将匹配/admin、/admin123 ,但不匹配/admin/1 ; _** .">
+<meta property="og:image" content="https://xiaoshigoodboy.github.io/img/avatar-icon.png" />
+<meta property="og:url" content="https://xiaoshigoodboy.github.io/java/shiro/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Sonor" />
+
+  <meta name="twitter:title" content="Shiro" />
+  <meta name="twitter:description" content="Shiro 一.shiro的各个组件 Authentication :身份认证/登录,验证用户是不是拥有相应的身份;
+Authorization :授权,即权限验证,验证某个已认证的用户是否拥有某个权限;即判断用户是否能进行什么操作,如:验证某个用户是否拥有某个角色。或者细粒度的验证某个用户对某个资源是否具有某个权限;
+Session Manager :会话管理,即用户登录后就是一-次会话,在没有 …">
+  <meta name="twitter:image" content="https://xiaoshigoodboy.github.io/img/avatar-icon.png" />
+  <meta name="twitter:card" content="summary" />
+  <link href='https://xiaoshigoodboy.github.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
+  <meta name="generator" content="Hugo 0.62.2" />
+  <link rel="alternate" href="https://xiaoshigoodboy.github.io/index.xml" type="application/rss+xml" title="Sonor"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://xiaoshigoodboy.github.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://xiaoshigoodboy.github.io/css/highlight.min.css" /><link rel="stylesheet" href="https://xiaoshigoodboy.github.io/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://xiaoshigoodboy.github.io/">Sonor</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="/">Blog</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="/tags">Tags</a>
+            </li>
+          
+        
+
+        
+
+        
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="Sonor" href="https://xiaoshigoodboy.github.io/">
+            <img class="avatar-img" src="https://xiaoshigoodboy.github.io/img/avatar-icon.png" alt="Sonor" />
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="java-heading">
+              
+                <h1>Shiro</h1>
+              
+              
+                <hr class="small">
+              
+              
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <h1 id="shiro">Shiro</h1>
+<h2 id="一shiro的各个组件">一.shiro的各个组件</h2>
+<p>Authentication :身份认证/登录,验证用户是不是拥有相应的身份;</p>
+<p>Authorization :授权,即权限验证,验证某个已认证的用户是否拥有某个权限;即判断用户是否能进行什么操作,如:验证某个用户是否拥有某个角色。或者细粒度的验证某个用户对某个资源是否具有某个权限;</p>
+<p>Session Manager :会话管理,即用户登录后就是一-次会话,在没有退出之前,它的所有信息都在会话中;会话可以是普通JavaSE环境,也可以是Web环境的;</p>
+<p>Cryptography :加密,保护数据的安全性,如密码加密存储到数据库,而不是明文存储;Web Support : Web支持,可以非常容易的集成到Web环境;</p>
+<p>Caching :缓存,比如用户登录后,其用户信息、拥有的角色/权限不必每次去查,这样可以提高效率;</p>
+<p>Concurrency : Shiro支持多线程应用的并发验证,即如在一个线程中开启另一 个线程,能把权限自动传播过去;</p>
+<p>Testing :提供测试支持;</p>
+<p>Run As :允许-个用户假装为另一个用户(如果他们允许)的身份进行访问</p>
+<p>Remember Me :记住我,这个是非常常见的功能,即一次登录后,下次再来的话不用登录了</p>
+<h2 id="二系统架构">二.<strong>系统架构</strong></h2>
+<p>Subject :应用代码直接交互的对象是Subject ,也就是说Shiro的对外API核心就是Subject。Subject 代表了当前“用户”，  这个用户不一定是一个具体的人,与当前应用交互的任何东西都是Subject ,如网络爬虫,机器人等;</p>
+<p>SecurityManager ;Subject其实是一个门面, SecurityManager才是实际的执行者;SecurityManager :安全管理器;即所有与安全有关的操作都会与其相关</p>
+<p>SecurityManager交互;且其管理着所有Subject ;可以看出它是Shiro的核心,它负责与Shiro的其他组件进行交互,它相当于   SpringMVC中DispatcherServlet的角色</p>
+<p>Realm : Shiro从Realm获取安全数据(如用户、角色、权限) , 就是说SecurityManager要验证用户身份,那么它需要从Realm获取相应的用户进行比较以确定用户身份是否合法;也需要从Realm得到用户相应的角色/权限进行验证用户是否能进行操作;可以把Realm看成DataSource</p>
+<h2 id="三拦截shirofilter">三.拦截ShiroFilter</h2>
+<ol>
+<li>
+<p>[urls]部分的配置,其格式是:  &ldquo;url=拦截器[参数] ,拦截器[参数]”;如果当前请求的url匹配[urls]部分的某个url模式,将会执行其配置的拦截器。
+anon ( anonymous )拦截器表示匿名访问(即不需要登录即可访问)
+authc ( authentication )拦截器表示需要身份认证通过后才能访问</p>
+</li>
+<li>
+<p>url模式使用Ant风格: 模式Ant路径通配符支持?、*、**,注意通配符匹配不包括目录分隔符&rdquo;/”:</p>
+<p>​    -?:匹配一个字符,如/admin?将匹配/admin1,但不匹配/admin或/admin/ ;</p>
+<ul>
+<li>
+<ul>
+<li>:匹配零个或多个字符串,如/admin将匹配/admin、/admin123 ,但不匹配/admin/1 ;
+_** .匹配路径中的零个或多个路径,如/admin/**将匹配/admin/a或/admin/a/b</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>URL权限: 采取第一次匹配优先的方式,即从头开始使用第一个匹配的url模式对应的拦截器链。如:</p>
+<pre><code>- /bb/** =filter1
+       /bb/aa=filter2- /** =filter3
+         如果请求的ur|是&quot;/bb/aa&quot; ,因为按照声明顺序进行匹配,那么将使用filter1进行拦截。
+</code></pre>
+</li>
+</ol>
+<h2 id="四认证流程">四.认证流程</h2>
+<p>1.获取当前的Subject.  调用SecurityUtils . getSubject() ;</p>
+<ol start="2">
+<li>
+<p>测试当前的用户是否已经被认证，即是否已经登录.  调用Subject的isAuthenticated ()3.  若没有被认证，  则把用户名和密码封装为Use rnamePasswordToken对象</p>
+<ol>
+<li>.  创建一个表单页面</li>
+</ol>
+<p>2).把请求提交到SpringMVC的Handler</p>
+<ol start="3">
+<li>.获取用户名和密码.</li>
+</ol>
+</li>
+<li>
+<p>执行登录:调用Subject的login (AuthenticationToken)  方法.</p>
+</li>
+<li>
+<p>自定义Realm的方法，从数据库中获取对应的记录，返回给Shiro.</p>
+</li>
+</ol>
+<ol>
+<li>
+<p>.实际_ 上需要继承org .apache. shiro. realm. AuthenticatingRealm 类</p>
+</li>
+<li>
+<p>.  实现doGe tAuthenticationInfo (AuthenticationToken)  方法。</p>
+</li>
+</ol>
+<p>6.由shiro完成对密码的比对.</p>
+<h2 id="开始使用shiro">开始使用shiro</h2>
+<h4 id="需要的依赖包">需要的依赖包</h4>
+<div class="highlight"><pre class="chroma"><code class="language-xml" data-lang="xml">        <span class="nt">&lt;dependency</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;groupId</span><span class="nt">&gt;</span>org.apache.shiro<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId</span><span class="nt">&gt;</span>shiro-web<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;version</span><span class="nt">&gt;</span>1.4.0<span class="nt">&lt;/version&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+
+        <span class="nt">&lt;dependency</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;groupId</span><span class="nt">&gt;</span>org.apache.shiro<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId</span><span class="nt">&gt;</span>shiro-spring<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;version</span><span class="nt">&gt;</span>1.4.0<span class="nt">&lt;/version&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+</code></pre></div><h4 id="首先进行登录验证">首先进行登录验证</h4>
+<p>用户请求from登录表面，POST请求，参数：username,  password</p>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java">	<span class="nd">@PostMapping</span><span class="o">(</span><span class="s">&#34;/doLogin&#34;</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">doLogin</span><span class="o">(</span><span class="n">String</span> <span class="n">username</span><span class="o">,</span> <span class="n">String</span> <span class="n">password</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">Subject</span> <span class="n">subject</span> <span class="o">=</span> <span class="n">SecurityUtils</span><span class="o">.</span><span class="na">getSubject</span><span class="o">(</span><span class="o">)</span><span class="o">;</span>
+        <span class="k">try</span> <span class="o">{</span>
+            <span class="n">subject</span><span class="o">.</span><span class="na">login</span><span class="o">(</span><span class="k">new</span> <span class="n">UsernamePasswordToken</span><span class="o">(</span><span class="n">username</span><span class="o">,</span> <span class="n">password</span><span class="o">)</span><span class="o">)</span><span class="o">;</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;登录成功!&#34;</span><span class="o">)</span><span class="o">;</span>
+            <span class="k">return</span> <span class="s">&#34;index&#34;</span><span class="o">;</span>
+        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">AuthenticationException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">(</span><span class="o">)</span><span class="o">;</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;登录失败!&#34;</span><span class="o">)</span><span class="o">;</span>
+            <span class="k">return</span> <span class="s">&#34;login&#34;</span><span class="o">;</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+</code></pre></div><p>从执行到subject.login方法的时候就开始执行realm中的方法doGetAuthenticationInfo()</p>
+<p>创建一个MyShiroRealm类，实现AuthorizingRealm方法</p>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyShiroRealm</span> <span class="kd">extends</span> <span class="n">AuthorizingRealm</span> <span class="o">{</span>
+
+    <span class="nd">@Autowired</span>
+    <span class="kd">private</span> <span class="n">UserService</span> <span class="n">userService</span><span class="o">;</span>
+
+
+
+     <span class="c1">//执行授权逻辑
+</span><span class="c1"></span>     <span class="nd">@Override</span>
+     <span class="kd">protected</span> <span class="n">AuthorizationInfo</span> <span class="nf">doGetAuthorizationInfo</span><span class="o">(</span><span class="n">PrincipalCollection</span> <span class="n">principalCollection</span><span class="o">)</span> <span class="o">{</span>
+     <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;执行授权逻辑&#34;</span><span class="o">)</span><span class="o">;</span>
+     <span class="k">return</span> <span class="kc">null</span><span class="o">;</span>
+     <span class="o">}</span>
+
+
+    <span class="c1">// 执行认证逻辑
+</span><span class="c1"></span>
+    <span class="c1">//用户认证
+</span><span class="c1"></span>    <span class="nd">@Override</span>
+    <span class="kd">protected</span> <span class="n">AuthenticationInfo</span> <span class="nf">doGetAuthenticationInfo</span><span class="o">(</span><span class="n">AuthenticationToken</span> <span class="n">atoken</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">AuthenticationException</span> <span class="o">{</span>
+        <span class="n">UsernamePasswordToken</span> <span class="n">token</span> <span class="o">=</span> <span class="o">(</span><span class="n">UsernamePasswordToken</span><span class="o">)</span> <span class="n">atoken</span><span class="o">;</span>
+        <span class="n">String</span> <span class="n">name</span> <span class="o">=</span> <span class="n">token</span><span class="o">.</span><span class="na">getUsername</span><span class="o">(</span><span class="o">)</span><span class="o">;</span>
+        <span class="n">User</span> <span class="n">user</span> <span class="o">=</span> <span class="n">userService</span><span class="o">.</span><span class="na">selectUserOne</span><span class="o">(</span><span class="n">name</span><span class="o">)</span><span class="o">;</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">user</span> <span class="o">=</span><span class="o">=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="n">Error</span><span class="o">(</span><span class="s">&#34;用户名不存在&#34;</span><span class="o">)</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="c1">// 这里验证authenticationToken和simpleAuthenticationInfo的信息
+</span><span class="c1"></span>        <span class="n">SimpleAuthenticationInfo</span> <span class="n">simpleAuthenticationInfo</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SimpleAuthenticationInfo</span><span class="o">(</span><span class="n">user</span><span class="o">,</span> <span class="n">user</span><span class="o">.</span><span class="na">getPassword</span><span class="o">(</span><span class="o">)</span> <span class="o">,</span> <span class="n">ByteSource</span><span class="o">.</span><span class="na">Util</span><span class="o">.</span><span class="na">bytes</span><span class="o">(</span><span class="n">user</span><span class="o">.</span><span class="na">getSalt</span><span class="o">(</span><span class="o">)</span><span class="o">)</span><span class="o">,</span> <span class="n">getName</span><span class="o">(</span><span class="o">)</span><span class="o">)</span><span class="o">;</span>
+        <span class="c1">// SimpleAuthenticationInfo simpleAuthenticationInfo = new SimpleAuthenticationInfo(user, user.getPassword(), getName());
+</span><span class="c1"></span>        <span class="k">return</span> <span class="n">simpleAuthenticationInfo</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div><p>用户注册的时候对密码进行了加盐处理，所以相对应验证的时候也需要进行加盐处理。加盐处理这里需要注意配置shiroConfiguration类时对解码方式生效处理</p>
+<p>开始配置ShiroConfiguration</p>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="nd">@Configuration</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ShiroConfiguration</span> <span class="o">{</span>
+
+    <span class="nd">@Bean</span>
+    <span class="kd">public</span> <span class="n">MyShiroRealm</span> <span class="nf">myRealm</span><span class="o">(</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">MyShiroRealm</span> <span class="n">myShiroRealm</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MyShiroRealm</span><span class="o">(</span><span class="o">)</span><span class="o">;</span>
+        <span class="c1">// 这里一定需要注意, 如果没有这个进行加盐密码验证时会报错
+</span><span class="c1"></span>        <span class="n">myShiroRealm</span><span class="o">.</span><span class="na">setCredentialsMatcher</span><span class="o">(</span><span class="n">hashedCredentialsMatcher</span><span class="o">(</span><span class="o">)</span><span class="o">)</span><span class="o">;</span>
+        <span class="k">return</span> <span class="n">myShiroRealm</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Bean</span>
+    <span class="n">DefaultWebSecurityManager</span> <span class="nf">securityManager</span><span class="o">(</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">DefaultWebSecurityManager</span> <span class="n">securityManager</span> <span class="o">=</span> <span class="k">new</span> <span class="n">DefaultWebSecurityManager</span><span class="o">(</span><span class="o">)</span><span class="o">;</span>
+        <span class="n">securityManager</span><span class="o">.</span><span class="na">setRealm</span><span class="o">(</span><span class="n">myRealm</span><span class="o">(</span><span class="o">)</span><span class="o">)</span><span class="o">;</span>
+        <span class="k">return</span> <span class="n">securityManager</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="cm">/**
+</span><span class="cm">     * 密码匹配凭证管理器（密码加密需要此配置）
+</span><span class="cm">     * @return
+</span><span class="cm">     */</span>
+    <span class="nd">@Bean</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">&#34;credentialsMatcher&#34;</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="n">HashedCredentialsMatcher</span> <span class="nf">hashedCredentialsMatcher</span><span class="o">(</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">HashedCredentialsMatcher</span> <span class="n">hashedCredentialsMatcher</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashedCredentialsMatcher</span><span class="o">(</span><span class="o">)</span><span class="o">;</span>
+        <span class="n">hashedCredentialsMatcher</span><span class="o">.</span><span class="na">setHashAlgorithmName</span><span class="o">(</span><span class="s">&#34;MD5&#34;</span><span class="o">)</span><span class="o">;</span>
+        <span class="c1">// hashedCredentialsMatcher.setHashIterations(1024);// 设置加密次数
+</span><span class="c1"></span>        <span class="k">return</span> <span class="n">hashedCredentialsMatcher</span><span class="o">;</span>
+    <span class="o">}</span>
+
+
+    <span class="nd">@Bean</span>
+    <span class="n">ShiroFilterFactoryBean</span> <span class="nf">shiroFilterFactoryBean</span><span class="o">(</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">ShiroFilterFactoryBean</span> <span class="n">bean</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ShiroFilterFactoryBean</span><span class="o">(</span><span class="o">)</span><span class="o">;</span>
+        <span class="n">bean</span><span class="o">.</span><span class="na">setSecurityManager</span><span class="o">(</span><span class="n">securityManager</span><span class="o">(</span><span class="o">)</span><span class="o">)</span><span class="o">;</span>
+        <span class="n">bean</span><span class="o">.</span><span class="na">setLoginUrl</span><span class="o">(</span><span class="s">&#34;/&#34;</span><span class="o">)</span><span class="o">;</span>
+        <span class="n">bean</span><span class="o">.</span><span class="na">setSuccessUrl</span><span class="o">(</span><span class="s">&#34;/index&#34;</span><span class="o">)</span><span class="o">;</span>
+        <span class="n">bean</span><span class="o">.</span><span class="na">setUnauthorizedUrl</span><span class="o">(</span><span class="s">&#34;/unauthorizedurl&#34;</span><span class="o">)</span><span class="o">;</span>
+        <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;</span> <span class="n">map</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LinkedHashMap</span><span class="o">&lt;</span><span class="o">&gt;</span><span class="o">(</span><span class="o">)</span><span class="o">;</span>
+        <span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&#34;/doLogin&#34;</span><span class="o">,</span> <span class="s">&#34;anon&#34;</span><span class="o">)</span><span class="o">;</span>
+        <span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&#34;/user/register&#34;</span><span class="o">,</span> <span class="s">&#34;anon&#34;</span><span class="o">)</span><span class="o">;</span>
+        <span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&#34;/**/css/**&#34;</span><span class="o">,</span> <span class="s">&#34;anon&#34;</span><span class="o">)</span><span class="o">;</span>
+        <span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&#34;/**/js/**&#34;</span><span class="o">,</span> <span class="s">&#34;anon&#34;</span><span class="o">)</span><span class="o">;</span>
+        <span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&#34;/**&#34;</span><span class="o">,</span> <span class="s">&#34;authc&#34;</span>		<span class="o">)</span><span class="o">;</span>
+        <span class="n">bean</span><span class="o">.</span><span class="na">setFilterChainDefinitionMap</span><span class="o">(</span><span class="n">map</span><span class="o">)</span><span class="o">;</span>
+        <span class="k">return</span> <span class="n">bean</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="c1">//加入注解的使用，不加入这个注解不生效
+</span><span class="c1"></span>    <span class="nd">@Bean</span>
+    <span class="kd">public</span> <span class="n">AuthorizationAttributeSourceAdvisor</span> <span class="nf">authorizationAttributeSourceAdvisor</span><span class="o">(</span><span class="n">DefaultWebSecurityManager</span> <span class="n">securityManager</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">AuthorizationAttributeSourceAdvisor</span> <span class="n">authorizationAttributeSourceAdvisor</span> <span class="o">=</span> <span class="k">new</span> <span class="n">AuthorizationAttributeSourceAdvisor</span><span class="o">(</span><span class="o">)</span><span class="o">;</span>
+        <span class="n">authorizationAttributeSourceAdvisor</span><span class="o">.</span><span class="na">setSecurityManager</span><span class="o">(</span><span class="n">securityManager</span><span class="o">)</span><span class="o">;</span>
+        <span class="k">return</span> <span class="n">authorizationAttributeSourceAdvisor</span><span class="o">;</span>
+    <span class="o">}</span>
+
+<span class="o">}</span>
+</code></pre></div><p>到这登录验证处理完毕，可以先验证上面的配置是否有问题</p>
+
+
+        
+          <div class="blog-tags">
+            
+              <a href="https://xiaoshigoodboy.github.io//tags/java/">java</a>&nbsp;
+            
+          </div>
+        
+
+        
+            <hr/>
+            <section id="social-share">
+              <div class="list-inline footer-links">
+                
+
+<div class="share-box" aria-hidden="true">
+    <ul class="share">
+      
+      <li>
+        <a href="//twitter.com/share?url=https%3a%2f%2fxiaoshigoodboy.github.io%2fjava%2fshiro%2f&amp;text=Shiro&amp;via=" target="_blank" title="Share on Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fxiaoshigoodboy.github.io%2fjava%2fshiro%2f" target="_blank" title="Share on Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//reddit.com/submit?url=https%3a%2f%2fxiaoshigoodboy.github.io%2fjava%2fshiro%2f&amp;title=Shiro" target="_blank" title="Share on Reddit">
+          <i class="fab fa-reddit"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fxiaoshigoodboy.github.io%2fjava%2fshiro%2f&amp;title=Shiro" target="_blank" title="Share on LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fxiaoshigoodboy.github.io%2fjava%2fshiro%2f&amp;title=Shiro" target="_blank" title="Share on StumbleUpon">
+          <i class="fab fa-stumbleupon"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fxiaoshigoodboy.github.io%2fjava%2fshiro%2f&amp;description=Shiro" target="_blank" title="Share on Pinterest">
+          <i class="fab fa-pinterest"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+
+              </div>
+            </section>
+        
+
+        
+          
+            
+          
+
+          
+                  <h4 class="see-also">See also</h4>
+                  <ul>
+                
+                
+                    <li><a href="/java/springsecurity/">SpringSecurity</a></li>
+                
+                    <li><a href="/java/javaoo/">java面向对象</a></li>
+                
+                    <li><a href="/java/basic/">Java基础</a></li>
+                
+              </ul>
+
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://xiaoshigoodboy.github.io/java/springsecurity/" data-toggle="tooltip" data-placement="top" title="SpringSecurity">&larr; Previous Post</a>
+            </li>
+          
+          
+        </ul>
+      
+
+
+      
+        
+        
+      
+
+    </div>
+  </div>
+</div>
+
+      
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+                <a href="https://github.com/xiaoshigoodboy" title="GitHub">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+          <li>
+            <a href="" title="RSS">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2020
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://xiaoshigoodboy.github.io/">Sonor</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="https://gohugo.io">Hugo v0.62.2</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script src="https://xiaoshigoodboy.github.io/js/main.js"></script>
+<script src="https://xiaoshigoodboy.github.io/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script> renderMathInElement(document.body); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://xiaoshigoodboy.github.io/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+    
+  </body>
+</html>
+

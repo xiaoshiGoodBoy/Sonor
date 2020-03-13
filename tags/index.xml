@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Sonor</title>
+    <link>https://xiaoshigoodboy.github.io/tags/</link>
+    <description>Recent content in Tags on Sonor</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Fri, 13 Mar 2020 17:20:09 +0800</lastBuildDate>
+    
+	<atom:link href="https://xiaoshigoodboy.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>java</title>
+      <link>https://xiaoshigoodboy.github.io/tags/java/</link>
+      <pubDate>Fri, 13 Mar 2020 17:20:09 +0800</pubDate>
+      
+      <guid>https://xiaoshigoodboy.github.io/tags/java/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
