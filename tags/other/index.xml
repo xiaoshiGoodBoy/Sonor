@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>other on Sonor</title>
+    <link>https://xiaoshigoodboy.github.io/tags/other/</link>
+    <description>Recent content in other on Sonor</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sat, 11 Apr 2020 10:11:58 +0800</lastBuildDate>
+    
+	<atom:link href="https://xiaoshigoodboy.github.io/tags/other/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>javascript</title>
+      <link>https://xiaoshigoodboy.github.io/other/js/</link>
+      <pubDate>Sat, 11 Apr 2020 10:11:58 +0800</pubDate>
+      
+      <guid>https://xiaoshigoodboy.github.io/other/js/</guid>
+      <description>JavaScript 导出Excel , Word // 前台请求方式，可以直接跳转下载word、excel window.location.href = &amp;#34;history_systemAction?startTime=&amp;#34; + start + &amp;#34;&amp;amp;endTime=&amp;#34; +end; // 后台处理文件流 // ssh框架 response.setContentType(&amp;#34;octets/stream&amp;#34;); response.addHeader(&amp;#34;Content-Disposition&amp;#34;,&amp;#34;attachment;filename=historyWord.docx&amp;#34;); OutputStream out = response.getOutputStream(); // poi进行表格封装 XWPFDocument document = new XWPFDocument(); // 新建一个段落, 作用: word中插入多个表格使用，防止表格放到一起 XWPFParagraph p = document.createParagraph(); XWPFTable table = document.createTable(); // 设置表格样式 CTTblWidth width = table.getCTTbl().addNewTblPr().addNewTblW(); width.setType(STTblWidth.DXA); width.setW(BigInteger.valueOf(5000)); // 获取表格的第一行 XWPFTableRow tableRowOne = table.getRow(0); // 参数 i: 当前行的第几个单元格 s: 赋值 tableRowOne.getCell(i++).setText(s) // 关闭流 document.write(out); out.close(); out.flush(); 打印功能 // 前台页面 // 参数val: String类型的html代码 $.</description>
+    </item>
+    
+    <item>
+      <title>数据库</title>
+      <link>https://xiaoshigoodboy.github.io/other/database/</link>
+      <pubDate>Sat, 11 Apr 2020 09:07:02 +0800</pubDate>
+      
+      <guid>https://xiaoshigoodboy.github.io/other/database/</guid>
+      <description>PostgreSql 存储过程 create or replace function loopData4() RETURNS integer AS $$ declare v_index integer :=1000; begin while v_index &amp;lt;1081 loop v_index = v_index + 1; insert into tab_sensor (id, kind,state,mark,name,zkbh,address1,address2,addressb,bzuobiao,czuobiao,angle,alarmvalue,values1,notalarmvalue,jiazhichushi,programid,maxy,miny,damheight,scale,scalenum,imgurl ) values (v_index,&amp;#39;拉线传感器&amp;#39;,&amp;#39;ZB&amp;#39;,&amp;#39;坝体表面位移&amp;#39;,&amp;#39;DB&amp;#39;, 1, 1, &amp;#39;88540.0|16319.0|180|16.47&amp;#39;,10,&amp;#39;&amp;#39;,&amp;#39;&amp;#39;,1.0,&amp;#39;0.06|1|2&amp;#39;,&amp;#39;0&amp;#39;,&amp;#39;10.0.0.159&amp;#39;,&amp;#39;&amp;#39;,2,183.0,159.0,180.0,2.0,13.0,&amp;#39;/images/uploadImg/10_1485141083056.jpg&amp;#39;); end loop; return 1; end; $$ LANGUAGE plpgsql; select loopData4(); // 满足条件部分修改 create or replace function data1() RETURNS integer AS $$ declare rec integer; begin for rec in EXECUTE &amp;#39;select id from (select id, cast(split_part(cast(value2 as varchar),&amp;#39;&amp;#39;.</description>
+    </item>
+    
+  </channel>
+</rss>

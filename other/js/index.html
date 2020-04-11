@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>javascript - Sonor</title>
+  <meta name="description" content="JavaScript 导出Excel , Word // 前台请求方式，可以直接跳转下载word、excel window.location.href = &#34;history_systemAction?startTime=&#34; &#43; start &#43; &#34;&amp;endTime=&#34; &#43;end; // 后台处理文件流 // ssh框架 response.setContentType(&#34;octets/stream&#34;); response.addHeader(&#34;Content-Disposition&#34;,&#34;attachment;filename=historyWord.docx&#34;); OutputStream out = response.getOutputStream(); // poi进行表格封装 XWPFDocument document = new XWPFDocument(); // 新建一个段落, 作用: word中插入多个表格使用，防止表格放到一起 XWPFParagraph p = document.createParagraph(); XWPFTable table = document.createTable(); // 设置表格样式 CTTblWidth width = table.getCTTbl().addNewTblPr().addNewTblW(); width.setType(STTblWidth.DXA); width.setW(BigInteger.valueOf(5000)); // 获取表格的第一行 XWPFTableRow tableRowOne = table.getRow(0); // 参数 i: 当前行的第几个单元格 s: 赋值 tableRowOne.getCell(i&#43;&#43;).setText(s) // 关闭流 document.write(out); out.close(); out.flush(); 打印功能 // 前台页面 // 参数val: String类型的html代码 $."><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "Sonor",
+    
+    "url": "https:\/\/xiaoshigoodboy.github.io\/"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "https:\/\/xiaoshigoodboy.github.io\/"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/xiaoshigoodboy.github.io\/",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/xiaoshigoodboy.github.io\/other\/js\/",
+          "name": "Javascript"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : ""
+  },
+  "headline": "javascript",
+  "description" : "JavaScript 导出Excel , Word \/\/ 前台请求方式，可以直接跳转下载word、excel window.location.href = \x26#34;history_systemAction?startTime=\x26#34; \x2b start \x2b \x26#34;\x26amp;endTime=\x26#34; \x2bend; \/\/ 后台处理文件流 \/\/ ssh框架 response.setContentType(\x26#34;octets\/stream\x26#34;); response.addHeader(\x26#34;Content-Disposition\x26#34;,\x26#34;attachment;filename=historyWord.docx\x26#34;); OutputStream out = response.getOutputStream(); \/\/ poi进行表格封装 XWPFDocument document = new XWPFDocument(); \/\/ 新建一个段落, 作用: word中插入多个表格使用，防止表格放到一起 XWPFParagraph p = document.createParagraph(); XWPFTable table = document.createTable(); \/\/ 设置表格样式 CTTblWidth width = table.getCTTbl().addNewTblPr().addNewTblW(); width.setType(STTblWidth.DXA); width.setW(BigInteger.valueOf(5000)); \/\/ 获取表格的第一行 XWPFTableRow tableRowOne = table.getRow(0); \/\/ 参数 i: 当前行的第几个单元格 s: 赋值 tableRowOne.getCell(i\x2b\x2b).setText(s) \/\/ 关闭流 document.write(out); out.close(); out.flush(); 打印功能 \/\/ 前台页面 \/\/ 参数val: String类型的html代码 $.",
+  "inLanguage" : "en",
+  "wordCount":  288 ,
+  "datePublished" : "2020-04-11T10:11:58",
+  "dateModified" : "2020-04-11T10:11:58",
+  "image" : "https:\/\/xiaoshigoodboy.github.io\/img\/avatar-icon.png",
+  "keywords" : [ "other" ],
+  "mainEntityOfPage" : "https:\/\/xiaoshigoodboy.github.io\/other\/js\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/xiaoshigoodboy.github.io\/",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/xiaoshigoodboy.github.io\/img\/avatar-icon.png",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+<meta property="og:title" content="javascript" />
+<meta property="og:description" content="JavaScript 导出Excel , Word // 前台请求方式，可以直接跳转下载word、excel window.location.href = &#34;history_systemAction?startTime=&#34; &#43; start &#43; &#34;&amp;endTime=&#34; &#43;end; // 后台处理文件流 // ssh框架 response.setContentType(&#34;octets/stream&#34;); response.addHeader(&#34;Content-Disposition&#34;,&#34;attachment;filename=historyWord.docx&#34;); OutputStream out = response.getOutputStream(); // poi进行表格封装 XWPFDocument document = new XWPFDocument(); // 新建一个段落, 作用: word中插入多个表格使用，防止表格放到一起 XWPFParagraph p = document.createParagraph(); XWPFTable table = document.createTable(); // 设置表格样式 CTTblWidth width = table.getCTTbl().addNewTblPr().addNewTblW(); width.setType(STTblWidth.DXA); width.setW(BigInteger.valueOf(5000)); // 获取表格的第一行 XWPFTableRow tableRowOne = table.getRow(0); // 参数 i: 当前行的第几个单元格 s: 赋值 tableRowOne.getCell(i&#43;&#43;).setText(s) // 关闭流 document.write(out); out.close(); out.flush(); 打印功能 // 前台页面 // 参数val: String类型的html代码 $.">
+<meta property="og:image" content="https://xiaoshigoodboy.github.io/img/avatar-icon.png" />
+<meta property="og:url" content="https://xiaoshigoodboy.github.io/other/js/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Sonor" />
+
+  <meta name="twitter:title" content="javascript" />
+  <meta name="twitter:description" content="JavaScript 导出Excel , Word // 前台请求方式，可以直接跳转下载word、excel window.location.href = &#34;history_systemAction?startTime=&#34; &#43; start &#43; &#34;&amp;endTime=&#34; &#43;end; // 后台处理文件流 // ssh …">
+  <meta name="twitter:image" content="https://xiaoshigoodboy.github.io/img/avatar-icon.png" />
+  <meta name="twitter:card" content="summary" />
+  <link href='https://xiaoshigoodboy.github.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
+  <meta name="generator" content="Hugo 0.62.2" />
+  <link rel="alternate" href="https://xiaoshigoodboy.github.io/index.xml" type="application/rss+xml" title="Sonor"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://xiaoshigoodboy.github.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://xiaoshigoodboy.github.io/css/highlight.min.css" /><link rel="stylesheet" href="https://xiaoshigoodboy.github.io/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://xiaoshigoodboy.github.io/">Sonor</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="/">Blog</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="/tags">Tags</a>
+            </li>
+          
+        
+
+        
+
+        
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="Sonor" href="https://xiaoshigoodboy.github.io/">
+            <img class="avatar-img" src="https://xiaoshigoodboy.github.io/img/avatar-icon.png" alt="Sonor" />
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="other-heading">
+              
+                <h1>javascript</h1>
+              
+              
+                <hr class="small">
+              
+              
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <h1 id="javascript">JavaScript</h1>
+<h3 id="导出excel--word">导出Excel , Word</h3>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">// 前台请求方式，可以直接跳转下载word、excel
+</span><span class="c1"></span><span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">href</span> <span class="o">=</span> <span class="s2">&#34;history_systemAction?startTime=&#34;</span> <span class="o">+</span> <span class="nx">start</span> <span class="o">+</span> <span class="s2">&#34;&amp;endTime=&#34;</span> <span class="o">+</span><span class="nx">end</span><span class="p">;</span>
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="c1">// 后台处理文件流
+</span><span class="c1"></span><span class="c1">// ssh框架
+</span><span class="c1"></span><span class="n">response</span><span class="o">.</span><span class="na">setContentType</span><span class="o">(</span><span class="s">&#34;octets/stream&#34;</span><span class="o">)</span><span class="o">;</span>
+<span class="n">response</span><span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">&#34;Content-Disposition&#34;</span><span class="o">,</span><span class="s">&#34;attachment;filename=historyWord.docx&#34;</span><span class="o">)</span><span class="o">;</span>
+<span class="n">OutputStream</span> <span class="n">out</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="na">getOutputStream</span><span class="o">(</span><span class="o">)</span><span class="o">;</span>
+
+
+<span class="c1">// poi进行表格封装
+</span><span class="c1"></span><span class="n">XWPFDocument</span> <span class="n">document</span> <span class="o">=</span> <span class="k">new</span> <span class="n">XWPFDocument</span><span class="o">(</span><span class="o">)</span><span class="o">;</span>
+<span class="c1">// 新建一个段落, 作用: word中插入多个表格使用，防止表格放到一起
+</span><span class="c1"></span><span class="n">XWPFParagraph</span> <span class="n">p</span> <span class="o">=</span> <span class="n">document</span><span class="o">.</span><span class="na">createParagraph</span><span class="o">(</span><span class="o">)</span><span class="o">;</span>
+<span class="n">XWPFTable</span> <span class="n">table</span> <span class="o">=</span> <span class="n">document</span><span class="o">.</span><span class="na">createTable</span><span class="o">(</span><span class="o">)</span><span class="o">;</span>
+
+
+<span class="c1">// 设置表格样式
+</span><span class="c1"></span><span class="n">CTTblWidth</span> <span class="n">width</span> <span class="o">=</span> <span class="n">table</span><span class="o">.</span><span class="na">getCTTbl</span><span class="o">(</span><span class="o">)</span><span class="o">.</span><span class="na">addNewTblPr</span><span class="o">(</span><span class="o">)</span><span class="o">.</span><span class="na">addNewTblW</span><span class="o">(</span><span class="o">)</span><span class="o">;</span>
+<span class="n">width</span><span class="o">.</span><span class="na">setType</span><span class="o">(</span><span class="n">STTblWidth</span><span class="o">.</span><span class="na">DXA</span><span class="o">)</span><span class="o">;</span>
+<span class="n">width</span><span class="o">.</span><span class="na">setW</span><span class="o">(</span><span class="n">BigInteger</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">5000</span><span class="o">)</span><span class="o">)</span><span class="o">;</span>
+
+
+<span class="c1">// 获取表格的第一行
+</span><span class="c1"></span><span class="n">XWPFTableRow</span> <span class="n">tableRowOne</span> <span class="o">=</span> <span class="n">table</span><span class="o">.</span><span class="na">getRow</span><span class="o">(</span><span class="n">0</span><span class="o">)</span><span class="o">;</span>
+
+<span class="c1">// 参数 i: 当前行的第几个单元格   s: 赋值 
+</span><span class="c1"></span><span class="n">tableRowOne</span><span class="o">.</span><span class="na">getCell</span><span class="o">(</span><span class="n">i</span><span class="o">+</span><span class="o">+</span><span class="o">)</span><span class="o">.</span><span class="na">setText</span><span class="o">(</span><span class="n">s</span><span class="o">)</span>
+    
+<span class="c1">// 关闭流
+</span><span class="c1"></span><span class="n">document</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="n">out</span><span class="o">)</span><span class="o">;</span>
+<span class="n">out</span><span class="o">.</span><span class="na">close</span><span class="o">(</span><span class="o">)</span><span class="o">;</span>
+<span class="n">out</span><span class="o">.</span><span class="na">flush</span><span class="o">(</span><span class="o">)</span><span class="o">;</span>
+
+</code></pre></div><h3 id="打印功能">打印功能</h3>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">// 前台页面
+</span><span class="c1"></span><span class="c1">// 参数val: String类型的html代码
+</span><span class="c1"></span><span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">(</span><span class="p">{</span>
+    <span class="nx">url</span><span class="o">:</span> <span class="s2">&#34;printExcel_systemAction&#34;</span><span class="p">,</span>
+    <span class="nx">method</span><span class="o">:</span> <span class="s2">&#34;post&#34;</span><span class="p">,</span>
+    <span class="nx">data</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">startTime</span><span class="o">:</span> <span class="nx">start</span>
+    <span class="p">}</span><span class="p">,</span>
+    <span class="nx">success</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">val</span><span class="p">)</span><span class="p">{</span>
+        <span class="c1">//打印数据处理
+</span><span class="c1"></span>        <span class="c1">// 窗口名称
+</span><span class="c1"></span>        <span class="kd">var</span> <span class="nx">printWin</span><span class="o">=</span><span class="nb">window</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s2">&#34;打印窗口&#34;</span><span class="p">,</span> <span class="s2">&#34;_blank&#34;</span><span class="p">)</span><span class="p">;</span>
+        <span class="c1">// val： 静态html
+</span><span class="c1"></span>        <span class="c1">// 格式：&#34;&lt;html&gt; &lt;/html&gt;&#34;
+</span><span class="c1"></span>        <span class="nx">printWin</span><span class="p">.</span><span class="nb">document</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="nx">val</span><span class="p">)</span><span class="p">;</span>
+        <span class="nx">printWin</span><span class="p">.</span><span class="nb">document</span><span class="p">.</span><span class="nx">close</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+        <span class="nx">printWin</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+        <span class="nx">printWin</span><span class="p">.</span><span class="nx">close</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span><span class="p">)</span>
+
+
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="c1">// java 封装html页面
+</span><span class="c1"></span><span class="kd">public</span> <span class="n">String</span> <span class="nf">htmlTable</span><span class="o">(</span><span class="n">Timestamp</span> <span class="n">start</span> <span class="o">,</span> <span class="n">Timestamp</span> <span class="n">end</span><span class="o">)</span><span class="o">{</span>
+        <span class="n">StringBuilder</span> <span class="n">stringHtml</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StringBuilder</span><span class="o">(</span><span class="o">)</span><span class="o">;</span>
+        <span class="n">stringHtml</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">&#34;&lt;html&gt;&lt;head&gt;&#34;</span><span class="o">)</span><span class="o">;</span>
+        <span class="n">stringHtml</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">&#34;&lt;meta http-equiv=\&#34;Content-Type\&#34; content=\&#34;text/html; charset=GBK\&#34;&gt;&#34;</span><span class="o">)</span><span class="o">;</span>
+        <span class="n">stringHtml</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">&#34;&lt;title&gt;测试报告文档&lt;/title&gt;&#34;</span><span class="o">)</span><span class="o">;</span>
+
+        <span class="n">stringHtml</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">&#34;&lt;table border=&#39;1&#39;&gt;&#34;</span><span class="o">)</span><span class="o">;</span>
+        <span class="n">stringHtml</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">&#34;&lt;tr&gt;&lt;th&gt;&#34;</span><span class="o">+</span><span class="n">kswheads</span><span class="o">[</span><span class="n">0</span><span class="o">]</span><span class="o">+</span><span class="s">&#34;&lt;/th&gt;&lt;th&gt;&#34;</span><span class="o">+</span><span class="n">kswheads</span><span class="o">[</span><span class="n">1</span><span class="o">]</span><span class="o">+</span><span class="s">&#34;&lt;/th&gt;&lt;th&gt;&#34;</span><span class="o">+</span><span class="n">kswheads</span><span class="o">[</span><span class="n">2</span><span class="o">]</span><span class="o">+</span><span class="s">&#34;&lt;/th&gt;&lt;th&gt;&#34;</span><span class="o">+</span><span class="n">kswheads</span><span class="o">[</span><span class="n">3</span><span class="o">]</span><span class="o">+</span><span class="s">&#34;&lt;/th&gt;&lt;th&gt;&#34;</span><span class="o">+</span><span class="n">kswheads</span><span class="o">[</span><span class="n">4</span><span class="o">]</span><span class="o">+</span><span class="s">&#34;&lt;/th&gt;&lt;/tr&gt;&#34;</span><span class="o">)</span><span class="o">;</span>
+        <span class="n">List</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">[</span><span class="o">]</span><span class="o">&gt;</span> <span class="n">ksw</span> <span class="o">=</span> <span class="n">findRBetweenDayKsw</span><span class="o">(</span><span class="n">start</span><span class="o">,</span> <span class="n">end</span><span class="o">)</span><span class="o">;</span>
+        <span class="cm">/*
+</span><span class="cm">                        ksw.add(String.valueOf(o[3]));
+</span><span class="cm">                        ksw.add(String.valueOf(o[0]));
+</span><span class="cm">                        ksw.add(String.valueOf(o[1]));
+</span><span class="cm">                        ksw.add(String.valueOf(o[2]));
+</span><span class="cm">                        ksw.add(String.valueOf(o[4]));*/</span>
+        <span class="k">for</span><span class="o">(</span><span class="n">Object</span><span class="o">[</span><span class="o">]</span> <span class="n">kswObj</span><span class="o">:</span> <span class="n">ksw</span><span class="o">)</span><span class="o">{</span>
+            <span class="n">stringHtml</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">&#34;&lt;tr&gt;&lt;td&gt;&#34;</span><span class="o">+</span><span class="n">String</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">kswObj</span><span class="o">[</span><span class="n">3</span><span class="o">]</span><span class="o">)</span><span class="o">+</span><span class="s">&#34;&lt;/td&gt;&lt;td&gt;&#34;</span><span class="o">+</span><span class="n">String</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">kswObj</span><span class="o">[</span><span class="n">0</span><span class="o">]</span><span class="o">)</span><span class="o">+</span><span class="s">&#34;&lt;/td&gt;&lt;td&gt;&#34;</span><span class="o">+</span><span class="n">String</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">kswObj</span><span class="o">[</span><span class="n">2</span><span class="o">]</span><span class="o">)</span><span class="o">+</span><span class="s">&#34;&lt;/td&gt;&lt;td&gt;&#34;</span><span class="o">+</span><span class="n">String</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">kswObj</span><span class="o">[</span><span class="n">3</span><span class="o">]</span><span class="o">)</span><span class="o">+</span><span class="s">&#34;&lt;/td&gt;&lt;td&gt;&#34;</span><span class="o">+</span><span class="n">String</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">kswObj</span><span class="o">[</span><span class="n">4</span><span class="o">]</span><span class="o">)</span><span class="o">+</span><span class="s">&#34;&lt;/td&gt;&lt;/tr&gt;&#34;</span><span class="o">)</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="n">stringHtml</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">&#34;&lt;/table&gt;&#34;</span><span class="o">)</span><span class="o">;</span>
+        <span class="n">stringHtml</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">&#34;&lt;/br&gt;&lt;/br&gt;&lt;/br&gt;&#34;</span><span class="o">)</span><span class="o">;</span>
+
+
+        <span class="n">stringHtml</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">&#34;&lt;table border=&#39;1&#39;&gt;&#34;</span><span class="o">)</span><span class="o">;</span>
+        <span class="n">stringHtml</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">&#34;&lt;tr&gt;&lt;th&gt;&#34;</span><span class="o">+</span><span class="n">jrxheads</span><span class="o">[</span><span class="n">0</span><span class="o">]</span><span class="o">+</span><span class="s">&#34;&lt;/th&gt;&lt;th&gt;&#34;</span><span class="o">+</span><span class="n">jrxheads</span><span class="o">[</span><span class="n">1</span><span class="o">]</span><span class="o">+</span><span class="s">&#34;&lt;/th&gt;&lt;th&gt;&#34;</span><span class="o">+</span><span class="n">jrxheads</span><span class="o">[</span><span class="n">2</span><span class="o">]</span><span class="o">+</span><span class="s">&#34;&lt;/th&gt;&lt;th&gt;&#34;</span><span class="o">+</span><span class="n">jrxheads</span><span class="o">[</span><span class="n">3</span><span class="o">]</span><span class="o">+</span><span class="s">&#34;&lt;/th&gt;&lt;th&gt;&#34;</span><span class="o">+</span><span class="n">jrxheads</span><span class="o">[</span><span class="n">4</span><span class="o">]</span><span class="o">+</span><span class="s">&#34;&lt;/th&gt;&lt;/tr&gt;&#34;</span><span class="o">)</span><span class="o">;</span>
+        <span class="n">List</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">[</span><span class="o">]</span><span class="o">&gt;</span> <span class="n">jrx</span> <span class="o">=</span> <span class="n">findRBetweenDayJrx</span><span class="o">(</span><span class="n">start</span><span class="o">,</span> <span class="n">end</span><span class="o">)</span><span class="o">;</span>
+        <span class="cm">/*
+</span><span class="cm">                        ksw.add(String.valueOf(o[3]));
+</span><span class="cm">                        ksw.add(String.valueOf(o[0]));
+</span><span class="cm">                        ksw.add(String.valueOf(o[1]));
+</span><span class="cm">                        ksw.add(String.valueOf(o[2]));
+</span><span class="cm">                        ksw.add(String.valueOf(o[4]));*/</span>
+        <span class="k">for</span><span class="o">(</span><span class="n">Object</span><span class="o">[</span><span class="o">]</span> <span class="n">jrxObj</span><span class="o">:</span> <span class="n">jrx</span><span class="o">)</span><span class="o">{</span>
+            <span class="n">stringHtml</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">&#34;&lt;tr&gt;&lt;td&gt;&#34;</span><span class="o">+</span><span class="n">String</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">jrxObj</span><span class="o">[</span><span class="n">3</span><span class="o">]</span><span class="o">)</span><span class="o">+</span><span class="s">&#34;&lt;/td&gt;&lt;td&gt;&#34;</span><span class="o">+</span><span class="n">String</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">jrxObj</span><span class="o">[</span><span class="n">0</span><span class="o">]</span><span class="o">)</span><span class="o">+</span><span class="s">&#34;&lt;/td&gt;&lt;td&gt;&#34;</span><span class="o">+</span><span class="n">String</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">jrxObj</span><span class="o">[</span><span class="n">2</span><span class="o">]</span><span class="o">)</span><span class="o">+</span><span class="s">&#34;&lt;/td&gt;&lt;td&gt;&#34;</span><span class="o">+</span><span class="n">String</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">jrxObj</span><span class="o">[</span><span class="n">3</span><span class="o">]</span><span class="o">)</span><span class="o">+</span><span class="s">&#34;&lt;/td&gt;&lt;td&gt;&#34;</span><span class="o">+</span><span class="n">String</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">jrxObj</span><span class="o">[</span><span class="n">4</span><span class="o">]</span><span class="o">)</span><span class="o">+</span><span class="s">&#34;&lt;/td&gt;&lt;/tr&gt;&#34;</span><span class="o">)</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="n">stringHtml</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">&#34;&lt;/table&gt;&#34;</span><span class="o">)</span><span class="o">;</span>
+        <span class="n">stringHtml</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">&#34;&lt;/br&gt;&lt;/br&gt;&lt;/br&gt;&#34;</span><span class="o">)</span><span class="o">;</span>
+
+        <span class="n">stringHtml</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">&#34;&lt;table border=&#39;1&#39;&gt;&#34;</span><span class="o">)</span><span class="o">;</span>
+        <span class="n">stringHtml</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">&#34;&lt;tr&gt;&lt;th&gt;&#34;</span><span class="o">+</span><span class="n">jylheads</span><span class="o">[</span><span class="n">0</span><span class="o">]</span><span class="o">+</span><span class="s">&#34;&lt;/th&gt;&lt;th&gt;&#34;</span><span class="o">+</span><span class="n">jylheads</span><span class="o">[</span><span class="n">1</span><span class="o">]</span><span class="o">+</span><span class="s">&#34;&lt;/th&gt;&lt;th&gt;&#34;</span><span class="o">+</span><span class="n">jylheads</span><span class="o">[</span><span class="n">2</span><span class="o">]</span><span class="o">+</span><span class="s">&#34;&lt;/th&gt;&lt;th&gt;&#34;</span><span class="o">+</span><span class="n">jylheads</span><span class="o">[</span><span class="n">3</span><span class="o">]</span><span class="o">+</span><span class="s">&#34;&lt;/th&gt;&lt;th&gt;&#34;</span><span class="o">+</span><span class="n">jylheads</span><span class="o">[</span><span class="n">4</span><span class="o">]</span><span class="o">+</span><span class="s">&#34;&lt;/th&gt;&lt;/tr&gt;&#34;</span><span class="o">)</span><span class="o">;</span>
+        <span class="n">List</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">[</span><span class="o">]</span><span class="o">&gt;</span> <span class="n">jyl</span> <span class="o">=</span> <span class="n">findRBetweenDayJyl</span><span class="o">(</span><span class="n">start</span><span class="o">,</span> <span class="n">end</span><span class="o">)</span><span class="o">;</span>
+        <span class="k">for</span><span class="o">(</span><span class="n">Object</span><span class="o">[</span><span class="o">]</span> <span class="n">jylObj</span><span class="o">:</span> <span class="n">jyl</span><span class="o">)</span><span class="o">{</span>
+            <span class="n">stringHtml</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">&#34;&lt;tr&gt;&lt;td&gt;&#34;</span><span class="o">+</span><span class="n">String</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">jylObj</span><span class="o">[</span><span class="n">3</span><span class="o">]</span><span class="o">)</span><span class="o">+</span><span class="s">&#34;&lt;/td&gt;&lt;td&gt;&#34;</span><span class="o">+</span><span class="n">String</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">jylObj</span><span class="o">[</span><span class="n">0</span><span class="o">]</span><span class="o">)</span><span class="o">+</span><span class="s">&#34;&lt;/td&gt;&lt;td&gt;&#34;</span><span class="o">+</span><span class="n">String</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">jylObj</span><span class="o">[</span><span class="n">2</span><span class="o">]</span><span class="o">)</span><span class="o">+</span><span class="s">&#34;&lt;/td&gt;&lt;td&gt;&#34;</span><span class="o">+</span><span class="n">String</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">jylObj</span><span class="o">[</span><span class="n">3</span><span class="o">]</span><span class="o">)</span><span class="o">+</span><span class="s">&#34;&lt;/td&gt;&lt;td&gt;&#34;</span><span class="o">+</span><span class="n">String</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">jylObj</span><span class="o">[</span><span class="n">4</span><span class="o">]</span><span class="o">)</span><span class="o">+</span><span class="s">&#34;&lt;/td&gt;&lt;/tr&gt;&#34;</span><span class="o">)</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="n">stringHtml</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">&#34;&lt;/table&gt;&#34;</span><span class="o">)</span><span class="o">;</span>
+        <span class="n">stringHtml</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">&#34;&lt;/br&gt;&lt;/br&gt;&lt;/br&gt;&#34;</span><span class="o">)</span><span class="o">;</span>
+
+        <span class="n">stringHtml</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">&#34;&lt;table border=&#39;1&#39;&gt;&#34;</span><span class="o">)</span><span class="o">;</span>
+        <span class="n">stringHtml</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">&#34;&lt;tr&gt;&lt;th&gt;&#34;</span><span class="o">+</span><span class="n">nbcjheads</span><span class="o">[</span><span class="n">0</span><span class="o">]</span><span class="o">+</span><span class="s">&#34;&lt;/th&gt;&lt;th&gt;&#34;</span><span class="o">+</span><span class="n">nbcjheads</span><span class="o">[</span><span class="n">1</span><span class="o">]</span><span class="o">+</span><span class="s">&#34;&lt;/th&gt;&lt;th&gt;&#34;</span><span class="o">+</span><span class="n">nbcjheads</span><span class="o">[</span><span class="n">2</span><span class="o">]</span><span class="o">+</span><span class="s">&#34;&lt;/th&gt;&lt;th&gt;&#34;</span><span class="o">+</span><span class="n">nbcjheads</span><span class="o">[</span><span class="n">3</span><span class="o">]</span><span class="o">+</span><span class="s">&#34;&lt;/th&gt;&lt;th&gt;&#34;</span><span class="o">+</span><span class="n">nbcjheads</span><span class="o">[</span><span class="n">4</span><span class="o">]</span><span class="o">+</span><span class="s">&#34;&lt;/th&gt;&lt;/tr&gt;&#34;</span><span class="o">)</span><span class="o">;</span>
+        <span class="n">List</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">[</span><span class="o">]</span><span class="o">&gt;</span> <span class="n">nbcj</span> <span class="o">=</span> <span class="n">findRBetweenDayNbcj</span><span class="o">(</span><span class="n">start</span><span class="o">,</span> <span class="n">end</span><span class="o">)</span><span class="o">;</span>
+        <span class="k">for</span><span class="o">(</span><span class="n">Object</span><span class="o">[</span><span class="o">]</span> <span class="n">nbcjObj</span><span class="o">:</span> <span class="n">nbcj</span><span class="o">)</span><span class="o">{</span>
+            <span class="n">stringHtml</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">&#34;&lt;tr&gt;&lt;td&gt;&#34;</span><span class="o">+</span><span class="n">String</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">nbcjObj</span><span class="o">[</span><span class="n">3</span><span class="o">]</span><span class="o">)</span><span class="o">+</span><span class="s">&#34;&lt;/td&gt;&lt;td&gt;&#34;</span><span class="o">+</span><span class="n">String</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">nbcjObj</span><span class="o">[</span><span class="n">0</span><span class="o">]</span><span class="o">)</span><span class="o">+</span><span class="s">&#34;&lt;/td&gt;&lt;td&gt;&#34;</span><span class="o">+</span><span class="n">String</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">nbcjObj</span><span class="o">[</span><span class="n">2</span><span class="o">]</span><span class="o">)</span><span class="o">+</span><span class="s">&#34;&lt;/td&gt;&lt;td&gt;&#34;</span><span class="o">+</span><span class="n">String</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">nbcjObj</span><span class="o">[</span><span class="n">3</span><span class="o">]</span><span class="o">)</span><span class="o">+</span><span class="s">&#34;&lt;/td&gt;&lt;td&gt;&#34;</span><span class="o">+</span><span class="n">String</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">nbcjObj</span><span class="o">[</span><span class="n">4</span><span class="o">]</span><span class="o">)</span><span class="o">+</span><span class="s">&#34;&lt;/td&gt;&lt;/tr&gt;&#34;</span><span class="o">)</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="n">stringHtml</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">&#34;&lt;/table&gt;&#34;</span><span class="o">)</span><span class="o">;</span>
+        <span class="n">stringHtml</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">&#34;&lt;/br&gt;&lt;/br&gt;&lt;/br&gt;&#34;</span><span class="o">)</span><span class="o">;</span>
+
+
+        <span class="n">stringHtml</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">&#34;&lt;table border=&#39;1&#39;&gt;&#34;</span><span class="o">)</span><span class="o">;</span>
+        <span class="n">stringHtml</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">&#34;&lt;tr&gt;&lt;th&gt;&#34;</span><span class="o">+</span><span class="n">nbspheads</span><span class="o">[</span><span class="n">0</span><span class="o">]</span><span class="o">+</span><span class="s">&#34;&lt;/th&gt;&lt;th&gt;&#34;</span><span class="o">+</span><span class="n">nbspheads</span><span class="o">[</span><span class="n">1</span><span class="o">]</span><span class="o">+</span><span class="s">&#34;&lt;/th&gt;&lt;th&gt;&#34;</span><span class="o">+</span><span class="n">nbspheads</span><span class="o">[</span><span class="n">2</span><span class="o">]</span><span class="o">+</span><span class="s">&#34;&lt;/th&gt;&lt;th&gt;&#34;</span><span class="o">+</span><span class="n">nbspheads</span><span class="o">[</span><span class="n">3</span><span class="o">]</span><span class="o">+</span><span class="s">&#34;&lt;/th&gt;&lt;th&gt;&#34;</span><span class="o">+</span><span class="n">nbspheads</span><span class="o">[</span><span class="n">4</span><span class="o">]</span><span class="o">+</span><span class="s">&#34;&lt;/th&gt;&lt;/tr&gt;&#34;</span><span class="o">)</span><span class="o">;</span>
+        <span class="n">List</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">[</span><span class="o">]</span><span class="o">&gt;</span> <span class="n">nbsp</span> <span class="o">=</span> <span class="n">findRBetweenDayNbsp</span><span class="o">(</span><span class="n">start</span><span class="o">,</span> <span class="n">end</span><span class="o">)</span><span class="o">;</span>
+        <span class="k">for</span><span class="o">(</span><span class="n">Object</span><span class="o">[</span><span class="o">]</span> <span class="n">nbspObj</span><span class="o">:</span> <span class="n">nbsp</span><span class="o">)</span><span class="o">{</span>
+            <span class="n">stringHtml</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">&#34;&lt;tr&gt;&lt;td&gt;&#34;</span><span class="o">+</span><span class="n">String</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">nbspObj</span><span class="o">[</span><span class="n">3</span><span class="o">]</span><span class="o">)</span><span class="o">+</span><span class="s">&#34;&lt;/td&gt;&lt;td&gt;&#34;</span><span class="o">+</span><span class="n">String</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">nbspObj</span><span class="o">[</span><span class="n">0</span><span class="o">]</span><span class="o">)</span><span class="o">+</span><span class="s">&#34;&lt;/td&gt;&lt;td&gt;&#34;</span><span class="o">+</span><span class="n">String</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">nbspObj</span><span class="o">[</span><span class="n">2</span><span class="o">]</span><span class="o">)</span><span class="o">+</span><span class="s">&#34;&lt;/td&gt;&lt;td&gt;&#34;</span><span class="o">+</span><span class="n">String</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">nbspObj</span><span class="o">[</span><span class="n">3</span><span class="o">]</span><span class="o">)</span><span class="o">+</span><span class="s">&#34;&lt;/td&gt;&lt;td&gt;&#34;</span><span class="o">+</span><span class="n">String</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">nbspObj</span><span class="o">[</span><span class="n">4</span><span class="o">]</span><span class="o">)</span><span class="o">+</span><span class="s">&#34;&lt;/td&gt;&lt;/tr&gt;&#34;</span><span class="o">)</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="n">stringHtml</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">&#34;&lt;/table&gt;&#34;</span><span class="o">)</span><span class="o">;</span>
+        <span class="n">stringHtml</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">&#34;&lt;/br&gt;&lt;/br&gt;&lt;/br&gt;&#34;</span><span class="o">)</span><span class="o">;</span>
+
+
+        <span class="n">stringHtml</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">&#34;&lt;table border=&#39;1&#39;&gt;&#34;</span><span class="o">)</span><span class="o">;</span>
+        <span class="n">stringHtml</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">&#34;&lt;tr&gt;&lt;th&gt;&#34;</span><span class="o">+</span><span class="n">bmwyHeads</span><span class="o">[</span><span class="n">0</span><span class="o">]</span><span class="o">+</span><span class="s">&#34;&lt;/th&gt;&lt;th&gt;&#34;</span><span class="o">+</span><span class="n">bmwyHeads</span><span class="o">[</span><span class="n">1</span><span class="o">]</span><span class="o">+</span><span class="s">&#34;&lt;/th&gt;&lt;th&gt;&#34;</span><span class="o">+</span><span class="n">bmwyHeads</span><span class="o">[</span><span class="n">2</span><span class="o">]</span><span class="o">+</span><span class="s">&#34;&lt;/th&gt;&lt;th&gt;&#34;</span><span class="o">+</span><span class="n">bmwyHeads</span><span class="o">[</span><span class="n">3</span><span class="o">]</span><span class="o">+</span><span class="s">&#34;&lt;/th&gt;&lt;th&gt;&#34;</span><span class="o">+</span><span class="n">bmwyHeads</span><span class="o">[</span><span class="n">4</span><span class="o">]</span><span class="o">+</span><span class="s">&#34;&lt;/th&gt;&lt;th&gt;&#34;</span><span class="o">+</span><span class="n">bmwyHeads</span><span class="o">[</span><span class="n">5</span><span class="o">]</span><span class="o">+</span><span class="s">&#34;&lt;/th&gt;&lt;th&gt;&#34;</span><span class="o">+</span><span class="n">bmwyHeads</span><span class="o">[</span><span class="n">6</span><span class="o">]</span><span class="o">+</span><span class="s">&#34;&lt;/th&gt;&lt;th&gt;&#34;</span><span class="o">+</span><span class="n">bmwyHeads</span><span class="o">[</span><span class="n">7</span><span class="o">]</span><span class="o">+</span><span class="s">&#34;&lt;/th&gt;&lt;th&gt;&#34;</span><span class="o">+</span><span class="n">bmwyHeads</span><span class="o">[</span><span class="n">8</span><span class="o">]</span><span class="o">+</span><span class="s">&#34;&lt;/th&gt;&lt;th&gt;&#34;</span><span class="o">+</span><span class="n">bmwyHeads</span><span class="o">[</span><span class="n">9</span><span class="o">]</span><span class="o">+</span><span class="s">&#34;&lt;/th&gt;&lt;th&gt;&#34;</span><span class="o">+</span><span class="n">bmwyHeads</span><span class="o">[</span><span class="n">10</span><span class="o">]</span><span class="o">+</span><span class="s">&#34;&lt;/th&gt;&lt;/tr&gt;&#34;</span><span class="o">)</span><span class="o">;</span>
+        <span class="n">List</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">[</span><span class="o">]</span><span class="o">&gt;</span> <span class="n">bmwy</span> <span class="o">=</span> <span class="n">findRBetweenDayBmwy</span><span class="o">(</span><span class="n">start</span><span class="o">,</span> <span class="n">end</span><span class="o">)</span><span class="o">;</span>
+        <span class="k">for</span><span class="o">(</span><span class="n">Object</span><span class="o">[</span><span class="o">]</span> <span class="n">bmwyObj</span><span class="o">:</span> <span class="n">bmwy</span><span class="o">)</span><span class="o">{</span>
+            <span class="n">stringHtml</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">&#34;&lt;tr&gt;&lt;td&gt;&#34;</span><span class="o">+</span><span class="n">String</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">bmwyObj</span><span class="o">[</span><span class="n">0</span><span class="o">]</span><span class="o">)</span><span class="o">+</span><span class="s">&#34;&lt;/td&gt;&lt;td&gt;&#34;</span><span class="o">+</span><span class="n">String</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">bmwyObj</span><span class="o">[</span><span class="n">1</span><span class="o">]</span><span class="o">)</span><span class="o">+</span><span class="s">&#34;&lt;/td&gt;&lt;td&gt;&#34;</span><span class="o">+</span><span class="n">String</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">bmwyObj</span><span class="o">[</span><span class="n">2</span><span class="o">]</span><span class="o">)</span><span class="o">+</span><span class="s">&#34;&lt;/td&gt;&lt;td&gt;&#34;</span><span class="o">+</span><span class="n">String</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">bmwyObj</span><span class="o">[</span><span class="n">3</span><span class="o">]</span><span class="o">)</span><span class="o">+</span><span class="s">&#34;&lt;/td&gt;&lt;td&gt;&#34;</span><span class="o">+</span><span class="n">String</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">bmwyObj</span><span class="o">[</span><span class="n">4</span><span class="o">]</span><span class="o">)</span><span class="o">+</span><span class="s">&#34;&lt;/td&gt;&lt;td&gt;&#34;</span><span class="o">+</span><span class="n">String</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">bmwyObj</span><span class="o">[</span><span class="n">5</span><span class="o">]</span><span class="o">)</span><span class="o">+</span><span class="s">&#34;&lt;/td&gt;&lt;td&gt;&#34;</span><span class="o">+</span><span class="n">String</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">bmwyObj</span><span class="o">[</span><span class="n">6</span><span class="o">]</span><span class="o">)</span><span class="o">+</span><span class="s">&#34;&lt;/td&gt;&lt;td&gt;&#34;</span><span class="o">+</span><span class="n">String</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">bmwyObj</span><span class="o">[</span><span class="n">7</span><span class="o">]</span><span class="o">)</span><span class="o">+</span><span class="s">&#34;&lt;/td&gt;&lt;td&gt;&#34;</span><span class="o">+</span><span class="n">String</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">bmwyObj</span><span class="o">[</span><span class="n">8</span><span class="o">]</span><span class="o">)</span><span class="o">+</span><span class="s">&#34;&lt;/td&gt;&lt;td&gt;&#34;</span><span class="o">+</span><span class="n">String</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">bmwyObj</span><span class="o">[</span><span class="n">9</span><span class="o">]</span><span class="o">)</span><span class="o">+</span><span class="s">&#34;&lt;/td&gt;&lt;td&gt;&#34;</span><span class="o">+</span><span class="n">String</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">bmwyObj</span><span class="o">[</span><span class="n">10</span><span class="o">]</span><span class="o">)</span><span class="o">+</span><span class="s">&#34;&lt;/td&gt;&lt;/tr&gt;&#34;</span><span class="o">)</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="n">stringHtml</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">&#34;&lt;/table&gt;&#34;</span><span class="o">)</span><span class="o">;</span>
+        <span class="n">stringHtml</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">&#34;&lt;/br&gt;&lt;/br&gt;&lt;/br&gt;&#34;</span><span class="o">)</span><span class="o">;</span>
+
+
+
+
+        <span class="n">stringHtml</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">&#34;&lt;table border=&#39;1&#39;&gt;&#34;</span><span class="o">)</span><span class="o">;</span>
+        <span class="n">stringHtml</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">&#34;&lt;tr&gt;&lt;th&gt;&#34;</span><span class="o">+</span><span class="n">gantanHeads</span><span class="o">[</span><span class="n">0</span><span class="o">]</span><span class="o">+</span><span class="s">&#34;&lt;/th&gt;&lt;th&gt;&#34;</span><span class="o">+</span><span class="n">gantanHeads</span><span class="o">[</span><span class="n">1</span><span class="o">]</span><span class="o">+</span><span class="s">&#34;&lt;/th&gt;&lt;th&gt;&#34;</span><span class="o">+</span><span class="n">gantanHeads</span><span class="o">[</span><span class="n">2</span><span class="o">]</span><span class="o">+</span><span class="s">&#34;&lt;/th&gt;&lt;th&gt;&#34;</span><span class="o">+</span><span class="n">gantanHeads</span><span class="o">[</span><span class="n">3</span><span class="o">]</span><span class="o">+</span><span class="s">&#34;&lt;/th&gt;&lt;th&gt;&#34;</span><span class="o">+</span><span class="n">gantanHeads</span><span class="o">[</span><span class="n">4</span><span class="o">]</span><span class="o">+</span><span class="s">&#34;&lt;/th&gt;&lt;th&gt;&#34;</span><span class="o">+</span><span class="n">gantanHeads</span><span class="o">[</span><span class="n">5</span><span class="o">]</span><span class="o">+</span><span class="s">&#34;&lt;/th&gt;&lt;th&gt;&#34;</span><span class="o">+</span><span class="n">gantanHeads</span><span class="o">[</span><span class="n">6</span><span class="o">]</span><span class="o">+</span><span class="s">&#34;&lt;/th&gt;&lt;th&gt;&#34;</span><span class="o">+</span><span class="n">gantanHeads</span><span class="o">[</span><span class="n">7</span><span class="o">]</span><span class="o">+</span><span class="s">&#34;&lt;/th&gt;&lt;th&gt;&#34;</span><span class="o">+</span><span class="n">gantanHeads</span><span class="o">[</span><span class="n">8</span><span class="o">]</span><span class="o">+</span><span class="s">&#34;&lt;/th&gt;&lt;th&gt;&#34;</span><span class="o">+</span><span class="n">gantanHeads</span><span class="o">[</span><span class="n">9</span><span class="o">]</span><span class="o">+</span><span class="s">&#34;&lt;/th&gt;&lt;/tr&gt;&#34;</span><span class="o">)</span><span class="o">;</span>
+        <span class="n">List</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">[</span><span class="o">]</span><span class="o">&gt;</span> <span class="n">gt</span> <span class="o">=</span> <span class="n">findRBetweenDayGt</span><span class="o">(</span><span class="n">start</span><span class="o">,</span> <span class="n">end</span><span class="o">)</span><span class="o">;</span>
+        <span class="k">for</span><span class="o">(</span><span class="n">Object</span><span class="o">[</span><span class="o">]</span> <span class="n">gtObj</span><span class="o">:</span> <span class="n">gt</span><span class="o">)</span><span class="o">{</span>
+            <span class="n">stringHtml</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">&#34;&lt;tr&gt;&lt;td&gt;&#34;</span><span class="o">+</span><span class="n">String</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">gtObj</span><span class="o">[</span><span class="n">0</span><span class="o">]</span><span class="o">)</span><span class="o">+</span><span class="s">&#34;&lt;/td&gt;&lt;td&gt;&#34;</span><span class="o">+</span><span class="n">String</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">gtObj</span><span class="o">[</span><span class="n">1</span><span class="o">]</span><span class="o">)</span><span class="o">+</span><span class="s">&#34;&lt;/td&gt;&lt;td&gt;&#34;</span><span class="o">+</span><span class="n">String</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">gtObj</span><span class="o">[</span><span class="n">2</span><span class="o">]</span><span class="o">)</span><span class="o">+</span><span class="s">&#34;&lt;/td&gt;&lt;td&gt;&#34;</span><span class="o">+</span><span class="n">String</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">gtObj</span><span class="o">[</span><span class="n">3</span><span class="o">]</span><span class="o">)</span><span class="o">+</span><span class="s">&#34;&lt;/td&gt;&lt;td&gt;&#34;</span><span class="o">+</span><span class="n">String</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">gtObj</span><span class="o">[</span><span class="n">4</span><span class="o">]</span><span class="o">)</span><span class="o">+</span><span class="s">&#34;&lt;/td&gt;&lt;td&gt;&#34;</span><span class="o">+</span><span class="n">String</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">gtObj</span><span class="o">[</span><span class="n">5</span><span class="o">]</span><span class="o">)</span><span class="o">+</span><span class="s">&#34;&lt;/td&gt;&lt;td&gt;&#34;</span><span class="o">+</span><span class="n">String</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">gtObj</span><span class="o">[</span><span class="n">6</span><span class="o">]</span><span class="o">)</span><span class="o">+</span><span class="s">&#34;&lt;/td&gt;&lt;td&gt;&#34;</span><span class="o">+</span><span class="n">String</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">gtObj</span><span class="o">[</span><span class="n">7</span><span class="o">]</span><span class="o">)</span><span class="o">+</span><span class="s">&#34;&lt;/td&gt;&lt;td&gt;&#34;</span><span class="o">+</span><span class="n">String</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">gtObj</span><span class="o">[</span><span class="n">8</span><span class="o">]</span><span class="o">)</span><span class="o">+</span><span class="s">&#34;&lt;/td&gt;&lt;td&gt;&#34;</span><span class="o">+</span><span class="n">String</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">gtObj</span><span class="o">[</span><span class="n">9</span><span class="o">]</span><span class="o">)</span><span class="o">+</span><span class="s">&#34;&lt;/td&gt;&lt;/tr&gt;&#34;</span><span class="o">)</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="n">stringHtml</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">&#34;&lt;/table&gt;&#34;</span><span class="o">)</span><span class="o">;</span>
+
+
+        <span class="n">stringHtml</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">&#34;&lt;table border=&#39;1&#39;&gt;&#34;</span><span class="o">)</span><span class="o">;</span>
+        <span class="n">stringHtml</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">&#34;&lt;tr&gt;&lt;th&gt;&#34;</span><span class="o">+</span><span class="n">alarmHead</span><span class="o">[</span><span class="n">0</span><span class="o">]</span><span class="o">+</span><span class="s">&#34;&lt;/th&gt;&lt;th&gt;&#34;</span><span class="o">+</span><span class="n">alarmHead</span><span class="o">[</span><span class="n">1</span><span class="o">]</span><span class="o">+</span><span class="s">&#34;&lt;/th&gt;&lt;/tr&gt;&#34;</span><span class="o">)</span><span class="o">;</span>
+        <span class="n">List</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">[</span><span class="o">]</span><span class="o">&gt;</span> <span class="n">alarmSensor</span> <span class="o">=</span> <span class="n">findRBetweenDayAlarmSensor</span><span class="o">(</span><span class="n">start</span><span class="o">,</span> <span class="n">end</span><span class="o">)</span><span class="o">;</span>
+        <span class="k">for</span><span class="o">(</span><span class="n">Object</span><span class="o">[</span><span class="o">]</span> <span class="n">alarmObj</span><span class="o">:</span> <span class="n">alarmSensor</span><span class="o">)</span><span class="o">{</span>
+            <span class="n">stringHtml</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">&#34;&lt;tr&gt;&lt;td&gt;&#34;</span><span class="o">+</span><span class="n">String</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">alarmObj</span><span class="o">[</span><span class="n">0</span><span class="o">]</span><span class="o">)</span><span class="o">+</span><span class="s">&#34;&lt;/td&gt;&lt;td&gt;&#34;</span><span class="o">+</span><span class="n">String</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">alarmObj</span><span class="o">[</span><span class="n">1</span><span class="o">]</span><span class="o">)</span><span class="o">+</span><span class="s">&#34;&lt;/td&gt;&lt;/tr&gt;&#34;</span><span class="o">)</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="n">stringHtml</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">&#34;&lt;/table&gt;&#34;</span><span class="o">)</span><span class="o">;</span>
+        <span class="n">stringHtml</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">&#34;&lt;/br&gt;&lt;/br&gt;&lt;/br&gt;&#34;</span><span class="o">)</span><span class="o">;</span>
+
+
+        <span class="n">stringHtml</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">&#34;&lt;/body&gt;&lt;/html&gt;&#34;</span><span class="o">)</span><span class="o">;</span>
+        <span class="k">return</span> <span class="n">stringHtml</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="o">)</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre></div><h3 id="数据封装">数据封装</h3>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">// 对象
+</span><span class="c1"></span><span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span><span class="p">}</span>
+<span class="nx">obj</span><span class="p">[</span><span class="s2">&#34;deleteTemp.id&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="nx">indexNum</span><span class="p">.</span><span class="nx">id</span>
+<span class="nx">obj</span><span class="p">[</span><span class="s2">&#34;deleteTemp.content&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="nx">indexNum</span><span class="p">.</span><span class="nx">content</span>
+<span class="nx">obj</span><span class="p">[</span><span class="s2">&#34;deleteTemp.standard&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="nx">indexNum</span><span class="p">.</span><span class="nx">standard</span>
+<span class="c1">// 数据格式
+</span><span class="c1"></span><span class="p">{</span><span class="s2">&#34;deleteTemp.id&#34;</span><span class="o">:</span><span class="mi">22</span><span class="p">,</span><span class="s2">&#34;deleteTemp.content&#34;</span><span class="o">:</span><span class="s2">&#34;test&#34;</span><span class="p">,</span><span class="s2">&#34;deleteTemp.standard&#34;</span><span class="o">:</span><span class="s2">&#34;test&#34;</span><span class="p">}</span>
+
+
+
+
+<span class="c1">// 数组创建
+</span><span class="c1"></span><span class="kd">var</span> <span class="nx">mycars</span><span class="o">=</span><span class="k">new</span> <span class="nb">Array</span><span class="p">(</span><span class="p">)</span>
+<span class="nx">mycars</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="s2">&#34;Saab&#34;</span>
+<span class="nx">mycars</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="s2">&#34;Volvo&#34;</span>
+<span class="nx">mycars</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">=</span><span class="s2">&#34;BMW&#34;</span>
+
+</code></pre></div>
+
+        
+          <div class="blog-tags">
+            
+              <a href="https://xiaoshigoodboy.github.io//tags/other/">other</a>&nbsp;
+            
+          </div>
+        
+
+        
+            <hr/>
+            <section id="social-share">
+              <div class="list-inline footer-links">
+                
+
+<div class="share-box" aria-hidden="true">
+    <ul class="share">
+      
+      <li>
+        <a href="//twitter.com/share?url=https%3a%2f%2fxiaoshigoodboy.github.io%2fother%2fjs%2f&amp;text=javascript&amp;via=" target="_blank" title="Share on Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fxiaoshigoodboy.github.io%2fother%2fjs%2f" target="_blank" title="Share on Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//reddit.com/submit?url=https%3a%2f%2fxiaoshigoodboy.github.io%2fother%2fjs%2f&amp;title=javascript" target="_blank" title="Share on Reddit">
+          <i class="fab fa-reddit"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fxiaoshigoodboy.github.io%2fother%2fjs%2f&amp;title=javascript" target="_blank" title="Share on LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fxiaoshigoodboy.github.io%2fother%2fjs%2f&amp;title=javascript" target="_blank" title="Share on StumbleUpon">
+          <i class="fab fa-stumbleupon"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fxiaoshigoodboy.github.io%2fother%2fjs%2f&amp;description=javascript" target="_blank" title="Share on Pinterest">
+          <i class="fab fa-pinterest"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+
+              </div>
+            </section>
+        
+
+        
+          
+            
+          
+
+          
+                  <h4 class="see-also">See also</h4>
+                  <ul>
+                
+                
+                    <li><a href="/other/database/">数据库</a></li>
+                
+              </ul>
+
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://xiaoshigoodboy.github.io/other/database/" data-toggle="tooltip" data-placement="top" title="数据库">&larr; Previous Post</a>
+            </li>
+          
+          
+        </ul>
+      
+
+
+      
+        
+        
+      
+
+    </div>
+  </div>
+</div>
+
+      
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+                <a href="https://github.com/xiaoshigoodboy" title="GitHub">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+          <li>
+            <a href="" title="RSS">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2020
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://xiaoshigoodboy.github.io/">Sonor</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="https://gohugo.io">Hugo v0.62.2</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script src="https://xiaoshigoodboy.github.io/js/main.js"></script>
+<script src="https://xiaoshigoodboy.github.io/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script> renderMathInElement(document.body); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://xiaoshigoodboy.github.io/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+    
+  </body>
+</html>
+
