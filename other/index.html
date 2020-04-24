@@ -190,6 +190,53 @@
         <div class="posts-list">
           
             <article class="post-preview">
+    <a href="https://xiaoshigoodboy.github.io/other/other/">
+        <h2 class="post-title">Other</h2>
+        
+        
+        
+    </a>
+
+    <p class="post-meta">
+        <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on April 24, 2020
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;2&nbsp;minutes
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;288&nbsp;words
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;
+    
+  
+  
+</span>
+
+
+    </p>
+    <div class="post-entry">
+        
+        JavaScript 导出Excel , Word // 前台请求方式，可以直接跳转下载word、excel window.location.href = &#34;history_systemAction?startTime=&#34; + start + &#34;&amp;endTime=&#34; +end; // 后台处理文件流 // ssh框架 response.setContentType(&#34;octets/stream&#34;); response.addHeader(&#34;Content-Disposition&#34;,&#34;attachment;filename=historyWord.docx&#34;); OutputStream out = response.getOutputStream(); // poi进行表格封装 XWPFDocument document = new XWPFDocument(); // 新建一个段落, 作用: word中插入多个表格使用，防止表格放到一起 XWPFParagraph p = document.createParagraph(); XWPFTable table = document.createTable(); // 设置表格样式 CTTblWidth width = table.getCTTbl().addNewTblPr().addNewTblW(); width.setType(STTblWidth.DXA); width.setW(BigInteger.valueOf(5000)); // 获取表格的第一行 XWPFTableRow tableRowOne = table.getRow(0); // 参数 i: 当前行的第几个单元格 s: 赋值 tableRowOne.getCell(i++).setText(s) // 关闭流 document.write(out); out.close(); out.flush(); 打印功能 // 前台页面 // 参数val: String类型的html代码 $.
+        <a href="https://xiaoshigoodboy.github.io/other/other/" class="post-read-more">[Read More]</a>
+        
+    </div>
+
+    
+    <div class="blog-tags">
+        
+        <a href="https://xiaoshigoodboy.github.io//tags/other/">other</a>&nbsp;
+        
+    </div>
+    
+
+</article>
+          
+            <article class="post-preview">
     <a href="https://xiaoshigoodboy.github.io/other/js/">
         <h2 class="post-title">javascript</h2>
         

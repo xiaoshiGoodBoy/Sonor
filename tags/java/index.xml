@@ -44,10 +44,10 @@ Realm : Shiro从Realm获取安全数据(如用户、角色、权限) , 就是说
       <description>Spring Security 环境准备 工具idea，框架使用springboot
 依赖包：
 spring Security 主要依赖包
-&amp;lt;dependency&amp;gt;&amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt;&amp;lt;artifactId&amp;gt;spring-boot-starter-security&amp;lt;/artifactId&amp;gt; &amp;lt;/dependency&amp;gt;根据自己情况，选择数据库，这里使用的是pg数据库
-&amp;lt;dependency&amp;gt;&amp;lt;groupId&amp;gt;org.postgresql&amp;lt;/groupId&amp;gt;&amp;lt;artifactId&amp;gt;postgresql&amp;lt;/artifactId&amp;gt;&amp;lt;version&amp;gt;42.2.8&amp;lt;/version&amp;gt;&amp;lt;/dependency&amp;gt;dao层操作如何使用注解方式，需要引入：
+&amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;spring-boot-starter-security&amp;lt;/artifactId&amp;gt; &amp;lt;/dependency&amp;gt; 根据自己情况，选择数据库，这里使用的是pg数据库
+&amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.postgresql&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;postgresql&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;42.2.8&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; dao层操作如何使用注解方式，需要引入：
 注意：dao层注解式开发，需要注意依赖包，如果引入错误会出现@Autowired注入失败，会有运行时异常，但是也不影响正常使用，具体为啥，嗯&amp;hellip;&amp;hellip;.
-&amp;lt;dependency&amp;gt;&amp;lt;groupId&amp;gt;org.mybatis.spring.boot&amp;lt;/groupId&amp;gt;&amp;lt;artifactId&amp;gt;mybatis-spring-boot-starter&amp;lt;/artifactId&amp;gt;&amp;lt;version&amp;gt;1.3.1&amp;lt;&amp;lt;/dependency&amp;gt;</description>
+&amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.mybatis.spring.boot&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;mybatis-spring-boot-starter&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;1.3.1&amp;lt; &amp;lt;/dependency&amp;gt; </description>
     </item>
     
     <item>
@@ -88,7 +88,7 @@ spring Security 主要依赖包
   实例
   方法
   重载
-  对象和类的概念。  对象：对象是类的一个实例（对象不是找个女朋友），有状态和行为。例如，一条狗是一个对象，它的状态有：颜色、名字、品种；行为有：摇尾巴、叫、吃等。 类：类是一个模板，它描述一类对象的行为和状态。  类的定义 public class Dog{String breed;int age;String color;void barking(){}void hungry(){}void sleeping(){}} 一个类可以包含以下类型变量：  局部变量：在方法、构造方法或者语句块中定义的变量被称为局部变量。变量声明和初始化都是在方法中，方法结束后，变量就会自动销毁。 成员变量：成员变量是定义在类中，方法体之外的变量。这种变量在创建对象的时候实例化。成员变量可以被类中方法、构造方法和特定类的语句块访问。 类变量：类变量也声明在类中，方法体之外，但必须声明为static类型。 一个类可以拥有多个方法，在上面的例子中：barking()、hungry()和sleeping()都是Dog类的方法。  构造方法 每个类都有构造方法。如果没有显式地为类定义构造方法，Java编译器将会为该类提供一个默认构造方法。在创建一个对象的时候，至少要调用一个构造方法。构造方法的名称必须与类同名，一个类可以有多个构造方法。</description>
+  对象和类的概念。  对象：对象是类的一个实例（对象不是找个女朋友），有状态和行为。例如，一条狗是一个对象，它的状态有：颜色、名字、品种；行为有：摇尾巴、叫、吃等。 类：类是一个模板，它描述一类对象的行为和状态。  类的定义 public class Dog{ String breed; int age; String color; void barking(){ } void hungry(){ } void sleeping(){ } } 一个类可以包含以下类型变量：  局部变量：在方法、构造方法或者语句块中定义的变量被称为局部变量。变量声明和初始化都是在方法中，方法结束后，变量就会自动销毁。 成员变量：成员变量是定义在类中，方法体之外的变量。这种变量在创建对象的时候实例化。成员变量可以被类中方法、构造方法和特定类的语句块访问。 类变量：类变量也声明在类中，方法体之外，但必须声明为static类型。 一个类可以拥有多个方法，在上面的例子中：barking()、hungry()和sleeping()都是Dog类的方法。  构造方法 每个类都有构造方法。如果没有显式地为类定义构造方法，Java编译器将会为该类提供一个默认构造方法。在创建一个对象的时候，至少要调用一个构造方法。构造方法的名称必须与类同名，一个类可以有多个构造方法。</description>
     </item>
     
   </channel>

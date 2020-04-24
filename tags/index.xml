@@ -5,10 +5,19 @@
     <link>https://xiaoshigoodboy.github.io/tags/</link>
     <description>Recent content in Tags on Sonor</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 13 Mar 2020 17:20:09 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 24 Apr 2020 16:57:51 +0800</lastBuildDate>
     
 	<atom:link href="https://xiaoshigoodboy.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>other</title>
+      <link>https://xiaoshigoodboy.github.io/tags/other/</link>
+      <pubDate>Fri, 24 Apr 2020 16:57:51 +0800</pubDate>
+      
+      <guid>https://xiaoshigoodboy.github.io/tags/other/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>java</title>
