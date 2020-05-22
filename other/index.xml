@@ -5,10 +5,20 @@
     <link>https://xiaoshigoodboy.github.io/other/</link>
     <description>Recent content in Others on Sonor</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 24 Apr 2020 16:57:51 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 22 May 2020 11:13:18 +0800</lastBuildDate>
     
 	<atom:link href="https://xiaoshigoodboy.github.io/other/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Linux</title>
+      <link>https://xiaoshigoodboy.github.io/other/linux/</link>
+      <pubDate>Fri, 22 May 2020 11:13:18 +0800</pubDate>
+      
+      <guid>https://xiaoshigoodboy.github.io/other/linux/</guid>
+      <description>linux 创建桌面图标 文件名: idea.desktop
+[Desktop Entry] Type=Application Terminal=false Name=Navicat//应用名 Categories=Development; // 应用分类 Icon=/opt/work/ide/navicat/navicat.png //应用图标的绝对路径 Exec=/opt/work/ide/navicat/start_navicat //应用的绝对路径 开启ssh，对外开放 打开ssh连接 sudo systemctl start sshd // 停止ssh sudo systemctl stop sshd // 查看ssh状态 sudo systemctl status sshd // 关闭开机启动 sudo systemctl disable sshd 常用命令 -- 问postgresql文件在哪个位置 whereis postgresql -- 查看文件路径 sudo find / -name &amp;#34;postgresql.conf&amp;#34; -- 查看端口是否存在 netstat -anp|grep 6789 - nc指令进行tcp通讯 nc ip地址 -- nc执行upd通讯 -4u -6u nc -4u ip地址 -- 根据关键字从历史命令查询 history | grep &amp;#34;ssh -fCNR&amp;#34; -- 根据行号执行代码历史 -- 执行630行代码 !</description>
+    </item>
     
     <item>
       <title>Other</title>
