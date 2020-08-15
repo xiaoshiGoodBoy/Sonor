@@ -5,10 +5,29 @@
     <link>https://xiaoshigoodboy.github.io/</link>
     <description>Recent content on Sonor</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 22 May 2020 11:13:18 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 15 Aug 2020 09:04:58 +0800</lastBuildDate>
     
 	<atom:link href="https://xiaoshigoodboy.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Druid数据库配置信息加密</title>
+      <link>https://xiaoshigoodboy.github.io/java/druidencode/</link>
+      <pubDate>Sat, 15 Aug 2020 09:04:58 +0800</pubDate>
+      
+      <guid>https://xiaoshigoodboy.github.io/java/druidencode/</guid>
+      <description>1、阿里默认只对用户密码解密 2、druid 1.0.16版本及以上的解密时需要同时配置publicKey 一.生成密文密码
+1 前提:已经配置了jdk环境
+1.1准备jar包
+1、(示例使用 druid-0.2.23.jar),放到某目录下,且打开命令窗口(win用户可以在目录的空白处 shift+鼠标右键 打开命令窗口); 1.2.输入命令:
+java -cp druid-0.2.23.jar com.alibaba.druid.filter.config.ConfigTools you_password 我要加密的密码是:123456pwd
+注意：druid 1.0.16之前
+java -cp druid-0.2.23.jar com.alibaba.druid.filter.config.ConfigTools 123456pwd 1.0.16jar包执行之后返回值， 1.0.16.jar包之前只返回加密后的密码
+privateKey:MIIBUwIBADANBgkqhkiG9w0BAQEFAASCAT0wggE5AgEAAkEAmddjmfldLAXQXTqDv/Eff sT2j2Lmy1ka7J1ErKBjBPWotXR8lhD+TuJqDwvB96+bTDuGFWdcx5awTfx4+3NoCwIDAQABAkBbbSoAQ 7Yfh4UBItlRpNb22887/6bxio75t60selTeiMNJC/jeT36PpxHva/hXegXusYHstpArKvFBCczKswPBA iEA2cDvPmz77eyKeaUIMCUH8UfYAUyfKDJiWRREsyn/OmMCIQC03LSOC5S0Ddu6UPIWXJ30DJhpvfkaC xnqP1m3VAt4OQIgJW0DsbcJldsR8dZrkdrLgqzWc2K3+DCwtp7FMAYH2AECIACRiQfBRZBjUsN9KaWkW OLBf2Eltbi9PDGeTVvkKb0RAiAqKLLxRWfD5e1G5FDhSIUh46ef1kFSYECoRSZO8on5mg== publicKey:MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAJnXY5n5XSwF0F06g7/xH37E9o9i5stZGuydRK ygYwT1qLV0fJYQ/k7iag8Lwfevm0w7hhVnXMeWsE38ePtzaAsCAwEAAQ== password:A95WOJh8yz6T2ONfFu3lIhdVG1QpyuIeyyUpjJWWL/5QssN0WFK+T3hQgt8dtf30Gg+Wbz3 wQcLQ1h7WlK4feQ== 二、dataSource配置 注意：druid 1.0.16之前
+1.1jdbc.properties
+## JDBC set jdbc.url=jdbc\:mysql\://localhost\:3306/edu_demo?useUnicode\=true&amp;amp;characterEncoding\=utf-8 jdbc.username=root jdbc.password=Obsbr4gd1oVyYr+k4KQdUMNYgKMWdDibsNJTabnph+yPmxjc6tUrT1GNsPDqa9ZvTF9QvaRD86H+Zn/H+yz2jA\ 1.2dataSource配置
+&amp;lt;!-- 基于Druid数据库链接池的数据源配置 --&amp;gt; &amp;lt;bean id=&amp;#34;dataSource&amp;#34; class=&amp;#34;com.alibaba.druid.pool.DruidDataSource&amp;#34; init-method=&amp;#34;init&amp;#34; destroy-method=&amp;#34;close&amp;#34;&amp;gt; &amp;lt;!-- 基本属性driverClassName、 url、user、password --&amp;gt; &amp;lt;property name=&amp;#34;driverClassName&amp;#34; value=&amp;#34;com.mysql.jdbc.Driver&amp;#34; /&amp;gt; &amp;lt;property name=&amp;#34;url&amp;#34; value=&amp;#34;${jdbc.url}&amp;#34; /&amp;gt; &amp;lt;property name=&amp;#34;username&amp;#34; value=&amp;#34;${jdbc.</description>
+    </item>
     
     <item>
       <title>Linux</title>
