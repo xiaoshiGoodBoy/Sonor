@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>Go_Markfile - Sonor</title>
+  <meta name="description" content="Go使用Makefile构建 Makefile介绍 Makefile 是和 make 命令一起配合使用的。它是开源的构建工具，很多大型项目的编译都是通过 Makefile 来组织的。 Makefile 主要的 5个部分 (显示规则, 隐晦规则, 变量定义, 文件指示, 注释) Makefile基本格式如下:
+target ... : prerequisites ... command ... ... 其中, target - 目标文件, 可以是 Object File, 也可以是可执行文件 prerequisites - 生成 target 所需要的文件或者目标 command - make需要执行的命令 (任意的shell命令), Makefile中的命令必须以 [tab] 开头 (1)显示规则: 说明如何生成一个或多个目标文件(包括 生成的文件, 文件的依赖文件, 生成的命令) (2)隐晦规则: make的自动推导功能所执行的规则 (3)变量定义: Makefile中定义的变量 (4)文件指示: Makefile中引用其他Makefile; 指定Makefile中有效部分; 定义一个多行命令 (5)注释: Makefile只有行注释 &ldquo;#&quot;, 如果要使用或者输出&rdquo;#&ldquo;字符, 需要进行转义, &ldquo;#&rdquo;
+ go语言内嵌Makefile构建工具 在Golang开发过程中，为了减少不断重复手动执行命令的操作，我们可以用makefile来实现“自动化编译”。它就像一个shell脚本一样，告诉机器如何编译。我们只需要一个make命令即可搞定编译的问题，极大的提高软件开发的效率。
+工作方式 在默认方式下，我们只要输入make命令，那么make会在当前目录下寻找名字叫“Makefile”或“makefile”的文件，然后根据文件中的依赖关系，链接对应文件。它会一层又一层的去找文件的依赖关系，直到最终编译出第一个目标文件。在找寻的过程中，如果出现错误，比如最后被依赖的文件找不到，那么make就会直接退出。具体步骤如下：
+1. 读入所有的Makefile 2."><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "Sonor",
+    
+    "url": "https:\/\/xiaoshigoodboy.github.io\/"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "https:\/\/xiaoshigoodboy.github.io\/"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/xiaoshigoodboy.github.io\/",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/xiaoshigoodboy.github.io\/go\/go_markfile\/",
+          "name": "Go markfile"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : ""
+  },
+  "headline": "Go_Markfile",
+  "description" : "Go使用Makefile构建 Makefile介绍 Makefile 是和 make 命令一起配合使用的。它是开源的构建工具，很多大型项目的编译都是通过 Makefile 来组织的。 Makefile 主要的 5个部分 (显示规则, 隐晦规则, 变量定义, 文件指示, 注释) Makefile基本格式如下:\ntarget ... : prerequisites ... command ... ... 其中, target - 目标文件, 可以是 Object File, 也可以是可执行文件 prerequisites - 生成 target 所需要的文件或者目标 command - make需要执行的命令 (任意的shell命令), Makefile中的命令必须以 [tab] 开头 (1)显示规则: 说明如何生成一个或多个目标文件(包括 生成的文件, 文件的依赖文件, 生成的命令) (2)隐晦规则: make的自动推导功能所执行的规则 (3)变量定义: Makefile中定义的变量 (4)文件指示: Makefile中引用其他Makefile; 指定Makefile中有效部分; 定义一个多行命令 (5)注释: Makefile只有行注释 \x26ldquo;#\x26quot;, 如果要使用或者输出\x26rdquo;#\x26ldquo;字符, 需要进行转义, \x26ldquo;#\x26rdquo;\n go语言内嵌Makefile构建工具 在Golang开发过程中，为了减少不断重复手动执行命令的操作，我们可以用makefile来实现“自动化编译”。它就像一个shell脚本一样，告诉机器如何编译。我们只需要一个make命令即可搞定编译的问题，极大的提高软件开发的效率。\n工作方式 在默认方式下，我们只要输入make命令，那么make会在当前目录下寻找名字叫“Makefile”或“makefile”的文件，然后根据文件中的依赖关系，链接对应文件。它会一层又一层的去找文件的依赖关系，直到最终编译出第一个目标文件。在找寻的过程中，如果出现错误，比如最后被依赖的文件找不到，那么make就会直接退出。具体步骤如下：\n1. 读入所有的Makefile 2.",
+  "inLanguage" : "en",
+  "wordCount":  131 ,
+  "datePublished" : "2020-11-16T17:38:51",
+  "dateModified" : "2020-11-16T17:38:51",
+  "image" : "https:\/\/xiaoshigoodboy.github.io\/img\/avatar-icon.png",
+  "keywords" : [ "go" ],
+  "mainEntityOfPage" : "https:\/\/xiaoshigoodboy.github.io\/go\/go_markfile\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/xiaoshigoodboy.github.io\/",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/xiaoshigoodboy.github.io\/img\/avatar-icon.png",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+<meta property="og:title" content="Go_Markfile" />
+<meta property="og:description" content="Go使用Makefile构建 Makefile介绍 Makefile 是和 make 命令一起配合使用的。它是开源的构建工具，很多大型项目的编译都是通过 Makefile 来组织的。 Makefile 主要的 5个部分 (显示规则, 隐晦规则, 变量定义, 文件指示, 注释) Makefile基本格式如下:
+target ... : prerequisites ... command ... ... 其中, target - 目标文件, 可以是 Object File, 也可以是可执行文件 prerequisites - 生成 target 所需要的文件或者目标 command - make需要执行的命令 (任意的shell命令), Makefile中的命令必须以 [tab] 开头 (1)显示规则: 说明如何生成一个或多个目标文件(包括 生成的文件, 文件的依赖文件, 生成的命令) (2)隐晦规则: make的自动推导功能所执行的规则 (3)变量定义: Makefile中定义的变量 (4)文件指示: Makefile中引用其他Makefile; 指定Makefile中有效部分; 定义一个多行命令 (5)注释: Makefile只有行注释 &ldquo;#&quot;, 如果要使用或者输出&rdquo;#&ldquo;字符, 需要进行转义, &ldquo;#&rdquo;
+ go语言内嵌Makefile构建工具 在Golang开发过程中，为了减少不断重复手动执行命令的操作，我们可以用makefile来实现“自动化编译”。它就像一个shell脚本一样，告诉机器如何编译。我们只需要一个make命令即可搞定编译的问题，极大的提高软件开发的效率。
+工作方式 在默认方式下，我们只要输入make命令，那么make会在当前目录下寻找名字叫“Makefile”或“makefile”的文件，然后根据文件中的依赖关系，链接对应文件。它会一层又一层的去找文件的依赖关系，直到最终编译出第一个目标文件。在找寻的过程中，如果出现错误，比如最后被依赖的文件找不到，那么make就会直接退出。具体步骤如下：
+1. 读入所有的Makefile 2.">
+<meta property="og:image" content="https://xiaoshigoodboy.github.io/img/avatar-icon.png" />
+<meta property="og:url" content="https://xiaoshigoodboy.github.io/go/go_markfile/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Sonor" />
+
+  <meta name="twitter:title" content="Go_Markfile" />
+  <meta name="twitter:description" content="Go使用Makefile构建 Makefile介绍 Makefile 是和 make 命令一起配合使用的。它是开源的构建工具，很多大型项目的编译都是通过 Makefile 来组织的。 Makefile 主要的 5个部分 (显示规则, 隐晦规则, 变量定义, 文件指示, 注释) Makefile基本格式如下:
+target ... : prerequisites ... command ... …">
+  <meta name="twitter:image" content="https://xiaoshigoodboy.github.io/img/avatar-icon.png" />
+  <meta name="twitter:card" content="summary" />
+  <link href='https://xiaoshigoodboy.github.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
+  <meta name="generator" content="Hugo 0.62.2" />
+  <link rel="alternate" href="https://xiaoshigoodboy.github.io/index.xml" type="application/rss+xml" title="Sonor"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://xiaoshigoodboy.github.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://xiaoshigoodboy.github.io/css/highlight.min.css" /><link rel="stylesheet" href="https://xiaoshigoodboy.github.io/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://xiaoshigoodboy.github.io/">Sonor</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="/">Blog</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="/tags">Tags</a>
+            </li>
+          
+        
+
+        
+
+        
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="Sonor" href="https://xiaoshigoodboy.github.io/">
+            <img class="avatar-img" src="https://xiaoshigoodboy.github.io/img/avatar-icon.png" alt="Sonor" />
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="go-heading">
+              
+                <h1>Go_Markfile</h1>
+              
+              
+                <hr class="small">
+              
+              
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <h1 id="go使用makefile构建">Go使用Makefile构建</h1>
+<h4 id="makefile介绍">Makefile介绍</h4>
+<p>Makefile 是和 make 命令一起配合使用的。它是开源的构建工具，很多大型项目的编译都是通过 Makefile 来组织的。
+Makefile 主要的 5个部分 (显示规则, 隐晦规则, 变量定义, 文件指示, 注释)
+Makefile基本格式如下:</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">target ... : prerequisites ...
+  command
+  ...
+  ...
+
+其中,
+target    - 目标文件, 可以是 Object File, 也可以是可执行文件
+prerequisites - 生成 target 所需要的文件或者目标
+command    - make需要执行的命令 (任意的shell命令), Makefile中的命令必须以 [tab] 开头
+</code></pre></div><p>(1)显示规则: 说明如何生成一个或多个目标文件(包括 生成的文件, 文件的依赖文件, 生成的命令)
+(2)隐晦规则: make的自动推导功能所执行的规则
+(3)变量定义: Makefile中定义的变量
+(4)文件指示: Makefile中引用其他Makefile; 指定Makefile中有效部分; 定义一个多行命令
+(5)注释: Makefile只有行注释 &ldquo;#&quot;, 如果要使用或者输出&rdquo;#&ldquo;字符, 需要进行转义, &ldquo;#&rdquo;</p>
+<hr>
+<h4 id="go语言内嵌makefile构建工具">go语言内嵌Makefile构建工具</h4>
+<p>在Golang开发过程中，为了减少不断重复手动执行命令的操作，我们可以用makefile来实现“自动化编译”。它就像一个shell脚本一样，告诉机器如何编译。我们只需要一个make命令即可搞定编译的问题，极大的提高软件开发的效率。</p>
+<h5 id="工作方式">工作方式</h5>
+<p>在默认方式下，我们只要输入make命令，那么make会在当前目录下寻找名字叫“Makefile”或“makefile”的文件，然后根据文件中的依赖关系，链接对应文件。它会一层又一层的去找文件的依赖关系，直到最终编译出第一个目标文件。在找寻的过程中，如果出现错误，比如最后被依赖的文件找不到，那么make就会直接退出。具体步骤如下：</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">1. 读入所有的Makefile
+2. 读入被include的其他Makefile
+3. 初始化文件中的变量
+4. 推到隐晦规则，并分析所有规则
+5. 为所有的目标文件创建依赖关系链
+6. 根据依赖关系，决定哪些目标要重新生成
+7. 执行生成命令
+</code></pre></div><h5 id="实例">实例</h5>
+<div class="highlight"><pre class="chroma"><code class="language-make" data-lang="make"><span class="c">#Go parameters
+</span><span class="c"></span><span class="nv">VERSION</span><span class="o">=</span>1.9.2
+<span class="nv">GOCMD</span><span class="o">=</span>go
+<span class="nv">GORUN</span><span class="o">=</span><span class="k">$(</span>GORUN<span class="k">)</span>main.go
+
+<span class="nf">run</span><span class="o">:</span>
+	<span class="k">$(</span>GORUN<span class="k">)</span> main.go
+	
+	
+<span class="err">第</span><span class="err">一</span><span class="err">句</span><span class="c"># Go parameters是注释语句，在makefile文件中，只有单行注释，且都以“#”作为标志。
+</span><span class="c"></span>
+<span class="nf">第二、三句是变量定义语句。变量名的规则是不能包括：</span><span class="o">:</span> <span class="c"># = 前置空白和尾空白的任何字符，它对大小写敏感。变量的引用和shell脚本类似，使用美元符号($)和圆括号。变量除了自定义变量之外（这也是经常用到的），也有系统预定义的。例如RM表示删除命令，默认是rm -f。
+</span><span class="c"></span>
+<span class="err">第</span><span class="err">四</span><span class="err">句</span><span class="err">就</span><span class="err">是</span><span class="err">命</span><span class="err">令</span><span class="err">语</span><span class="err">句</span><span class="err">：</span><span class="err">让</span><span class="err">其</span><span class="err">执</span><span class="err">行</span><span class="err">g</span><span class="err">o</span> <span class="err">r</span><span class="err">u</span><span class="err">n</span> <span class="err">m</span><span class="err">a</span><span class="err">i</span><span class="err">n</span><span class="err">.</span><span class="err">g</span><span class="err">o</span><span class="err">。</span><span class="err">m</span><span class="err">a</span><span class="err">k</span><span class="err">e</span><span class="err">语</span><span class="err">句</span><span class="err">的</span><span class="err">执</span><span class="err">行</span><span class="err">顺</span><span class="err">序</span><span class="err">是</span><span class="err">按</span><span class="err">序</span><span class="err">执</span><span class="err">行</span><span class="err">，</span><span class="err">由</span><span class="err">于</span><span class="err">本</span><span class="err">文</span><span class="err">只</span><span class="err">是</span><span class="err">对</span><span class="err">M</span><span class="err">a</span><span class="err">k</span><span class="err">e</span><span class="err">f</span><span class="err">i</span><span class="err">l</span><span class="err">e</span><span class="err">的</span><span class="err">一</span><span class="err">个</span><span class="err">简</span><span class="err">单</span><span class="err">演</span><span class="err">示</span><span class="err">，</span><span class="err">所</span><span class="err">以</span><span class="err">命</span><span class="err">令</span><span class="err">语</span><span class="err">句</span><span class="err">很</span><span class="err">简</span><span class="err">单</span><span class="err">。</span><span class="err">但</span><span class="err">当</span><span class="err">你</span><span class="err">的</span><span class="err">项</span><span class="err">目</span><span class="err">比</span><span class="err">较</span><span class="err">复</span><span class="err">杂</span><span class="err">时</span><span class="err">，</span><span class="err">这</span><span class="err">时</span><span class="err">你</span><span class="err">可</span><span class="err">能</span><span class="err">执</span><span class="err">行</span><span class="err">多</span><span class="err">步</span><span class="err">命</span><span class="err">令</span><span class="err">才</span><span class="err">启</span><span class="err">动</span><span class="err">服</span><span class="err">务</span><span class="err">。</span><span class="err">例</span><span class="err">如</span><span class="err">用</span><span class="err">d</span><span class="err">o</span><span class="err">c</span><span class="err">k</span><span class="err">e</span><span class="err">r</span><span class="err">进</span><span class="err">行</span><span class="err">发</span><span class="err">布</span><span class="err">，</span><span class="err">就</span><span class="err">需</span><span class="err">要</span><span class="err">执</span><span class="err">行</span><span class="err">一</span><span class="err">系</span><span class="err">列</span><span class="err">d</span><span class="err">o</span><span class="err">c</span><span class="err">k</span><span class="err">e</span><span class="err">r</span><span class="err">操</span><span class="err">作</span><span class="err">。</span>
+</code></pre></div><h5 id="下面是一个简单的项目其中就包含了一个maingo文件makefile文件">下面是一个简单的项目，其中就包含了一个main.go文件、Makefile文件。</h5>
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">main</span><span class="p">.</span><span class="k">go</span>
+<span class="kn">package</span> <span class="nx">beegoTest</span>
+
+<span class="kn">import</span> <span class="p">(</span>
+    <span class="s">&#34;chpkg.in/qiniu/log.v1&#34;</span>
+<span class="p">)</span>
+
+<span class="kd">func</span> <span class="nf">main</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">log</span><span class="p">.</span><span class="nf">Info</span><span class="p">(</span><span class="s">&#34;hello world&#34;</span><span class="p">)</span>
+<span class="p">}</span>
+
+</code></pre></div><p>Makefile文件就是上文讲解中使用的代码，然后执行结果如下：</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$ make 
+go run main.go
+2018/04/22 00:55:02.541607 [INFO] :hello world
+</code></pre></div><p>需要注意的是：Makefile文件的命令行首需要用tab键进分隔，不然程序是无法识别你的内容，从而会报如下错误：*** missing separator. Stop。</p>
+
+
+        
+          <div class="blog-tags">
+            
+              <a href="https://xiaoshigoodboy.github.io//tags/go/">go</a>&nbsp;
+            
+          </div>
+        
+
+        
+            <hr/>
+            <section id="social-share">
+              <div class="list-inline footer-links">
+                
+
+<div class="share-box" aria-hidden="true">
+    <ul class="share">
+      
+      <li>
+        <a href="//twitter.com/share?url=https%3a%2f%2fxiaoshigoodboy.github.io%2fgo%2fgo_markfile%2f&amp;text=Go_Markfile&amp;via=" target="_blank" title="Share on Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fxiaoshigoodboy.github.io%2fgo%2fgo_markfile%2f" target="_blank" title="Share on Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//reddit.com/submit?url=https%3a%2f%2fxiaoshigoodboy.github.io%2fgo%2fgo_markfile%2f&amp;title=Go_Markfile" target="_blank" title="Share on Reddit">
+          <i class="fab fa-reddit"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fxiaoshigoodboy.github.io%2fgo%2fgo_markfile%2f&amp;title=Go_Markfile" target="_blank" title="Share on LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fxiaoshigoodboy.github.io%2fgo%2fgo_markfile%2f&amp;title=Go_Markfile" target="_blank" title="Share on StumbleUpon">
+          <i class="fab fa-stumbleupon"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fxiaoshigoodboy.github.io%2fgo%2fgo_markfile%2f&amp;description=Go_Markfile" target="_blank" title="Share on Pinterest">
+          <i class="fab fa-pinterest"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+
+              </div>
+            </section>
+        
+
+        
+          
+
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+          
+        </ul>
+      
+
+
+      
+        
+        
+      
+
+    </div>
+  </div>
+</div>
+
+      
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+                <a href="https://github.com/xiaoshigoodboy" title="GitHub">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+          <li>
+            <a href="" title="RSS">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2020
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://xiaoshigoodboy.github.io/">Sonor</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="https://gohugo.io">Hugo v0.62.2</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script src="https://xiaoshigoodboy.github.io/js/main.js"></script>
+<script src="https://xiaoshigoodboy.github.io/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script> renderMathInElement(document.body); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://xiaoshigoodboy.github.io/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+    
+  </body>
+</html>
+
