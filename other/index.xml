@@ -5,10 +5,33 @@
     <link>https://xiaoshigoodboy.github.io/other/</link>
     <description>Recent content in Others on Sonor</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 22 May 2020 11:13:18 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 16 Nov 2020 12:48:51 +0800</lastBuildDate>
     
 	<atom:link href="https://xiaoshigoodboy.github.io/other/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Linux_tmux</title>
+      <link>https://xiaoshigoodboy.github.io/other/linux_tmux/</link>
+      <pubDate>Mon, 16 Nov 2020 12:48:51 +0800</pubDate>
+      
+      <guid>https://xiaoshigoodboy.github.io/other/linux_tmux/</guid>
+      <description>Linux tmux 一、Tmux 是什么？ 1.1 会话与进程 命令行的典型使用方式是，打开一个终端窗口（terminal window，以下简称&amp;quot;窗口&amp;rdquo;），在里面输入命令。用户与计算机的这种临时的交互，称为一次&amp;quot;会话&amp;rdquo;（session） 。
+会话的一个重要特点是，窗口与其中启动的进程是连在一起的。打开窗口，会话开始；关闭窗口，会话结束，会话内部的进程也会随之终止，不管有没有运行完。
+一个典型的例子就是，SSH 登录远程计算机，打开一个远程窗口执行命令。这时，网络突然断线，再次登录的时候，是找不回上一次执行的命令的。因为上一次 SSH 会话已经终止了，里面的进程也随之消失了。
+为了解决这个问题，会话与窗口可以&amp;quot;解绑&amp;rdquo;：窗口关闭时，会话并不终止，而是继续运行，等到以后需要的时候，再让会话&amp;quot;绑定&amp;quot;其他窗口。
+1.2 Tmux 的作用 Tmux 就是会话与窗口的&amp;quot;解绑&amp;quot;工具，将它们彻底分离。
+（1）它允许在单个窗口中，同时访问多个会话。这对于同时运行多个命令行程序很有用。
+（2） 它可以让新窗口&amp;quot;接入&amp;quot;已经存在的会话。
+（3）它允许每个会话有多个连接窗口，因此可以多人实时共享会话。
+（4）它还支持窗口任意的垂直和水平拆分。
+类似的终端复用器还有 GNU Screen。Tmux 与它功能相似，但是更易用，也更强大。
+二、基本用法 2.1 安装 Tmux 一般需要自己安装。
+# Ubuntu 或 Debian $sudo apt-get install tmux # CentOS 或 Fedora $ sudo yum install tmux # MAC 安装 $ brew install tmux 2.2 启动与退出 安装完成后，键入tmux命令，就进入了Tmux窗口
+$ tmux 上面命令会启动Tmux窗口，底部有一个状态栏。状态栏的左侧是窗口信息（编号和名称），右侧是系统信息。
+按下Ctrl+d 或者显示输入exit命令，就可以退出Tmux窗口。
+$ exit 2.3 前缀键 Tmux 窗口有大量的快捷键。所有快捷键都要通过前缀键唤起。默认的前缀键是Ctrl+b，即先按下Ctrl+b，快捷键才会生效。</description>
+    </item>
     
     <item>
       <title>Linux</title>

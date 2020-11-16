@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>Linux_tmux - Sonor</title>
+  <meta name="description" content="Linux tmux 一、Tmux 是什么？ 1.1 会话与进程 命令行的典型使用方式是，打开一个终端窗口（terminal window，以下简称&quot;窗口&rdquo;），在里面输入命令。用户与计算机的这种临时的交互，称为一次&quot;会话&rdquo;（session） 。
+会话的一个重要特点是，窗口与其中启动的进程是连在一起的。打开窗口，会话开始；关闭窗口，会话结束，会话内部的进程也会随之终止，不管有没有运行完。
+一个典型的例子就是，SSH 登录远程计算机，打开一个远程窗口执行命令。这时，网络突然断线，再次登录的时候，是找不回上一次执行的命令的。因为上一次 SSH 会话已经终止了，里面的进程也随之消失了。
+为了解决这个问题，会话与窗口可以&quot;解绑&rdquo;：窗口关闭时，会话并不终止，而是继续运行，等到以后需要的时候，再让会话&quot;绑定&quot;其他窗口。
+1.2 Tmux 的作用 Tmux 就是会话与窗口的&quot;解绑&quot;工具，将它们彻底分离。
+（1）它允许在单个窗口中，同时访问多个会话。这对于同时运行多个命令行程序很有用。
+（2） 它可以让新窗口&quot;接入&quot;已经存在的会话。
+（3）它允许每个会话有多个连接窗口，因此可以多人实时共享会话。
+（4）它还支持窗口任意的垂直和水平拆分。
+类似的终端复用器还有 GNU Screen。Tmux 与它功能相似，但是更易用，也更强大。
+二、基本用法 2.1 安装 Tmux 一般需要自己安装。
+# Ubuntu 或 Debian $sudo apt-get install tmux # CentOS 或 Fedora $ sudo yum install tmux # MAC 安装 $ brew install tmux 2.2 启动与退出 安装完成后，键入tmux命令，就进入了Tmux窗口
+$ tmux 上面命令会启动Tmux窗口，底部有一个状态栏。状态栏的左侧是窗口信息（编号和名称），右侧是系统信息。
+按下Ctrl&#43;d 或者显示输入exit命令，就可以退出Tmux窗口。
+$ exit 2.3 前缀键 Tmux 窗口有大量的快捷键。所有快捷键都要通过前缀键唤起。默认的前缀键是Ctrl&#43;b，即先按下Ctrl&#43;b，快捷键才会生效。"><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "Sonor",
+    
+    "url": "https:\/\/xiaoshigoodboy.github.io\/"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "https:\/\/xiaoshigoodboy.github.io\/"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/xiaoshigoodboy.github.io\/",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/xiaoshigoodboy.github.io\/other\/linux_tmux\/",
+          "name": "Linux tmux"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : ""
+  },
+  "headline": "Linux_tmux",
+  "description" : "Linux tmux 一、Tmux 是什么？ 1.1 会话与进程 命令行的典型使用方式是，打开一个终端窗口（terminal window，以下简称\x26quot;窗口\x26rdquo;），在里面输入命令。用户与计算机的这种临时的交互，称为一次\x26quot;会话\x26rdquo;（session） 。\n会话的一个重要特点是，窗口与其中启动的进程是连在一起的。打开窗口，会话开始；关闭窗口，会话结束，会话内部的进程也会随之终止，不管有没有运行完。\n一个典型的例子就是，SSH 登录远程计算机，打开一个远程窗口执行命令。这时，网络突然断线，再次登录的时候，是找不回上一次执行的命令的。因为上一次 SSH 会话已经终止了，里面的进程也随之消失了。\n为了解决这个问题，会话与窗口可以\x26quot;解绑\x26rdquo;：窗口关闭时，会话并不终止，而是继续运行，等到以后需要的时候，再让会话\x26quot;绑定\x26quot;其他窗口。\n1.2 Tmux 的作用 Tmux 就是会话与窗口的\x26quot;解绑\x26quot;工具，将它们彻底分离。\n（1）它允许在单个窗口中，同时访问多个会话。这对于同时运行多个命令行程序很有用。\n（2） 它可以让新窗口\x26quot;接入\x26quot;已经存在的会话。\n（3）它允许每个会话有多个连接窗口，因此可以多人实时共享会话。\n（4）它还支持窗口任意的垂直和水平拆分。\n类似的终端复用器还有 GNU Screen。Tmux 与它功能相似，但是更易用，也更强大。\n二、基本用法 2.1 安装 Tmux 一般需要自己安装。\n# Ubuntu 或 Debian $sudo apt-get install tmux # CentOS 或 Fedora $ sudo yum install tmux # MAC 安装 $ brew install tmux 2.2 启动与退出 安装完成后，键入tmux命令，就进入了Tmux窗口\n$ tmux 上面命令会启动Tmux窗口，底部有一个状态栏。状态栏的左侧是窗口信息（编号和名称），右侧是系统信息。\n按下Ctrl\x2bd 或者显示输入exit命令，就可以退出Tmux窗口。\n$ exit 2.3 前缀键 Tmux 窗口有大量的快捷键。所有快捷键都要通过前缀键唤起。默认的前缀键是Ctrl\x2bb，即先按下Ctrl\x2bb，快捷键才会生效。",
+  "inLanguage" : "en",
+  "wordCount":  313 ,
+  "datePublished" : "2020-11-16T12:48:51",
+  "dateModified" : "2020-11-16T12:48:51",
+  "image" : "https:\/\/xiaoshigoodboy.github.io\/img\/avatar-icon.png",
+  "keywords" : [ "other" ],
+  "mainEntityOfPage" : "https:\/\/xiaoshigoodboy.github.io\/other\/linux_tmux\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/xiaoshigoodboy.github.io\/",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/xiaoshigoodboy.github.io\/img\/avatar-icon.png",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+<meta property="og:title" content="Linux_tmux" />
+<meta property="og:description" content="Linux tmux 一、Tmux 是什么？ 1.1 会话与进程 命令行的典型使用方式是，打开一个终端窗口（terminal window，以下简称&quot;窗口&rdquo;），在里面输入命令。用户与计算机的这种临时的交互，称为一次&quot;会话&rdquo;（session） 。
+会话的一个重要特点是，窗口与其中启动的进程是连在一起的。打开窗口，会话开始；关闭窗口，会话结束，会话内部的进程也会随之终止，不管有没有运行完。
+一个典型的例子就是，SSH 登录远程计算机，打开一个远程窗口执行命令。这时，网络突然断线，再次登录的时候，是找不回上一次执行的命令的。因为上一次 SSH 会话已经终止了，里面的进程也随之消失了。
+为了解决这个问题，会话与窗口可以&quot;解绑&rdquo;：窗口关闭时，会话并不终止，而是继续运行，等到以后需要的时候，再让会话&quot;绑定&quot;其他窗口。
+1.2 Tmux 的作用 Tmux 就是会话与窗口的&quot;解绑&quot;工具，将它们彻底分离。
+（1）它允许在单个窗口中，同时访问多个会话。这对于同时运行多个命令行程序很有用。
+（2） 它可以让新窗口&quot;接入&quot;已经存在的会话。
+（3）它允许每个会话有多个连接窗口，因此可以多人实时共享会话。
+（4）它还支持窗口任意的垂直和水平拆分。
+类似的终端复用器还有 GNU Screen。Tmux 与它功能相似，但是更易用，也更强大。
+二、基本用法 2.1 安装 Tmux 一般需要自己安装。
+# Ubuntu 或 Debian $sudo apt-get install tmux # CentOS 或 Fedora $ sudo yum install tmux # MAC 安装 $ brew install tmux 2.2 启动与退出 安装完成后，键入tmux命令，就进入了Tmux窗口
+$ tmux 上面命令会启动Tmux窗口，底部有一个状态栏。状态栏的左侧是窗口信息（编号和名称），右侧是系统信息。
+按下Ctrl&#43;d 或者显示输入exit命令，就可以退出Tmux窗口。
+$ exit 2.3 前缀键 Tmux 窗口有大量的快捷键。所有快捷键都要通过前缀键唤起。默认的前缀键是Ctrl&#43;b，即先按下Ctrl&#43;b，快捷键才会生效。">
+<meta property="og:image" content="https://xiaoshigoodboy.github.io/img/avatar-icon.png" />
+<meta property="og:url" content="https://xiaoshigoodboy.github.io/other/linux_tmux/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Sonor" />
+
+  <meta name="twitter:title" content="Linux_tmux" />
+  <meta name="twitter:description" content="Linux tmux 一、Tmux 是什么？ 1.1 会话与进程 命令行的典型使用方式是，打开一个终端窗口（terminal window，以下简称&quot;窗口&rdquo;），在里面输入命令。用户与计算机的这种临时的交互，称为一次&quot;会话&rdquo;（session） 。
+会话的一个重要特点是，窗口与其中启动的进程是连在一起的。打开窗口，会话开始；关闭窗口，会话结束，会话内部的进程 …">
+  <meta name="twitter:image" content="https://xiaoshigoodboy.github.io/img/avatar-icon.png" />
+  <meta name="twitter:card" content="summary" />
+  <link href='https://xiaoshigoodboy.github.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
+  <meta name="generator" content="Hugo 0.62.2" />
+  <link rel="alternate" href="https://xiaoshigoodboy.github.io/index.xml" type="application/rss+xml" title="Sonor"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://xiaoshigoodboy.github.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://xiaoshigoodboy.github.io/css/highlight.min.css" /><link rel="stylesheet" href="https://xiaoshigoodboy.github.io/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://xiaoshigoodboy.github.io/">Sonor</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="/">Blog</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="/tags">Tags</a>
+            </li>
+          
+        
+
+        
+
+        
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="Sonor" href="https://xiaoshigoodboy.github.io/">
+            <img class="avatar-img" src="https://xiaoshigoodboy.github.io/img/avatar-icon.png" alt="Sonor" />
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="other-heading">
+              
+                <h1>Linux_tmux</h1>
+              
+              
+                <hr class="small">
+              
+              
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <h1 id="linux-tmux">Linux tmux</h1>
+<h3 id="一tmux-是什么">一、Tmux 是什么？</h3>
+<h5 id="11-会话与进程">1.1 会话与进程</h5>
+<p>命令行的典型使用方式是，打开一个终端窗口（terminal window，以下简称&quot;窗口&rdquo;），在里面输入命令。用户与计算机的这种临时的交互，称为一次&quot;会话&rdquo;（session） 。</p>
+<p>会话的一个重要特点是，窗口与其中启动的进程是连在一起的。打开窗口，会话开始；关闭窗口，会话结束，会话内部的进程也会随之终止，不管有没有运行完。</p>
+<p>一个典型的例子就是，SSH 登录远程计算机，打开一个远程窗口执行命令。这时，网络突然断线，再次登录的时候，是找不回上一次执行的命令的。因为上一次 SSH 会话已经终止了，里面的进程也随之消失了。</p>
+<p>为了解决这个问题，会话与窗口可以&quot;解绑&rdquo;：窗口关闭时，会话并不终止，而是继续运行，等到以后需要的时候，再让会话&quot;绑定&quot;其他窗口。</p>
+<h5 id="12-tmux-的作用">1.2 Tmux 的作用</h5>
+<p>Tmux 就是会话与窗口的&quot;解绑&quot;工具，将它们彻底分离。</p>
+<p>（1）它允许在单个窗口中，同时访问多个会话。这对于同时运行多个命令行程序很有用。</p>
+<p>（2） 它可以让新窗口&quot;接入&quot;已经存在的会话。</p>
+<p>（3）它允许每个会话有多个连接窗口，因此可以多人实时共享会话。</p>
+<p>（4）它还支持窗口任意的垂直和水平拆分。</p>
+<p>类似的终端复用器还有 GNU Screen。Tmux 与它功能相似，但是更易用，也更强大。</p>
+<h3 id="二基本用法">二、基本用法</h3>
+<h5 id="21-安装">2.1 安装</h5>
+<p>Tmux 一般需要自己安装。</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"># Ubuntu 或 Debian
+$sudo apt-get install tmux
+
+# CentOS 或 Fedora
+$ sudo yum install tmux
+
+# MAC 安装
+$ brew install tmux
+</code></pre></div><h5 id="22-启动与退出">2.2 启动与退出</h5>
+<p>安装完成后，键入tmux命令，就进入了Tmux窗口</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$ tmux
+</code></pre></div><p>上面命令会启动Tmux窗口，底部有一个状态栏。状态栏的左侧是窗口信息（编号和名称），右侧是系统信息。</p>
+<p>按下Ctrl+d 或者显示输入exit命令，就可以退出Tmux窗口。</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$ exit
+</code></pre></div><h5 id="23-前缀键">2.3 前缀键</h5>
+<p>Tmux 窗口有大量的快捷键。所有快捷键都要通过前缀键唤起。默认的前缀键是Ctrl+b，即先按下Ctrl+b，快捷键才会生效。</p>
+<p>举例来说，帮助命令的快捷键是Ctrl+b ?。它的用法是，在 Tmux 窗口中，先按下Ctrl+b，再按下?，就会显示帮助信息。</p>
+<p>然后，按下 ESC 键或q键，就可以退出帮助。</p>
+<h3 id="三会话管理">三、会话管理</h3>
+<h5 id="31-会话操作">3.1 会话操作</h5>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"># 新建会话
+$ tmux new -s &lt;session-name&gt;
+
+# 查看当前所有会话
+$ tmux ls
+
+#  接入会话
+$ tmux attach -t 0
+
+# 删除已经存在的会话
+$ tmux kill-session -t 0
+
+# 切换会话
+$ tmux switch -t 0
+
+# 重新命名会话
+$ tmux rename-session -t 0 &lt;new name&gt;
+
+
+
+# 会话快捷键
+  Ctrl + b  d: 分离当前会话
+  Ctrl + b  s: 列出所有会话
+  Ctrl + b  $: 重新命名当前会话
+</code></pre></div><h3 id="四会话管理">四、会话管理</h3>
+<h5 id="41-窗口操作">4.1 窗口操作</h5>
+<p>tmux split-window 命令用来划分窗格</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"># 划分上下两个窗格
+$ tmux split-window
+
+# 划分左右两个窗格
+$ tmux split-window -h
+
+# 移动光标
+$ tmux select-pane -U  // 向上侧移动
+$ tmux select-pane -D  // 向下侧移动
+$ tmux select-pane -L  // 向左侧移动
+$ tmux select-pane -R  // 向右侧移动
+
+# 窗口交换位置
+$ tmux swap-pane -U //与上侧交换
+
+
+# 会话快捷键
+    Ctrl+b %：划分左右两个窗格。
+    Ctrl+b &#34;：划分上下两个窗格。
+    Ctrl+b &lt;arrow key&gt;：光标切换到其他窗格。&lt;arrow key&gt;是指向要切换到的窗格的方向键，比如切换到下方窗格，就按方向键↓。
+    Ctrl+b ;：光标切换到上一个窗格。
+    Ctrl+b o：光标切换到下一个窗格。
+    Ctrl+b {：当前窗格与上一个窗格交换位置。
+    Ctrl+b }：当前窗格与下一个窗格交换位置。
+    Ctrl+b Ctrl+o：所有窗格向前移动一个位置，第一个窗格变成最后一个窗格。
+    Ctrl+b Alt+o：所有窗格向后移动一个位置，最后一个窗格变成第一个窗格。
+    Ctrl+b x：关闭当前窗格。
+    Ctrl+b !：将当前窗格拆分为一个独立窗口。
+    Ctrl+b z：当前窗格全屏显示，再使用一次会变回原来大小。
+    Ctrl+b Ctrl+&lt;arrow key&gt;：按箭头方向调整窗格大小。
+    Ctrl+b q：显示窗格编号。
+</code></pre></div><h3 id="五窗口管理">五、窗口管理</h3>
+<p>除了将一个窗口划分成多个窗格，Tmux 也允许新建多个窗口。</p>
+<h5 id="51-新建窗口">5.1 新建窗口</h5>
+<p>tmux new-window命令用来创建新窗口。</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">
+$ tmux new-window
+
+# 新建一个指定名称的窗口
+$ tmux new-window -n &lt;window-name&gt;
+</code></pre></div><h5 id="52-切换窗口">5.2 切换窗口</h5>
+<p>tmux select-window命令用来切换窗口。</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"># 切换到指定编号的窗口
+$ tmux select-window -t &lt;window-number&gt;
+
+# 切换到指定名称的窗口
+$ tmux select-window -t &lt;window-name&gt;
+</code></pre></div><h5 id="53-重命名窗口">5.3 重命名窗口</h5>
+<p>tmux rename-window命令用于为当前窗口起名（或重命名）。</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$ tmux rename-window &lt;new-name&gt;
+</code></pre></div><h5 id="54-窗口快捷键">5.4 窗口快捷键</h5>
+<p>下面是一些窗口操作的快捷键。</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">Ctrl+b c：创建一个新窗口，状态栏会显示多个窗口的信息。
+Ctrl+b p：切换到上一个窗口（按照状态栏上的顺序）。
+Ctrl+b n：切换到下一个窗口。
+Ctrl+b &lt;number&gt;：切换到指定编号的窗口，其中的&lt;number&gt;是状态栏上的窗口编号。
+Ctrl+b w：从列表中选择窗口。
+Ctrl+b ,：窗口重命名。
+</code></pre></div><h3 id="六其他命令">六、其他命令</h3>
+<p>下面是一些其他命令。</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"># 列出所有快捷键，及其对应的 Tmux 命令
+$ tmux list-keys
+
+# 列出所有 Tmux 命令及其参数
+$ tmux list-commands
+
+# 列出当前所有 Tmux 会话的信息
+$ tmux info
+
+# 重新加载当前的 Tmux 配置
+$ tmux source-file ~/.tmux.conf
+
+</code></pre></div>
+
+        
+          <div class="blog-tags">
+            
+              <a href="https://xiaoshigoodboy.github.io//tags/other/">other</a>&nbsp;
+            
+          </div>
+        
+
+        
+            <hr/>
+            <section id="social-share">
+              <div class="list-inline footer-links">
+                
+
+<div class="share-box" aria-hidden="true">
+    <ul class="share">
+      
+      <li>
+        <a href="//twitter.com/share?url=https%3a%2f%2fxiaoshigoodboy.github.io%2fother%2flinux_tmux%2f&amp;text=Linux_tmux&amp;via=" target="_blank" title="Share on Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fxiaoshigoodboy.github.io%2fother%2flinux_tmux%2f" target="_blank" title="Share on Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//reddit.com/submit?url=https%3a%2f%2fxiaoshigoodboy.github.io%2fother%2flinux_tmux%2f&amp;title=Linux_tmux" target="_blank" title="Share on Reddit">
+          <i class="fab fa-reddit"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fxiaoshigoodboy.github.io%2fother%2flinux_tmux%2f&amp;title=Linux_tmux" target="_blank" title="Share on LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fxiaoshigoodboy.github.io%2fother%2flinux_tmux%2f&amp;title=Linux_tmux" target="_blank" title="Share on StumbleUpon">
+          <i class="fab fa-stumbleupon"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fxiaoshigoodboy.github.io%2fother%2flinux_tmux%2f&amp;description=Linux_tmux" target="_blank" title="Share on Pinterest">
+          <i class="fab fa-pinterest"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+
+              </div>
+            </section>
+        
+
+        
+          
+            
+          
+
+          
+                  <h4 class="see-also">See also</h4>
+                  <ul>
+                
+                
+                    <li><a href="/other/linux/">Linux</a></li>
+                
+                    <li><a href="/other/other/">Other</a></li>
+                
+                    <li><a href="/other/js/">javascript</a></li>
+                
+                    <li><a href="/other/database/">数据库</a></li>
+                
+              </ul>
+
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://xiaoshigoodboy.github.io/other/linux/" data-toggle="tooltip" data-placement="top" title="Linux">&larr; Previous Post</a>
+            </li>
+          
+          
+        </ul>
+      
+
+
+      
+        
+        
+      
+
+    </div>
+  </div>
+</div>
+
+      
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+                <a href="https://github.com/xiaoshigoodboy" title="GitHub">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+          <li>
+            <a href="" title="RSS">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2020
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://xiaoshigoodboy.github.io/">Sonor</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="https://gohugo.io">Hugo v0.62.2</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script src="https://xiaoshigoodboy.github.io/js/main.js"></script>
+<script src="https://xiaoshigoodboy.github.io/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script> renderMathInElement(document.body); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://xiaoshigoodboy.github.io/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+    
+  </body>
+</html>
+
